@@ -1,0 +1,50 @@
+.feedback-request {
+  &__modal {
+    padding: 0 20px;
+  }
+  &__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: rgb(27,27,27);
+    background: linear-gradient(344deg, rgba(27,27,27,1) 0%, rgba(15,15,15,1) 47%, rgba(70,70,70,1) 100%);
+    box-shadow: $light-box-shadow;
+    border-radius: $main-radius;
+    @media screen and (max-width: 425px) {
+      padding: 40px 20px;
+    }
+
+    & span {
+      color: #fff;
+      font-size: $medium-fz;
+      margin-bottom: 15px;
+      @media screen and (max-width: 425px) {
+        font-size: $medium-fz - 4;
+      }
+    }
+    & a {
+      font-weight: 700;
+      font-size: $sub-large-fz;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: $standart-trans;
+      @media screen and (max-width: 425px) {
+        font-size: $sub-large-fz - 4;
+      }
+      &:hover {
+        color: $first-accent-color;  
+      }
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: $sub-large-fz;
+    @media screen and (max-width: 425px) {
+      font-size: $sub-large-fz - 5;
+    }
+  }
+}

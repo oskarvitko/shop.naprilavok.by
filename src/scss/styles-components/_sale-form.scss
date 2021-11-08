@@ -1,0 +1,120 @@
+.sale {
+  &__col {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__title {
+    font-size: $large-fz;
+    color: #000;
+    text-align: left;
+    margin-bottom: 10px;
+    @media screen and (max-width: 1024px) {
+      font-size: $large-fz - 5;
+    }
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    @media screen and (max-width: 425px) {
+      font-size: $large-fz - 5 - 3;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  &__text {
+    margin-bottom: 15px;
+    font-size: $medium-fz;
+    color: #000;
+    line-height: 140%;
+    @media screen and (max-width: 1024px) {
+      font-size: $medium-fz - 5;
+    }
+    @media screen and (max-width: 768px) {
+      text-align: center;
+      font-size: $medium-fz;
+    }
+    @media screen and (max-width: 425px) {
+      text-align: justify;   
+    }
+    @media screen and (max-width: 320px) {
+      font-size: $medium-fz - 5;
+    }
+  }
+  &-text__col {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 50px;
+    @media screen and (max-width: 768px) {
+      padding-right: 0;
+    }
+  }
+  &-form {
+    font-family: $main-font;
+    position: relative;
+    background: url('../img/bg/bg-sale.webp') 0 0 / cover no-repeat scroll;
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(#fff, 85%);
+    }
+    &__row {
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+    &__col .sale__text {
+      text-align: center;
+      font-weight: 600;
+      width: 360px;
+      @media screen and (max-width: 425px) {
+        text-align: justify; 
+        width: 100%;
+        font-size: $medium-fz - 3;
+      }
+      @media screen and (max-width: 375px) {
+        font-size: $medium-fz - 6;
+      }
+    }
+    &__container {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    &__slider {
+      width: 100%;
+      &-row {
+        margin-top: 60px;
+      }
+      &-img {
+        flex: 0 0 25%;
+        max-width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        @media screen and (max-width: 768px) {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        @media screen and (max-width: 425px) {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        & img {
+          max-width: 100%;
+          object-fit: cover;
+          transition: all 650ms ease 0ms;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// ----- Header -----
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px 0;
+  background: $white-color;
+  box-shadow: $light-box-shadow;
+  z-index: 10;
+  transition: all 450ms ease-in-out 0ms;
+  @media screen and (max-width: 575px) {
+      padding: 5px 0;
+    }
+  &__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+    }
+    .logo {
+      width: 260px;
+      height: 100%;
+      overflow: hidden;
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+      @media screen and (max-width: 425px) {
+        width: 200px;
+      }
+    }
+  }
+  &__btn {
+    width: 230px;
+    @media screen and (max-width: 425px) {
+      width: 176px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      border-radius: 18px;
+    }
+  }
+  &__logo {
+    @media screen and (max-width: 575px) {
+      margin-bottom: 10px;
+    }
+  }
+}
+// --- / Header -----

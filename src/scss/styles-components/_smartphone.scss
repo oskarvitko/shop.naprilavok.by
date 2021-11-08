@@ -1,0 +1,110 @@
+.smart-phone {
+  
+  &__body {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: #fff;
+    width: 65px;
+    height: 100px;
+    border-radius: 14px;
+    padding: 3px;
+    box-shadow: 0 0 18px 0 rgba(#000, 0.3), 
+                0 0 12px 0 rgba(#000, 0.2), 
+                0 0 5px 0 rgba(#000, 0.2);
+    cursor: pointer;
+    z-index: 9;
+    &:hover {
+      .smart-phone__screen:after {
+        background-color: rgba(#fff, 0.5);
+      }
+      .smart-phone__screen .fa {
+        animation: drag-screen 1700ms infinite ease-in-out;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      width: 50px;
+      height: 75px;
+    }
+  }
+
+  &__screen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left top, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 350% 350%;
+    border-radius: 11px;
+    width: 100%;
+    height: 100%;
+    animation: animation-gradient 15000ms infinite forwards;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(#fff, 0.1);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      transition: all 450ms ease-out 0ms;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      border-radius: 40px;
+      width: 20px;
+      height: 6px;
+      background-color: #fff;
+    }
+    & .fa{
+      margin: 0 0 15px 5px;
+      font-size: 28px;
+      color: rgba(#fff, 0.8);
+      text-shadow: 0 0 8px rgb(0 0 0 / 30%);
+      transform: rotate(-30deg);
+      @media screen and (max-width: 1024px) { 
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@keyframes animation-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes drag-screen {
+  0% {
+    transform: rotate(-30deg);
+  }
+  15% {
+    transform: rotate(-45deg);
+  }
+  35% {
+    transform: rotate(-25deg);
+  }
+  55% {
+    transform: rotate(-45deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}

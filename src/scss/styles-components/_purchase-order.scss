@@ -1,0 +1,114 @@
+.makepurchase {
+  &__container {
+    max-width: 1160px + 50;
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px 10px;
+    margin: 0 10px;
+    background: #fff;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    width: 260px;
+    height: 185px;
+    overflow: hidden;
+    border-bottom: 4px solid #008fcc;
+    transition: box-shadow 450ms ease 0ms;
+    @media screen and (max-width: 1192px) {
+      margin: 0 10px 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    @media screen and (max-width: 911px) {
+      &:nth-child(3) {
+        margin-bottom: 0;
+      }
+    }
+    @media screen and (max-width: 631px) {
+      &:nth-child(3) {
+        margin-bottom: 10px;
+      }
+    }
+    @media screen and (max-width: 425px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @media screen and (max-width: 320px) {
+      &:last-child {
+        margin-bottom: 0;
+        height: 185px + 10;
+      }
+    }
+    &:last-child {
+      border-bottom: 4px solid $first-accent-color;
+    }
+    &:last-child .makepurchase__subtitle {
+      background: $first-gradient-normal;
+    }
+    &:hover {
+      box-shadow: 0px 0px 10px 0px rgba(#000, 30%), 
+                  0px 0px 5px 0px rgba(#000, 30%);
+    }
+    &-title {
+      margin: 15px 0px;
+      & p {
+        line-height: 100%;
+        font-weight: 700;
+        font-size: $small-fz;
+      }
+    }
+    &-text {
+      & p {
+        line-height: 140%;
+        font-weight: 400;
+        font-size: 15px;
+        color: $main-bg;
+      }
+      & a {
+        text-decoration: none;
+        color: #008fcc;
+        transition: all 450ms ease 0ms;
+        cursor: pointer;
+        &:hover {
+          color: $first-accent-color;
+          border-bottom: 1px dashed $first-accent-color;
+        }
+      }
+    }
+  }
+  &__number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 140px;
+    font-weight: 800;
+    color: rgba(#000, 5%);
+    transform: translate(23%, -28%);
+  }
+  &__subtitle {
+    background: #008fcc;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 0px 0px 0px 0px;
+    box-shadow: 1px 1px 5px 0px rgba(#000, 60%);
+    & span {
+      line-height: 1;
+      font-size: 12px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
