@@ -2,12 +2,11 @@ const menuNav            = document.querySelector('.nav-header__menu-list');
 const menuNavItemLinks   = document.querySelectorAll('._link');
 const sectionIdInNavMenu = document.querySelectorAll('.__section');
 
-const getId = (item) = item.getAttribute('href').replace('#', '');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+const getId = link => link.getAttribute('href').replace('#', '');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       menuNavItemLinks.forEach(link => {
-
         link.classList.toggle('active', getId(link) === entry.target.id)
       })
     }
@@ -26,5 +25,6 @@ menuNav.onclick = (event => {
       top: document.getElementById(getId(event.target)).offsetTop,
       behavior: 'smooth',
     })
+    onClickNavLinks();
   }
 })

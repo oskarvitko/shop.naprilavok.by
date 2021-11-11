@@ -8,6 +8,7 @@
 @@include('./components/_testWebP.js');
 @@include('./components/_lazy-init.js');
 @@include('./components/_resize.js');
+@@include('./components/_onClickNavLinks.js');
 @@include('./components/_menu-active.js');
 @@include('./components/_chief-slider-init.js');
 @@include('./components/_masked-input.js');
@@ -16,42 +17,24 @@
 const header = document.querySelector('#nav-header');
 
 window.addEventListener('scroll', () => {
-  if (document.documentElement.scrollTop > 400) {
-    header.classList.add('sticky');
-  } else {
-    header.classList.remove('sticky');
-  }
+  header.classList.toggle('sticky', document.documentElement.scrollTop > 400)
 });
-
-// Плавная прокрутка по ссылкам
-const anchors = document.querySelectorAll('a._link');
-
-// anchors.forEach((anchor) => {
-//   anchor.addEventListener('click', (event) => {
-//     event.preventDefault();
-
-//     const blockID = anchor.getAttribute('href')
-
-//     document.querySelector(blockID).scrollIntoView({
-//       left: 0,
-//       behavior: 'smooth',
-//       block: 'start'
-//     });
-//   });
-// });
-
 // Фикс дергания экрана при появлении Модального окна
+const anchors                 = document.querySelectorAll('a._link');
 const TIMEOUT                 = 280;
 const BODY                    = document.querySelector('body');
 const lockPadding             = document.querySelectorAll('.lock-padding');
 const lockPosition            = document.querySelector('.lock-position');
 const modalLegalInfo          = document.querySelector('.legal-info__modal');
 const closeBtnModalLegalInfo  = document.querySelector('.legal-info__close-btn');
-const modalShowBtn            = document.querySelector('.legal-info__btn');
+const showModalLegalInfoBtn   = document.querySelector('.legal-info__btn');
+const modalFeedbackRequest    = document.querySelector('.feedback-request__modal');
+const showModalFeedbackBtns   = document.querySelectorAll('.modal-feedback__btn--show');
+const closeBtnModalFeedback   = document.querySelector('.feedback-request__close-btn');
 
 
-if (modalShowBtn) {
-  modalShowBtn.addEventListener('click', () => {
+if (showModalLegalInfoBtn) {
+  showModalLegalInfoBtn.addEventListener('click', () => {
     modalLegalInfo.classList.add('show');
     setBodyLock();
   });
@@ -60,10 +43,6 @@ if (modalShowBtn) {
     setBodyUnLock();
   });
 }
-
-const modalFeedbackRequest = document.querySelector('.feedback-request__modal');
-const showModalFeedbackBtns = document.querySelectorAll('.modal-feedback__btn--show');
-const closeBtnModalFeedback = document.querySelector('.feedback-request__close-btn');
 
 showModalFeedbackBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -108,22 +87,10 @@ const setBodyUnLock = () => {
 // Возвращение свойства transition после закрытия модального окна
 const setTransition = () => {
   setTimeout(() => {
-    lockPadding.forEach((element) => {
+    lockPadding.forEach(element => {
       element.style.transition = 'all 280ms ease 0ms';
     })
   }, TIMEOUT + 500)
-}
-
-// Переход по ссылкам с применением класса active
-const navLinks = document.querySelectorAll('.nav-header__menu-item');
-
-if (navLinks) {
-  navLinks.forEach((link) => {
-    link.onclick = () => {
-      navLinks.forEach(activeLink => activeLink.classList.remove('active'));
-      link.classList.add('active');
-    }
-  });
 }
 
 // Burger Menu
@@ -132,37 +99,22 @@ const navHeaderMenu = document.querySelector('.nav-header__menu-list');
 let isBodyLock      = false;
 const setIsBodyLock = () => {
   isBodyLock = !isBodyLock;
-  if (isBodyLock) {
-    setBodyLock();
-  } else {
-    setBodyUnLock();
-  }
-  
+  isBodyLock ? setBodyLock() : setBodyUnLock()
 }
 if (burgerBtn) {
   burgerBtn.onclick = () => {
     burgerBtn.classList.toggle('nav-header__burger--active');
     navHeaderMenu.classList.toggle('nav-header__menu-list--active');
     setIsBodyLock();
+    setTransition();
   }
 }
-
-anchors.forEach(anchor => {
-  anchor.onclick = () => {
-    burgerBtn.classList.toggle('nav-header__burger--active');
-    navHeaderMenu.classList.toggle('nav-header__menu-list--active');
-    if (isBodyLock) {
-      setIsBodyLock();
-    }
-  } 
-});
-
 // Аккордеон
 const accordionItems = document.querySelectorAll('.faq-accordion__item');
 
 accordionItems.forEach((accordionItem) => {
-    accordionItem.onclick = () => {
-      accordionItems.forEach((el) => el.classList.remove('active'));
-      accordionItem.classList.add('active');
-    }
+  accordionItem.onclick = () => {
+    accordionItems.forEach(activeItem => activeItem.classList.remove('active'));
+    accordionItem.classList.add('active');
+  }
 });
