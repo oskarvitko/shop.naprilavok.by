@@ -1,12 +1,17 @@
 @@include('./lib/_jquery-3.6.0.min.js');
+@@include('./lib/_lazyload.min.js');
+
 @@include('./plugins/_jquery.maskedinput.min.js');
 @@include('./plugins/_chief-slider.js');
 @@include('./plugins/_countdown.js');
 
 @@include('./components/_testWebP.js');
+@@include('./components/_lazy-init.js');
 @@include('./components/_resize.js');
+@@include('./components/_menu-active.js');
 @@include('./components/_chief-slider-init.js');
 @@include('./components/_masked-input.js');
+@@include('./plugins/_loading-yandex-map.js');
 
 const header = document.querySelector('#nav-header');
 
@@ -21,19 +26,19 @@ window.addEventListener('scroll', () => {
 // Плавная прокрутка по ссылкам
 const anchors = document.querySelectorAll('a._link');
 
-anchors.forEach((anchor) => {
-  anchor.addEventListener('click', (event) => {
-    event.preventDefault();
+// anchors.forEach((anchor) => {
+//   anchor.addEventListener('click', (event) => {
+//     event.preventDefault();
 
-    const blockID = anchor.getAttribute('href')
+//     const blockID = anchor.getAttribute('href')
 
-    document.querySelector(blockID).scrollIntoView({
-      left: 0,
-      behavior: 'smooth',
-      block: 'start'
-    });
-  });
-});
+//     document.querySelector(blockID).scrollIntoView({
+//       left: 0,
+//       behavior: 'smooth',
+//       block: 'start'
+//     });
+//   });
+// });
 
 // Фикс дергания экрана при появлении Модального окна
 const TIMEOUT                 = 280;
