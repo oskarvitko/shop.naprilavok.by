@@ -2,12 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sectionTitles = document.querySelectorAll('.title-resize');
 
   const onResize = () => {
-    if (sectionTitles) {
-      sectionTitles.forEach(title => (
-        window.innerWidth < 1025
-          ? title.classList.remove('title-line')
-          : title.classList.add('title-line')
-      ))
+    if (sectionTitles.length > 0) {
+      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
     }
   }
 

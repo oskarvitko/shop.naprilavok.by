@@ -754,13 +754,8 @@ const testWebP = (callback) => {
 }
 
 testWebP(function (support) {
-
-  if (support == true) {
-    document.querySelector('body').classList.add('webp');
-  } else {
-    document.querySelector('body').classList.add('no-webp');
-  }
-});;
+  document.querySelector('body').classList.add(support ?  'webp' : 'no-webp')
+});
 const lazyLoadInstance = new LazyLoad({
   elements_selector: '.lazy'
 });;
@@ -768,12 +763,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sectionTitles = document.querySelectorAll('.title-resize');
 
   const onResize = () => {
-    if (sectionTitles) {
-      sectionTitles.forEach(title => (
-        window.innerWidth < 1025
-          ? title.classList.remove('title-line')
-          : title.classList.add('title-line')
-      ))
+    if (sectionTitles.length > 0) {
+      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
     }
   }
 
@@ -783,15 +774,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // Переход по ссылкам с применением класса active
 const onClickNavLinks = () => {
   if (anchors.length > 0) {
-    anchors.forEach((link) => {
+    anchors.forEach(link => {
       link.onclick = () => {
         anchors.forEach(activeLink => activeLink.classList.remove('active'));
         link.classList.add('active');
         burgerBtn.classList.remove('nav-header__burger--active');
         navHeaderMenu.classList.remove('nav-header__menu-list--active');
-        if (isBodyLock) {
-          setIsBodyLock();
-        }
+        if (isBodyLock) setIsBodyLock()
       }
     });
   }
@@ -989,9 +978,9 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('sticky', document.documentElement.scrollTop > 400)
 })
 // Фикс дергания экрана при появлении Модального окна
-const anchors                 = document.querySelectorAll('a._link')
 const TIMEOUT                 = 280
-const BODY                    = document.querySelector('body')
+const anchors                 = document.querySelectorAll('a._link')
+const body                    = document.querySelector('body')
 const lockPadding             = document.querySelectorAll('.lock-padding')
 const lockPosition            = document.querySelector('.lock-position')
 const modalLegalInfo          = document.querySelector('.legal-info__modal')
@@ -1001,43 +990,43 @@ const modalFeedbackRequest    = document.querySelector('.feedback-request__modal
 const showModalFeedbackBtns   = document.querySelectorAll('.modal-feedback__btn--show')
 const closeBtnModalFeedback   = document.querySelector('.feedback-request__close-btn')
 
-if (showModalLegalInfoBtn) {
-  showModalLegalInfoBtn.addEventListener('click', () => {
+if (showModalLegalInfoBtn && closeBtnModalLegalInfo) {
+  showModalLegalInfoBtn.onclick = () => {
     modalLegalInfo.classList.add('show')
     setBodyLock()
-  });
-    closeBtnModalLegalInfo.addEventListener('click', () => {
+  }
+  closeBtnModalLegalInfo.onclick = () => {
     modalLegalInfo.classList.remove('show')
     setBodyUnLock()
-  });
+  }
 }
 
-if (showModalFeedbackBtns.length > 0) {
-  showModalFeedbackBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
+if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
+  showModalFeedbackBtns.forEach(btn => {
+    btn.onclick = () => {
       modalFeedbackRequest.classList.add('show')
       setBodyLock()
-    })
+    }
   })
+  closeBtnModalFeedback.onclick = () => {
+    modalFeedbackRequest.classList.remove('show')
+    setBodyUnLock()
+    setTransition()
+  }
 }
-closeBtnModalFeedback.addEventListener('click', () => {
-  modalFeedbackRequest.classList.remove('show')
-  setBodyUnLock()
-  setTransition()
-})
-
+  
 const setBodyLock = () => {
-  const pageWrapper = document.querySelector('.page')
-  const lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth;
+  const pageWrapper      = document.querySelector('.page')
+  const lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
 
   if (lockPadding.length > 0) {
     lockPadding.forEach(element => {
-      element.style.paddingRight = `${lockPaddingValue}px`;
-      element.style.transition = 'none';
+      element.style.paddingRight = `${lockPaddingValue}px`
+      element.style.transition = 'none'
     })
-    lockPosition.style.right = 15 + lockPaddingValue + 'px';
-    BODY.style.paddingRight = `${lockPaddingValue}px`;
-    BODY.classList.add('lock');
+    lockPosition.style.right = 15 + lockPaddingValue + 'px'
+    body.style.paddingRight = `${lockPaddingValue}px`
+    body.classList.add('lock')
   }
 };
 
@@ -1045,51 +1034,51 @@ const setBodyUnLock = () => {
   setTimeout(() => {
     if (lockPadding.length > 0) {
       lockPadding.forEach((element) => {
-        element.style.paddingRight = '0px';
-        element.style.transition = 'none';
+        element.style.paddingRight = '0px'
+        element.style.transition = 'none'
       })
     }
-    lockPosition.style.right = '15px';
-    BODY.style.paddingRight = '0px';
-    BODY.classList.remove('lock');
-  }, TIMEOUT);
-};
+    lockPosition.style.right = '15px'
+    body.style.paddingRight = '0px'
+    body.classList.remove('lock')
+  }, TIMEOUT)
+}
 
 // Возвращение свойства transition после закрытия модального окна
 const setTransition = () => {
   setTimeout(() => {
     if (lockPadding.length > 0) {
       lockPadding.forEach(element => {
-        element.style.transition = 'all 280ms ease 0ms';
+        element.style.transition = 'all 280ms ease 0ms'
       })
     }
   }, TIMEOUT + 500)
 }
 
 // Burger Menu
-const burgerBtn     = document.querySelector('.nav-header__burger');
-const navHeaderMenu = document.querySelector('.nav-header__menu-list');
-let isBodyLock      = false;
+const burgerBtn     = document.querySelector('.nav-header__burger')
+const navHeaderMenu = document.querySelector('.nav-header__menu-list')
+let isBodyLock      = false
 const setIsBodyLock = () => {
   isBodyLock = !isBodyLock;
   isBodyLock ? setBodyLock() : setBodyUnLock()
 }
 if (burgerBtn) {
   burgerBtn.onclick = () => {
-    burgerBtn.classList.toggle('nav-header__burger--active');
-    navHeaderMenu.classList.toggle('nav-header__menu-list--active');
-    setIsBodyLock();
-    setTransition();
+    burgerBtn.classList.toggle('nav-header__burger--active')
+    navHeaderMenu.classList.toggle('nav-header__menu-list--active')
+    setIsBodyLock()
+    setTransition()
   }
 }
 // Аккордеон
-const accordionItems = document.querySelectorAll('.faq-accordion__item');
+const accordionItems = document.querySelectorAll('.faq-accordion__item')
 
 if (accordionItems.length > 0) {
-  accordionItems.forEach((accordionItem) => {
+  accordionItems.forEach(accordionItem => {
     accordionItem.onclick = () => {
-      accordionItems.forEach(activeItem => activeItem.classList.remove('active'));
-      accordionItem.classList.add('active');
+      accordionItems.forEach(activeItem => activeItem.classList.remove('active'))
+      accordionItem.classList.add('active')
     }
-  });
+  })
 }
