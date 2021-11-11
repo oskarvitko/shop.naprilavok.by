@@ -21,8 +21,8 @@ window.addEventListener('scroll', () => {
 })
 // Фикс дергания экрана при появлении Модального окна
 const TIMEOUT                 = 280
-const anchors                 = document.querySelectorAll('a._link')
 const body                    = document.querySelector('body')
+const anchorLinks                 = document.querySelectorAll('a._link')
 const lockPadding             = document.querySelectorAll('.lock-padding')
 const lockPosition            = document.querySelector('.lock-position')
 const modalLegalInfo          = document.querySelector('.legal-info__modal')
@@ -56,7 +56,7 @@ if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
     setTransition()
   }
 }
-  
+
 const setBodyLock = () => {
   const pageWrapper      = document.querySelector('.page')
   const lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
@@ -75,7 +75,7 @@ const setBodyLock = () => {
 const setBodyUnLock = () => {
   setTimeout(() => {
     if (lockPadding.length > 0) {
-      lockPadding.forEach((element) => {
+      lockPadding.forEach(element => {
         element.style.paddingRight = '0px'
         element.style.transition = 'none'
       })
