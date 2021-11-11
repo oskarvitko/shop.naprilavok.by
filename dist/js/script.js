@@ -787,7 +787,7 @@ const onClickNavLinks = () => {
 };
 const menuNav            = document.querySelector('.nav-header__menu-list')
 const menuNavItemLinks   = document.querySelectorAll('._link')
-const sectionIdInNavMenu = document.querySelectorAll('.__section')
+const sectionIdInNavMenu = document.querySelectorAll('._section')
 
 const getId = link => link.getAttribute('href').replace('#', '');
 
