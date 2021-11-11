@@ -796,11 +796,12 @@ const onClickNavLinks = () => {
     });
   }
 };
-const menuNav            = document.querySelector('.nav-header__menu-list');
-const menuNavItemLinks   = document.querySelectorAll('._link');
-const sectionIdInNavMenu = document.querySelectorAll('.__section');
+const menuNav            = document.querySelector('.nav-header__menu-list')
+const menuNavItemLinks   = document.querySelectorAll('._link')
+const sectionIdInNavMenu = document.querySelectorAll('.__section')
 
 const getId = link => link.getAttribute('href').replace('#', '');
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -813,17 +814,19 @@ const observer = new IntersectionObserver(entries => {
   threshold: 0.7,
 })
 
-sectionIdInNavMenu.forEach(section => observer.observe(section));
+if (sectionIdInNavMenu.length > 0) {
+  sectionIdInNavMenu.forEach(section => observer.observe(section))
+}
 
 menuNav.onclick = (event => {
   if (event.target.classList.contains('_link')) {
-    event.preventDefault();
+    event.preventDefault()
 
     window.scrollTo({
       top: document.getElementById(getId(event.target)).offsetTop,
       behavior: 'smooth',
     })
-    onClickNavLinks();
+    onClickNavLinks()
   }
 });
 // после готовности DOM инициализация Слайдера
@@ -980,53 +983,55 @@ $(function () {
 
 });
 
-const header = document.querySelector('#nav-header');
+const header = document.querySelector('#nav-header')
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('sticky', document.documentElement.scrollTop > 400)
-});
+})
 // Фикс дергания экрана при появлении Модального окна
-const anchors                 = document.querySelectorAll('a._link');
-const TIMEOUT                 = 280;
-const BODY                    = document.querySelector('body');
-const lockPadding             = document.querySelectorAll('.lock-padding');
-const lockPosition            = document.querySelector('.lock-position');
-const modalLegalInfo          = document.querySelector('.legal-info__modal');
-const closeBtnModalLegalInfo  = document.querySelector('.legal-info__close-btn');
-const showModalLegalInfoBtn   = document.querySelector('.legal-info__btn');
-const modalFeedbackRequest    = document.querySelector('.feedback-request__modal');
-const showModalFeedbackBtns   = document.querySelectorAll('.modal-feedback__btn--show');
-const closeBtnModalFeedback   = document.querySelector('.feedback-request__close-btn');
-
+const anchors                 = document.querySelectorAll('a._link')
+const TIMEOUT                 = 280
+const BODY                    = document.querySelector('body')
+const lockPadding             = document.querySelectorAll('.lock-padding')
+const lockPosition            = document.querySelector('.lock-position')
+const modalLegalInfo          = document.querySelector('.legal-info__modal')
+const closeBtnModalLegalInfo  = document.querySelector('.legal-info__close-btn')
+const showModalLegalInfoBtn   = document.querySelector('.legal-info__btn')
+const modalFeedbackRequest    = document.querySelector('.feedback-request__modal')
+const showModalFeedbackBtns   = document.querySelectorAll('.modal-feedback__btn--show')
+const closeBtnModalFeedback   = document.querySelector('.feedback-request__close-btn')
 
 if (showModalLegalInfoBtn) {
   showModalLegalInfoBtn.addEventListener('click', () => {
-    modalLegalInfo.classList.add('show');
-    setBodyLock();
+    modalLegalInfo.classList.add('show')
+    setBodyLock()
   });
     closeBtnModalLegalInfo.addEventListener('click', () => {
-    modalLegalInfo.classList.remove('show');
-    setBodyUnLock();
+    modalLegalInfo.classList.remove('show')
+    setBodyUnLock()
   });
 }
 
-showModalFeedbackBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    modalFeedbackRequest.classList.add('show');
-    setBodyLock();
-  });
-});
+if (showModalFeedbackBtns.length > 0) {
+  showModalFeedbackBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modalFeedbackRequest.classList.add('show')
+      setBodyLock()
+    })
+  })
+}
 closeBtnModalFeedback.addEventListener('click', () => {
-  modalFeedbackRequest.classList.remove('show');
-  setBodyUnLock();
-  setTransition();
-});
+  modalFeedbackRequest.classList.remove('show')
+  setBodyUnLock()
+  setTransition()
+})
 
 const setBodyLock = () => {
-  const lockPaddingValue = window.innerWidth - document.querySelector('.page').offsetWidth;
+  const pageWrapper = document.querySelector('.page')
+  const lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth;
 
   if (lockPadding.length > 0) {
-    lockPadding.forEach((element) => {
+    lockPadding.forEach(element => {
       element.style.paddingRight = `${lockPaddingValue}px`;
       element.style.transition = 'none';
     })
@@ -1053,9 +1058,11 @@ const setBodyUnLock = () => {
 // Возвращение свойства transition после закрытия модального окна
 const setTransition = () => {
   setTimeout(() => {
-    lockPadding.forEach(element => {
-      element.style.transition = 'all 280ms ease 0ms';
-    })
+    if (lockPadding.length > 0) {
+      lockPadding.forEach(element => {
+        element.style.transition = 'all 280ms ease 0ms';
+      })
+    }
   }, TIMEOUT + 500)
 }
 
@@ -1078,9 +1085,11 @@ if (burgerBtn) {
 // Аккордеон
 const accordionItems = document.querySelectorAll('.faq-accordion__item');
 
-accordionItems.forEach((accordionItem) => {
-  accordionItem.onclick = () => {
-    accordionItems.forEach(activeItem => activeItem.classList.remove('active'));
-    accordionItem.classList.add('active');
-  }
-});
+if (accordionItems.length > 0) {
+  accordionItems.forEach((accordionItem) => {
+    accordionItem.onclick = () => {
+      accordionItems.forEach(activeItem => activeItem.classList.remove('active'));
+      accordionItem.classList.add('active');
+    }
+  });
+}

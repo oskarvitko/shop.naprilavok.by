@@ -1,8 +1,9 @@
-const menuNav            = document.querySelector('.nav-header__menu-list');
-const menuNavItemLinks   = document.querySelectorAll('._link');
-const sectionIdInNavMenu = document.querySelectorAll('.__section');
+const menuNav            = document.querySelector('.nav-header__menu-list')
+const menuNavItemLinks   = document.querySelectorAll('._link')
+const sectionIdInNavMenu = document.querySelectorAll('.__section')
 
 const getId = link => link.getAttribute('href').replace('#', '');
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -15,16 +16,18 @@ const observer = new IntersectionObserver(entries => {
   threshold: 0.7,
 })
 
-sectionIdInNavMenu.forEach(section => observer.observe(section));
+if (sectionIdInNavMenu.length > 0) {
+  sectionIdInNavMenu.forEach(section => observer.observe(section))
+}
 
 menuNav.onclick = (event => {
   if (event.target.classList.contains('_link')) {
-    event.preventDefault();
+    event.preventDefault()
 
     window.scrollTo({
       top: document.getElementById(getId(event.target)).offsetTop,
       behavior: 'smooth',
     })
-    onClickNavLinks();
+    onClickNavLinks()
   }
 })
