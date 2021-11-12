@@ -775,7 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const onClickNavLinks = () => {
   if (anchorLinks.length > 0) {
     anchorLinks.forEach(anchorLink => {
-      link.onclick = () => {
+      anchorLink.onclick = () => {
         anchorLinks.forEach(activeAnchorLink => activeAnchorLink.classList.remove('active'));
         anchorLink.classList.add('active');
         burgerBtn.classList.remove('nav-header__burger--active');
@@ -820,15 +820,19 @@ menuNav.onclick = (event => {
 });
 // после готовности DOM инициализация Слайдера
 document.addEventListener('DOMContentLoaded', () => {
+  new ChiefSlider('.catalog__card-slider', {
+    loop: true,
+    interval: 3000,
+  })
   new ChiefSlider('.certificate__slider', {
     loop: true,
     interval: 10000,
-  });
+  })
   new ChiefSlider('.sale-form__slider', {
     loop: false,
     interval: 10000,
   })
-});;
+});
 $(document).ready(function () {
   // Маска ввода номера телефона:
   $('input[type="tel"]').mask("+375 (99) 999-99-99", { placeholder: " " });
@@ -980,7 +984,7 @@ window.addEventListener('scroll', () => {
 // Фикс дергания экрана при появлении Модального окна
 const TIMEOUT                 = 280
 const body                    = document.querySelector('body')
-const anchorLinks                 = document.querySelectorAll('a._link')
+const anchorLinks             = document.querySelectorAll('a._link')
 const lockPadding             = document.querySelectorAll('.lock-padding')
 const lockPosition            = document.querySelector('.lock-position')
 const modalLegalInfo          = document.querySelector('.legal-info__modal')

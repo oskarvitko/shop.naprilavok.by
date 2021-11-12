@@ -21,3 +21,11 @@ $hover-box-shadow:  0 0 5px 0 rgba(0, 0, 0, 0.3),
                     0 0 15px 0 rgba(0, 0, 0, 0.3);
 $standart-trans: all 280ms ease 0ms;
 $main-radius: 5px;
+
+.first-accent-color {
+  color: $first-accent-color;
+}
+
+.second-accent-color {
+  color: $second-accent-color;
+}

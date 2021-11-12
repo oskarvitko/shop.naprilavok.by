@@ -1,7 +1,5 @@
 .add-equipment {
   &__items {
-    // display: flex;
-    // flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;

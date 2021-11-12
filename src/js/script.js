@@ -22,7 +22,7 @@ window.addEventListener('scroll', () => {
 // Фикс дергания экрана при появлении Модального окна
 const TIMEOUT                 = 280
 const body                    = document.querySelector('body')
-const anchorLinks                 = document.querySelectorAll('a._link')
+const anchorLinks             = document.querySelectorAll('a._link')
 const lockPadding             = document.querySelectorAll('.lock-padding')
 const lockPosition            = document.querySelector('.lock-position')
 const modalLegalInfo          = document.querySelector('.legal-info__modal')
