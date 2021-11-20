@@ -12,18 +12,20 @@
 @@include('./chunks/setActiveLink.js');
 @@include('./chunks/chiefSliderInit.js');
 @@include('./chunks/maskedInputInit.js');
+@@include('./chunks/sendingDataFromForms.js');
+
 @@include('./plugins/loading-yandex-map.js');
 
-const header = document.querySelector('#nav-header')
 
 window.addEventListener('scroll', () => {
+  const header = document.querySelector('#nav-header')
   header.classList.toggle('sticky', document.documentElement.scrollTop > 400)
 })
 // Фикс дергания экрана при появлении Модального окна
 const TIMEOUT                 = 280
 const body                    = document.querySelector('body')
 const anchorLinks             = document.querySelectorAll('a._link')
-const lockPadding             = document.querySelectorAll('.lock-padding')
+const lockPaddingElements     = document.querySelectorAll('.lock-padding')
 const lockPosition            = document.querySelector('.lock-position')
 const modalLegalInfo          = document.querySelector('.legal-info__modal')
 const closeBtnModalLegalInfo  = document.querySelector('.legal-info__close-btn')
@@ -58,11 +60,11 @@ if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
 }
 
 const setBodyLock = () => {
-  const pageWrapper      = document.querySelector('.page')
-  const lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
+  const pageWrapper      = document.querySelector('.page'),
+        lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
 
-  if (lockPadding.length > 0) {
-    lockPadding.forEach(element => {
+  if (lockPaddingElements.length > 0) {
+    lockPaddingElements.forEach(element => {
       element.style.paddingRight = `${lockPaddingValue}px`
       element.style.transition = 'none'
     })
@@ -70,12 +72,12 @@ const setBodyLock = () => {
     body.style.paddingRight = `${lockPaddingValue}px`
     body.classList.add('lock')
   }
-};
+}
 
 const setBodyUnLock = () => {
   setTimeout(() => {
-    if (lockPadding.length > 0) {
-      lockPadding.forEach(element => {
+    if (lockPaddingElements.length > 0) {
+      lockPaddingElements.forEach(element => {
         element.style.paddingRight = '0px'
         element.style.transition = 'none'
       })
@@ -89,8 +91,8 @@ const setBodyUnLock = () => {
 // Возвращение свойства transition после закрытия модального окна
 const setTransition = () => {
   setTimeout(() => {
-    if (lockPadding.length > 0) {
-      lockPadding.forEach(element => {
+    if (lockPaddingElements.length > 0) {
+      lockPaddingElements.forEach(element => {
         element.style.transition = 'all 280ms ease 0ms'
       })
     }
@@ -102,7 +104,7 @@ const burgerBtn     = document.querySelector('.nav-header__burger')
 const navHeaderMenu = document.querySelector('.nav-header__menu-list')
 let isBodyLock      = false
 const setIsBodyLock = () => {
-  isBodyLock = !isBodyLock;
+  isBodyLock = !isBodyLock
   isBodyLock ? setBodyLock() : setBodyUnLock()
 }
 if (burgerBtn) {

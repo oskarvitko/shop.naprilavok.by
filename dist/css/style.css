@@ -3604,6 +3604,29 @@ body.lock {
   }
 }
 
+.status {
+  position: absolute;
+  bottom: -35px;
+  width: 100%;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.status::before {
+  position: absolute;
+  content: "";
+  top: -15px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
 .modal__wrapper {
   position: fixed;
   display: -webkit-box;
@@ -4829,6 +4852,7 @@ body.lock {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .catalog__card {
@@ -4845,7 +4869,6 @@ body.lock {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
-  overflow: hidden;
   -webkit-transition: all 280ms ease 0ms;
   -o-transition: all 280ms ease 0ms;
   transition: all 280ms ease 0ms;

@@ -285,7 +285,9 @@
                 от
                 обмана!
               </p>
-              <form class="order-form" action="./mail-telegram.php" method="POST">
+              <form class="order-form">
+                <input type="hidden" name="name_form" value="Застрахуйся от обмана">
+
                 <input type="hidden" name="utm_source" value="">
                 <input type="hidden" name="utm_medium" value="">
                 <input type="hidden" name="utm_campaign" value="">
@@ -293,7 +295,7 @@
                 <input type="hidden" name="utm_term" value="">
       
                 <input title="Здесь можете указать Ваше Имя" type="text" name="user_name" class="order-form__input" size="30" placeholder="Ваше имя..">
-                <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_name" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
+                <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_phone" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
                 <button title="Нажмите эту кнопку, чтобы отправить заявку" type="submit" class="order-form__btn btn-pulse btn-blick">Застрахуйся от обмана</button>
               </form>
             </div>
@@ -408,7 +410,7 @@
                   <li data-slide-to="5"></li>
                 </ol>
               </div>
-              <form action="#" class="catalog__card-content">
+              <form class="catalog__card-content">
                 <input type="hidden" name="product" value="24-mini">
                 <div class="catalog__card-table card-table">
                   <div class="card-table__row">
@@ -440,11 +442,11 @@
                   <p>Выберите дуги:</p>
                   <div class="input__wrapper">
                     <label class="catalog__card-label" for="collapsible">
-                      <input type="radio" id="collapsible" name="arc-type" value="collapsible" checked>
+                      <input type="radio" id="collapsible" name="arc_type" value="collapsible" checked>
                       <span>Разборные</span>
                     </label>
                     <label class="catalog__card-label" for="one-piece">
-                      <input type="radio" id="one-piece" name="arc-type" value="one-piece">
+                      <input type="radio" id="one-piece" name="arc_type" value="one-piece">
                       <span>Цельные</span>
                     </label>
                   </div>
@@ -470,22 +472,22 @@
                   <p>Шаг между дугами:</p>
                   <div class="input__wrapper">
                     <label class="catalog__card-label" for="20m-1m">
-                      <input type="radio" id="20m-1m" name="interval" value="100" checked>
+                      <input type="radio" id="20m-1m" name="arc_step" value="100" checked>
                       <span>1 м</span>
                     </label>
                     <label class="catalog__card-label" for="20m-67sm">
-                      <input type="radio" id="20m-67sm" name="interval" value="67">
+                      <input type="radio" id="20m-67sm" name="arc_step" value="67">
                       <span>0.67 м</span>
                     </label>
                   </div>
                   <p>Толщина поликарбоната:</p>
                   <div class="input__wrapper">
                     <label class="catalog__card-label" for="20m-3mm">
-                      <input type="radio" id="20m-3mm" name="fat" value="3" checked>
+                      <input type="radio" id="20m-3mm" name="polycarbonate" value="3" checked>
                       <span>3 мм</span>
                     </label>
                     <label class="catalog__card-label" for="20m-4mm">
-                      <input type="radio" id="20m-4mm" name="fat" value="4">
+                      <input type="radio" id="20m-4mm" name="polycarbonate" value="4">
                       <span>4 мм</span>
                     </label>
                   </div>
@@ -498,7 +500,7 @@
                   <input 
                     title="Здесь можете указать Ваш номер телефона" 
                     type="tel" 
-                    name="user_name" 
+                    name="user_phone" 
                     class="catalog__card-input"
                     placeholder="+375 (__) ___-__-__" 
                     required
@@ -1064,7 +1066,9 @@
           <div class="order-form__wrap">
             <h4>Заполните эту форму и получите консультацию в течении 5 минут</h4>
             <p>Заполните поля ниже. За вашим телефоном закрепляется доступ к ценам со скидкой</p>
-            <form class="order-form" action="./mail-telegram.php" method="POST">
+            <form class="order-form">
+              <input type="hidden" name="name_form" value="form in footer">
+
               <input type="hidden" name="utm_source" value="">
               <input type="hidden" name="utm_medium" value="">
               <input type="hidden" name="utm_campaign" value="">
@@ -1072,7 +1076,7 @@
               <input type="hidden" name="utm_term" value="">
 
               <input title="Здесь можете указать Ваше Имя" type="text" name="user_name" class="order-form__input" size="30" placeholder="Ваше имя..">
-              <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_name" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
+              <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_phone" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
               <button title="Нажмите эту кнопку, чтобы отправить заявку" type="submit" class="order-form__btn btn-pulse btn-blick">Получить консультацию</button>
             </form>
           </div>
@@ -1095,7 +1099,9 @@
       <h3 class="feedback-request__title title">Закажите звонок или позвоните нам</h3>
       <span>Ваш личный менеджер, Сергей</span>
       <a title="Можете позвонить нам по этому номеру" href="tel:+375255228110">+375 (25) 522-81-10</a>
-      <form class="order-form" action="./mail-telegram.php" method="POST">
+      <form class="order-form">
+        <input type="hidden" name="name_form" value="Форма из модального окна">
+        
         <input type="hidden" name="utm_source" value="">
         <input type="hidden" name="utm_medium" value="">
         <input type="hidden" name="utm_campaign" value="">
@@ -1103,8 +1109,8 @@
         <input type="hidden" name="utm_term" value="">
 
         <input title="Здесь можете указать Ваше Имя" type="text" name="user_name" class="order-form__input" size="30" placeholder="Ваше имя..">
-        <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_name" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
-        <button title="Нажмите эту кнопку, чтобы отправить заявку" type="button" class="order-form__btn btn-pulse btn-blick">Получить консультацию</button>
+        <input title="Здесь можете указать Ваш номер телефона" type="tel" name="user_phone" class="order-form__input" placeholder="+375 (__) ___-__-__" required>
+        <button title="Нажмите эту кнопку, чтобы отправить заявку" type="submit" class="order-form__btn btn-pulse btn-blick">Получить консультацию</button>
       </form>
     </div>
   </div>

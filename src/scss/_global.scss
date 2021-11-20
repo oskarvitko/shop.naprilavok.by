@@ -163,6 +163,25 @@ body {
   }
 }
 
+.status {
+  position: absolute;
+  bottom: -35px;
+  width: 100%;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: $light-box-shadow;
+  &::before {
+    position: absolute;
+    content: '';
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent; 
+    border-bottom: 8px solid #fff;
+  }
+}
+
 .modal {
   &__wrapper {
     position: fixed;

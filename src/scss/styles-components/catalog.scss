@@ -14,6 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 40px;
   }
   &__card {
     position: relative;
@@ -23,7 +24,7 @@
     border: 1px solid $first-accent-color;
     border-radius: $main-radius;
     box-shadow: $light-box-shadow;
-    overflow: hidden;
+    // overflow: hidden;
     transition: $standart-trans;
     &:hover {
       box-shadow: $hover-box-shadow;
