@@ -1,8 +1,12 @@
 // после готовности DOM инициализация Слайдера
 document.addEventListener('DOMContentLoaded', () => {
-  new ChiefSlider('.catalog__card-slider', {
-    loop: true,
-    interval: 3000,
+  const catalogTeplicSlider = document.querySelectorAll('.catalog__card-slider')
+
+  catalogTeplicSlider.forEach(catalogTelpicItem => {
+    new ChiefSlider(catalogTelpicItem, {
+      loop: true,
+      interval: 3000,
+    })
   })
   new ChiefSlider('.certificate__slider', {
     loop: true,

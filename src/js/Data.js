@@ -58,6 +58,29 @@ const DATA = {
       description: 'Доставляем вашу теплицу в течении 2-3 дней. По желанию можем собрать Вашу теплицу'
     },
   ],
+  catalogTeplic: [
+    {
+      id: '20m',
+      title: 'Сибирская "Мини-20м"',
+      productName: '20-mini',
+      tube: '20x20',
+      width: '2.00',
+      height: '1.94',
+      img: [
+        'teplica-1.webp',
+        'teplica-1.2.webp',
+        'teplica-1.3.webp',
+        'teplica-1.4.webp',
+        'teplica-1.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        id: ['20m', '20m', '20m'],
+        value: ['100', '67', '50'],
+        length: ['1', '0.67', '0.5'],
+      }
+    },
+  ],
   addEquipment: [
     {
       name: 'Парник<br>"Огурчик" 4м',

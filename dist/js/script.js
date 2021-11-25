@@ -751,174 +751,6 @@ ChiefSlider.prototype.refresh = function () {
 //   timerId = setInterval(countdownTimer, 1000);
 // });;
 
-const testWebP = (callback) => {
-  var webP = new Image();
-  webP.onload = webP.onerror = function () {
-    callback(webP.height == 2);
-  };
-  webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-}
-
-testWebP(function (support) {
-  document.querySelector('body').classList.add(support ?  'webp' : 'no-webp')
-});
-const lazyLoadInstance = new LazyLoad({
-  elements_selector: '.lazy'
-});;
-document.addEventListener("DOMContentLoaded", () => {
-  const sectionTitles = document.querySelectorAll('.title-resize');
-
-  const onResize = () => {
-    if (sectionTitles.length > 0) {
-      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
-    }
-  }
-
-  window.onresize = onResize;
-  onResize();
-});;
-// Переход по ссылкам с применением класса active
-const onClickNavLinks = () => {
-  if (anchorLinks.length > 0) {
-    anchorLinks.forEach(anchorLink => {
-      anchorLink.onclick = () => {
-        anchorLinks.forEach(activeAnchorLink => activeAnchorLink.classList.remove('active'));
-        anchorLink.classList.add('active');
-        burgerBtn.classList.remove('nav-header__burger--active');
-        navHeaderMenu.classList.remove('nav-header__menu-list--active');
-        if (isBodyLock) setIsBodyLock()
-      }
-    });
-  }
-};
-const menuNav            = document.querySelector('.nav-header__menu-list')
-const menuNavItemLinks   = document.querySelectorAll('._link')
-const sectionIdInNavMenu = document.querySelectorAll('._section')
-
-const getId = link => link.getAttribute('href').replace('#', '')
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      menuNavItemLinks.forEach(link => {
-        link.classList.toggle('active', getId(link) === entry.target.id)
-      })
-    }
-  })
-}, {
-  threshold: 0.7,
-})
-
-if (sectionIdInNavMenu.length > 0) {
-  sectionIdInNavMenu.forEach(section => observer.observe(section))
-}
-
-menuNav.onclick = (event => {
-  if (event.target.classList.contains('_link')) {
-    event.preventDefault()
-
-    window.scrollTo({
-      top: document.getElementById(getId(event.target)).offsetTop,
-      behavior: 'smooth',
-    })
-    onClickNavLinks()
-  }
-});
-// после готовности DOM инициализация Слайдера
-document.addEventListener('DOMContentLoaded', () => {
-  new ChiefSlider('.catalog__card-slider', {
-    loop: true,
-    interval: 3000,
-  })
-  new ChiefSlider('.certificate__slider', {
-    loop: true,
-    interval: 10000,
-  })
-  new ChiefSlider('.sale-form__slider', {
-    loop: false,
-    interval: 10000,
-  })
-});
-$(document).ready(function () {
-  // Маска ввода номера телефона:
-  $('input[type="tel"]').mask("+375 (99) 999-99-99", { placeholder: " " });
-  // Установка курсора в нужное место для ввода номера телефона
-  $.fn.setCursorPosition = function (pos) {
-    if ($(this).get(0).setSelectionRange) {
-      $(this).get(0).setSelectionRange(pos, pos);
-    } else if ($(this).get(0).createTextRange) {
-      var range = $(this).get(0).createTextRange();
-      range.collapse(true);
-      range.moveEnd('character', pos);
-      range.moveStart('character', pos);
-      range.select();
-    }
-  };
-  $('input[type="tel"]').click(function () {
-    $(this).setCursorPosition(6);  // set position number
-  });
-
-});;
-const submissionForms = () => {
-  const allForms  = document.querySelectorAll('form'),
-        allInputs = document.querySelectorAll('input')
-
-  const textMessages = {
-    loading:  'Загрузка...',
-    succes:   'Спасибо! Скоро мы с Вами свяжемся',
-    failure:  'Что-то пошло не так..'
-  }
-
-  const postData = async (url, data) => {
-    // document.querySelector('.status').textContent = textMessages.loading
-    alert(textMessages.loading)
-    
-    let result = await fetch(url, {
-      method: 'POST',
-      body: data
-    })
-
-    return await result.text()
-  }
-
-  const clearInputs = () => {
-    allInputs.forEach(input => input.value = '')
-  }
-
-  allForms.forEach(form => {
-    form.addEventListener('submit', event => {
-      event.preventDefault()
-
-      // let statusMessage = document.createElement('div')
-      // statusMessage.classList.add('status')
-      // form.appendChild(statusMessage)
-
-      const formData = new FormData(form)
-
-      postData('../mail-telegram.php', formData)
-        .then(result => {
-          console.log(result)
-          // statusMessage.textContent = textMessages.succes
-          alert(textMessages.succes)
-        })
-        .catch(() => {
-          // statusMessage.textContent = textMessages.failure
-          alert(textMessages.failure)
-        })
-        .finally(() => {
-          clearInputs()
-          // setTimeout(() => {
-          //   statusMessage.remove()
-          // }, 6000)
-        })
-    })
-  })
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  submissionForms()
-});
-
 const DATA = {
   about: [
     {
@@ -977,6 +809,29 @@ const DATA = {
       subtitle: 'четвертый',
       title: 'Доставка/установка',
       description: 'Доставляем вашу теплицу в течении 2-3 дней. По желанию можем собрать Вашу теплицу'
+    },
+  ],
+  catalogTeplic: [
+    {
+      id: '20m',
+      title: 'Сибирская "Мини-20м"',
+      productName: '20-mini',
+      tube: '20x20',
+      width: '2.00',
+      height: '1.94',
+      img: [
+        'teplica-1.webp',
+        'teplica-1.2.webp',
+        'teplica-1.3.webp',
+        'teplica-1.4.webp',
+        'teplica-1.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        id: ['20m', '20m', '20m'],
+        value: ['100', '67', '50'],
+        length: ['1', '0.67', '0.5'],
+      }
     },
   ],
   addEquipment: [
@@ -1072,17 +927,195 @@ const getHTMLMakepurchase = props => {
       <span class="makepurchase__number">${props.id}</span>
       <div class="makepurchase__subtitle">
         <span class="${props.className}">${props.subtitle} шаг</span>
-      </div>
-      <div class="makepurchase__item-title">
+        </div>
+        <div class="makepurchase__item-title">
         <p>${props.title}</p>
-      </div>
-      <div class="makepurchase__item-text">
+        </div>
+        <div class="makepurchase__item-text">
         <p>${props.description}</p>
+        </div>
+        </div>
+        `)
+      }
+      
+const getHTMLCatalogTeplic = props => {
+  console.log(props.arcStep);
+  return (`
+    <div class="catalog__card">
+      <div class="catalog__card-title">
+        <h4>${props.title}</h4>
       </div>
-    </div>
-  `)
+      <div class="catalog__card-slider slider">
+        <div class="slider__container">
+          <div class="slider__wrapper">
+            <div class="slider__items">
+              ${getImagesHTML(props.img)}
+            </div>
+          </div>
+        </div>
+        <a href="/" class="slider__control" data-slide="prev"></a>
+        <a href="/" class="slider__control" data-slide="next"></a>
+        <ol class="slider__indicators">${getSliderIndicators(props.numberIndicators)}</ol>
+      </div>
+      <form class="catalog__card-content">
+        <input type="hidden" name="product" value="${props.productName}">
+        <div class="catalog__card-table card-table">
+          <div class="card-table__row">
+            <div class="card-table__column-1">Труба профильная</div>
+            <div class="card-table__column-2">${props.tube} мм</div>
+          </div>
+          <div class="card-table__row">
+            <div class="card-table__column-1">Покрытие металла</div>
+            <div class="card-table__column-2">Оцинковка</div>
+          </div>
+          <div class="card-table__row">
+            <div class="card-table__column-1">Ширина теплицы</div>
+            <div class="card-table__column-2">${props.width} м</div>
+          </div>
+          <div class="card-table__row">
+            <div class="card-table__column-1">Высота теплицы</div>
+            <div class="card-table__column-2">${props.height} м</div>
+          </div>
+          <div class="card-table__row">
+            <div class="card-table__column-1">Поликарбонат</div>
+            <div class="card-table__column-2">3 мм</div>
+          </div>
+          <div class="card-table__row">
+            <div class="card-table__column-1">Грунтозацепы</div>
+            <div class="card-table__column-2">245 мм</div>
+          </div>
+        </div>
+        <div class="catalog__card-options">
+          <p>Выберите дуги:</p>
+          <div class="input__wrapper">
+            <label class="catalog__card-label" for="collapsible">
+              <input type="radio" id="collapsible" name="arc_type" value="collapsible" checked>
+              <span>Разборные</span>
+            </label>
+            <label class="catalog__card-label" for="one-piece">
+              <input type="radio" id="one-piece" name="arc_type" value="one-piece">
+              <span>Цельные</span>
+            </label>
+          </div>
+          <p>Выберите длину теплицы:</p>
+          <div class="input__wrapper">
+            <label class="catalog__card-label" for="${props.id}-4m">
+              <input type="radio" id="${props.id}-4m" name="length" value="4" checked>
+              <span>4 м</span>
+            </label>
+            <label class="catalog__card-label" for="${props.id}-6m">
+              <input type="radio" id="${props.id}-6m" name="length" value="6">
+              <span>6 м</span>
+            </label>
+            <label class="catalog__card-label" for="${props.id}-8m">
+              <input type="radio" id="${props.id}-8m" name="length" value="8">
+              <span>8 м</span>
+            </label>
+            <label class="catalog__card-label" for="${props.id}-10m">
+              <input type="radio" id="${props.id}-10m" name="length" value="10">
+              <span>10 м</span>
+            </label>
+          </div>
+          <p>Шаг между дугами:</p>
+          <div class="input__wrapper">
+            ${props.arcStep.map(({id, value, length}) => {
+              return (`
+                <label class="catalog__card-label" for="${id}-${value}m">
+                  <input type="radio" id="${id}-${value}sm" name="arc_step" value="${value}">
+                  <span>${length} м</span>
+                </label>
+              `)
+            })}
+          </div>
+          <p>Толщина поликарбоната:</p>
+          <div class="input__wrapper">
+            <label class="catalog__card-label" for="${props.id}-3mm">
+              <input type="radio" id="${props.id}-3mm" name="polycarbonate" value="3" checked>
+              <span>3 мм</span>
+            </label>
+            <label class="catalog__card-label" for="${props.id}-4mm">
+              <input type="radio" id="${props.id}-4mm" name="polycarbonate" value="4">
+              <span>4 мм</span>
+            </label>
+          </div>
+        </div>
+        <div class="catalog__card-price">
+          <div class="catalog__card-price--old"></div>
+          <div class="catalog__card-price--new"></div>
+        </div>
+        <div class="catalog__card-submit">
+          <input
+            title="Здесь можете указать Ваш номер телефона"
+            type="tel"
+            name="user_phone"
+            class="catalog__card-input"
+            placeholder="+375 (__) ___-__-__"
+            required
+            >
+            <button
+            title="Нажмите эту кнопку, чтобы забронировать скидку"
+            type="submit"
+            class="catalog__card-btn btn-blick"
+            >
+            Заказать
+            </button>
+            </div>
+            </form>
+            </div>
+            `)
+  
 }
 
+
+
+const getImagesHTML = (images) => {
+  let imagesHTML = `
+  <div class="slider__item catalog__card-img">
+  <img src="./img/teplica/${images[0]}" alt="Фото теплицы">
+  </div>
+  `
+  
+  for (let i = 1; i < images.length; i++) {
+    imagesHTML += `
+    <div class="slider__item catalog__card-img">
+        <img src="./img/teplica/${images[i]}" alt="Фото теплицы">
+      </div>
+      `
+  }
+
+  return imagesHTML
+}
+
+const getSliderIndicators = number => {
+  let sliderIndicators = `<li data-slide-to="${number[0]}"></li>`
+  
+  for (let i = 1; i < number.length; i++) {
+    sliderIndicators += `<li data-slide-to="${number[i]}"></li>`
+  }
+  
+  return sliderIndicators
+}
+
+// const getBtnsArcStep = (arcStep) => {
+//   let btnArcStep = `
+//   <label class="catalog__card-label" for="${props.arcStep.id}-${props.arcStep.value}sm">
+//       <input type="radio" id="${props.arcStep.id}-${props.arcStep.value}sm" name="arc_step" value="${props.arcStep.value}">
+//       <span>${props.arcStep.length} м</span>
+//       </label>
+//       `
+      
+//       for (let i = 1; i < arcStep.length; i++) {
+//         btnArcStep += `
+//         <label class="catalog__card-label" for="${arcStep[i].forId}-${arcStep[i].id}m">
+//         <input type="radio" id="${arcStep[i].forId}-${arcStep[i].id}m" name="arc_step" value="${arcStep[i].value}" checked>
+//         <span>${arcStep[i].length} м</span>
+//         </label>
+//         `
+//       }
+      
+//       return btnArcStep
+// }
+    
 const getHTMLAddEquipment = props => {
   const srcUrl = 'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
 
@@ -1117,13 +1150,198 @@ const getHTMLAccordion = props => {
 
 const aboutPlace            = document.querySelector('.about__items')
 const makepurchasePlace     = document.querySelector('.makepurchase__items')
+const catalogTeplicPlace    = document.querySelector('.catalog__items')
 const addEquipmentPlace     = document.querySelector('.add-equipment__items')
 const accordionPlace        = document.querySelector('.faq-accordion')
 
 renderHTML(DATA.about, aboutPlace, getHTMLAbout)
 renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
+renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
 renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
-renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion);
+renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
+
+
+
+  // < label class="catalog__card-label" for= "${props.id}-1m" >
+  //       <input type="radio" id="${props.id}-1m" name="arc_step" value="100" checked>
+  //       <span>1 м</span>
+  //     </>
+      // <label class="catalog__card-label" for="${props.id}-67sm">
+      //   <input type="radio" id="${props.id}-67sm" name="arc_step" value="67">
+      //   <span>0.67 м</span>
+      // </label>;
+const testWebP = (callback) => {
+  var webP = new Image();
+  webP.onload = webP.onerror = function () {
+    callback(webP.height == 2);
+  };
+  webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+}
+
+testWebP(function (support) {
+  document.querySelector('body').classList.add(support ?  'webp' : 'no-webp')
+});
+const lazyLoadInstance = new LazyLoad({
+  elements_selector: '.lazy'
+});;
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionTitles = document.querySelectorAll('.title-resize');
+
+  const onResize = () => {
+    if (sectionTitles.length > 0) {
+      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
+    }
+  }
+
+  window.onresize = onResize;
+  onResize();
+});;
+// Переход по ссылкам с применением класса active
+const onClickNavLinks = () => {
+  if (anchorLinks.length > 0) {
+    anchorLinks.forEach(anchorLink => {
+      anchorLink.onclick = () => {
+        anchorLinks.forEach(activeAnchorLink => activeAnchorLink.classList.remove('active'));
+        anchorLink.classList.add('active');
+        burgerBtn.classList.remove('nav-header__burger--active');
+        navHeaderMenu.classList.remove('nav-header__menu-list--active');
+        if (isBodyLock) setIsBodyLock()
+      }
+    });
+  }
+};
+const menuNav            = document.querySelector('.nav-header__menu-list')
+const menuNavItemLinks   = document.querySelectorAll('._link')
+const sectionIdInNavMenu = document.querySelectorAll('._section')
+
+const getId = link => link.getAttribute('href').replace('#', '')
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      menuNavItemLinks.forEach(link => {
+        link.classList.toggle('active', getId(link) === entry.target.id)
+      })
+    }
+  })
+}, {
+  threshold: 0.7,
+})
+
+if (sectionIdInNavMenu.length > 0) {
+  sectionIdInNavMenu.forEach(section => observer.observe(section))
+}
+
+menuNav.onclick = (event => {
+  if (event.target.classList.contains('_link')) {
+    event.preventDefault()
+
+    window.scrollTo({
+      top: document.getElementById(getId(event.target)).offsetTop,
+      behavior: 'smooth',
+    })
+    onClickNavLinks()
+  }
+});
+// после готовности DOM инициализация Слайдера
+document.addEventListener('DOMContentLoaded', () => {
+  const catalogTeplicSlider = document.querySelectorAll('.catalog__card-slider')
+
+  catalogTeplicSlider.forEach(catalogTelpicItem => {
+    new ChiefSlider(catalogTelpicItem, {
+      loop: true,
+      interval: 3000,
+    })
+  })
+  new ChiefSlider('.certificate__slider', {
+    loop: true,
+    interval: 10000,
+  })
+  new ChiefSlider('.sale-form__slider', {
+    loop: false,
+    interval: 10000,
+  })
+});
+$(document).ready(function () {
+  // Маска ввода номера телефона:
+  $('input[type="tel"]').mask("+375 (99) 999-99-99", { placeholder: " " });
+  // Установка курсора в нужное место для ввода номера телефона
+  $.fn.setCursorPosition = function (pos) {
+    if ($(this).get(0).setSelectionRange) {
+      $(this).get(0).setSelectionRange(pos, pos);
+    } else if ($(this).get(0).createTextRange) {
+      var range = $(this).get(0).createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  };
+  $('input[type="tel"]').click(function () {
+    $(this).setCursorPosition(6);  // set position number
+  });
+
+});;
+const submissionForms = () => {
+  const allForms  = document.querySelectorAll('form'),
+        allInputs = document.querySelectorAll('input')
+
+  const textMessages = {
+    loading:  'Загрузка...',
+    succes:   'Спасибо! Скоро мы с Вами свяжемся',
+    failure:  'Что-то пошло не так..'
+  }
+
+  const postData = async (url, data) => {
+    // document.querySelector('.status').textContent = textMessages.loading
+    alert(textMessages.loading)
+    
+    let result = await fetch(url, {
+      method: 'POST',
+      body: data
+    })
+
+    return await result.text()
+  }
+
+  const clearInputs = () => {
+    allInputs.forEach(input => input.value = '')
+  }
+
+  allForms.forEach(form => {
+    form.addEventListener('submit', event => {
+      event.preventDefault()
+
+      // let statusMessage = document.createElement('div')
+      // statusMessage.classList.add('status')
+      // form.appendChild(statusMessage)
+
+      const formData = new FormData(form)
+
+      postData('../mail-telegram.php', formData)
+        .then(result => {
+          console.log(result)
+          // statusMessage.textContent = textMessages.succes
+          alert(textMessages.succes)
+        })
+        .catch(() => {
+          // statusMessage.textContent = textMessages.failure
+          alert(textMessages.failure)
+        })
+        .finally(() => {
+          clearInputs()
+          // setTimeout(() => {
+          //   statusMessage.remove()
+          // }, 6000)
+        })
+    })
+  })
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  submissionForms()
+});
+
 
 //Переменная для включения/отключения индикатора загрузки
 var spinner = $('.map__container').children('.loader');

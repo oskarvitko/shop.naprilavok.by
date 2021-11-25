@@ -11,6 +11,8 @@
 @@include('./plugins/it-chief-slider.js');
 @@include('./plugins/countdown.js');
 
+@@include('./Data.js');
+@@include('./modules/renderHTML.js');
 @@include('./modules/testWebP.js');
 @@include('./modules/lazyLoadInit.js');
 @@include('./modules/onResizeWindow.js');
@@ -20,8 +22,6 @@
 @@include('./modules/maskedInputInit.js');
 @@include('./modules/sendingDataFromForms.js');
 
-@@include('./Data.js');
-@@include('./modules/renderHTML.js');
 
 @@include('./plugins/loading-yandex-map.js');
 
