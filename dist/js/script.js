@@ -920,6 +920,65 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const DATA = {
+  about: [
+    {
+      imgUrl: '/15-02.svg',
+      title: 'Лучшие материалы',
+      description: 'В производстве теплиц используются самые лучшие материалы.'
+    },
+    {
+      imgUrl: '/12-02.svg',
+      title: 'Бесплатная доставка',
+      description: 'Своя курьерская служба. Курьер заинтересован доставить товар быстро в целостности и сохранности.'
+    },
+    {
+      imgUrl: '/16-02.svg',
+      title: 'Услуги сборки',
+      description: 'Профессиональные сборщики соберут теплицу с гарантией если в этом есть необходимость.'
+    },
+    {
+      imgUrl: '/13-02.svg',
+      title: 'Рассрочки',
+      description: 'У нас можно приобрести теплицу в рассрочку от 3 до 36 месяцев.'
+    },
+    {
+      imgUrl: '/18-02.svg',
+      title: 'Доступные цены',
+      description: 'Мы являемся прямым импортёром металла и у нас собственное производство. Поэтому у нас наиболее выгодные цены на все теплицы на территории РБ.'
+    },
+    {
+      imgUrl: '/14-02.svg',
+      title: 'Сертификация',
+      description: 'Есть сертификаты и акцизные марки. Белорусское производство.'
+    },
+  ],
+  makepurchase: [
+    {
+      id: 1,
+      subtitle: 'первый',
+      title: 'Выберите теплицу',
+      description: 'Выберите из <a title="Перейти к каталогу" href="#catalog">каталога</a> теплицу, которая Вам приглянулась'
+    },
+    {
+      id: 2,
+      subtitle: 'второй',
+      title: ' Оставьте заявку',
+      description: 'Закажите обратный звонок или позвоните по номеру<br><a title="Получить консультацию по телефону" href="tel:+375255228110">+375 (25) 522-81-10</a>'
+    },
+    {
+      id: 3,
+      subtitle: 'третий',
+      title: 'Оформляем заказ',
+      description: 'Составляем заявку на доставку: время/адрес/удобный способ оплаты'
+    },
+    {
+      id: 4,
+      className: 'btn-pulse',
+      subtitle: 'четвертый',
+      title: 'Доставка/установка',
+      description: 'Доставляем вашу теплицу в течении 2-3 дней. По желанию можем собрать Вашу теплицу'
+    },
+  ],
   addEquipment: [
     {
       name: 'Парник<br>"Огурчик" 4м',
@@ -970,14 +1029,61 @@ const DATA = {
       price: 93,
     },
   ],
+  accordion: [
+    {
+      title: 'Какой шаг между дугами оптимальный?',
+      description: 'Стандартным шагом считается 1 метр, в большинстве случаев с такой теплицей ничего не случится. Для более искушенных клиентов рекомендуем взять теплицу с шагом 0, 67 метра, такая теплица выдержит даже самые суровые погодные условия в нашей стране. Ну, а с шагом 0, 5 метра теплица может выдержать катаклизм вселенского масштаба.'
+    },
+    {
+      title: 'За какое время я могу собрать теплицу?',
+      description: 'Конструкция теплиц элементарная, для людей без опыта среднее время сборки теплицы 2 — 4 часа. Рекомендуем собирать теплицу минимум вдвоем. Чем больше людей учувствуют в этом деле, тем быстрее будет результат.'
+    },
+    {
+      title: 'Что необходимо для сборки теплицы?',
+      description: 'Сборка наших теплиц осуществляется максимально просто. Из инструмента Вам необходимо иметь: шуруповерт или крестовую отвертку, канцелярский нож и гаечный ключ на 10.'
+    },
+    {
+      title: 'За какое время вы привезете мне теплицу?',
+      description: 'В любой регион доставка осуществляется от 2-ух дней с момента заказа, по мере формирования маршрута. Но Вы всегда можете зафиксировать любую другую дату и время позже этих рамок.'
+    },
+  ],
 };
-
-const renderCatalog = (catalogData, place, functionRenderHTML) => {
+const renderHTML = (catalogData, place, functionRenderHTML) => {
   catalogData.forEach((itemCatalog) => {
     place.insertAdjacentHTML('beforeend', functionRenderHTML(itemCatalog))
   })
-} 
-const getHTMLAddEquipment = (props) => {
+}
+
+const getHTMLAbout = props => {
+  return (`
+    <div class="about__item">
+      <div class="about__item-img">
+        <img src="./img/icon${props.imgUrl}" alt="icon" class="lazy">
+      </div>
+      <h4 class="about__item-title">${props.title}</h4>
+      <span class="about__item-description">${props.description}</span>
+    </div>
+  `)
+}
+
+const getHTMLMakepurchase = props => {
+  return (`
+    <div class="makepurchase__item">
+      <span class="makepurchase__number">${props.id}</span>
+      <div class="makepurchase__subtitle">
+        <span class="${props.className}">${props.subtitle} шаг</span>
+      </div>
+      <div class="makepurchase__item-title">
+        <p>${props.title}</p>
+      </div>
+      <div class="makepurchase__item-text">
+        <p>${props.description}</p>
+      </div>
+    </div>
+  `)
+}
+
+const getHTMLAddEquipment = props => {
   const srcUrl = 'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
 
   return (`
@@ -994,10 +1100,30 @@ const getHTMLAddEquipment = (props) => {
       </div>
     </div>
   `)
-} 
-  
-const addEquipmentPlace = document.querySelector('.add-equipment__items')
-renderCatalog(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment);
+}
+
+const getHTMLAccordion = props => {
+  return (`
+    <div class="faq-accordion__item">
+      <div class="item__header">
+        <h4 class="item__header-title">${props.title}</h4>
+      </div>
+      <div class="item__body">
+        <p class="item__body-text">${props.description}</p>
+      </div>
+    </div>
+  `)
+}
+
+const aboutPlace            = document.querySelector('.about__items')
+const makepurchasePlace     = document.querySelector('.makepurchase__items')
+const addEquipmentPlace     = document.querySelector('.add-equipment__items')
+const accordionPlace        = document.querySelector('.faq-accordion')
+
+renderHTML(DATA.about, aboutPlace, getHTMLAbout)
+renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
+renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
+renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion);
 
 //Переменная для включения/отключения индикатора загрузки
 var spinner = $('.map__container').children('.loader');

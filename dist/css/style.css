@@ -4545,7 +4545,7 @@ body.lock {
 .header__container .logo {
   width: 260px;
   height: 100%;
-  border-right: 2px solid;
+  border-right: 1px solid #2c3d49;
   overflow: hidden;
 }
 
