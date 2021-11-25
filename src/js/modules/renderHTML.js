@@ -31,8 +31,8 @@ const getHTMLMakepurchase = props => {
         </div>
         </div>
         `)
-      }
-      
+}
+
 const getHTMLCatalogTeplic = props => {
   console.log(props.arcStep);
   return (`
@@ -113,14 +113,19 @@ const getHTMLCatalogTeplic = props => {
           </div>
           <p>Шаг между дугами:</p>
           <div class="input__wrapper">
-            ${props.arcStep.map(({id, value, length}) => {
-              return (`
-                <label class="catalog__card-label" for="${id}-${value}m">
-                  <input type="radio" id="${id}-${value}sm" name="arc_step" value="${value}">
-                  <span>${length} м</span>
-                </label>
-              `)
-            })}
+            ${
+              Object.keys(props.arcStep).map((key, index) => {
+                const { arcStep } = props
+                const checked = index === 0 ? 'checked' : ''
+
+                return (`
+                  <label class="catalog__card-label" for="${props.id}-${arcStep[key]}sm">
+                    <input type="radio" id="${props.id}-${arcStep[key]}sm" name="arc_step" value="${arcStep[key]}" ${checked}>
+                    <span>${[key]} м</span>
+                  </label>
+                `)
+              }).join('')
+            }
           </div>
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
@@ -146,19 +151,18 @@ const getHTMLCatalogTeplic = props => {
             class="catalog__card-input"
             placeholder="+375 (__) ___-__-__"
             required
-            >
-            <button
-            title="Нажмите эту кнопку, чтобы забронировать скидку"
-            type="submit"
-            class="catalog__card-btn btn-blick"
-            >
-            Заказать
-            </button>
-            </div>
-            </form>
-            </div>
-            `)
-  
+          >
+          <button
+          title="Нажмите эту кнопку, чтобы забронировать скидку"
+          type="submit"
+          class="catalog__card-btn btn-blick"
+          >
+          Заказать
+          </button>
+        </div>
+      </form>
+    </div>
+  `)
 }
 
 
@@ -169,7 +173,7 @@ const getImagesHTML = (images) => {
   <img src="./img/teplica/${images[0]}" alt="Фото теплицы">
   </div>
   `
-  
+
   for (let i = 1; i < images.length; i++) {
     imagesHTML += `
     <div class="slider__item catalog__card-img">
@@ -183,34 +187,14 @@ const getImagesHTML = (images) => {
 
 const getSliderIndicators = number => {
   let sliderIndicators = `<li data-slide-to="${number[0]}"></li>`
-  
+
   for (let i = 1; i < number.length; i++) {
     sliderIndicators += `<li data-slide-to="${number[i]}"></li>`
   }
-  
+
   return sliderIndicators
 }
 
-// const getBtnsArcStep = (arcStep) => {
-//   let btnArcStep = `
-//   <label class="catalog__card-label" for="${props.arcStep.id}-${props.arcStep.value}sm">
-//       <input type="radio" id="${props.arcStep.id}-${props.arcStep.value}sm" name="arc_step" value="${props.arcStep.value}">
-//       <span>${props.arcStep.length} м</span>
-//       </label>
-//       `
-      
-//       for (let i = 1; i < arcStep.length; i++) {
-//         btnArcStep += `
-//         <label class="catalog__card-label" for="${arcStep[i].forId}-${arcStep[i].id}m">
-//         <input type="radio" id="${arcStep[i].forId}-${arcStep[i].id}m" name="arc_step" value="${arcStep[i].value}" checked>
-//         <span>${arcStep[i].length} м</span>
-//         </label>
-//         `
-//       }
-      
-//       return btnArcStep
-// }
-    
 const getHTMLAddEquipment = props => {
   const srcUrl = 'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
 
@@ -243,25 +227,14 @@ const getHTMLAccordion = props => {
   `)
 }
 
-const aboutPlace            = document.querySelector('.about__items')
-const makepurchasePlace     = document.querySelector('.makepurchase__items')
-const catalogTeplicPlace    = document.querySelector('.catalog__items')
-const addEquipmentPlace     = document.querySelector('.add-equipment__items')
-const accordionPlace        = document.querySelector('.faq-accordion')
+const aboutPlace = document.querySelector('.about__items')
+const makepurchasePlace = document.querySelector('.makepurchase__items')
+const catalogTeplicPlace = document.querySelector('.catalog__items')
+const addEquipmentPlace = document.querySelector('.add-equipment__items')
+const accordionPlace = document.querySelector('.faq-accordion')
 
 renderHTML(DATA.about, aboutPlace, getHTMLAbout)
 renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
 renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
 renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
 renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
-
-
-
-  // < label class="catalog__card-label" for= "${props.id}-1m" >
-  //       <input type="radio" id="${props.id}-1m" name="arc_step" value="100" checked>
-  //       <span>1 м</span>
-  //     </>
-      // <label class="catalog__card-label" for="${props.id}-67sm">
-      //   <input type="radio" id="${props.id}-67sm" name="arc_step" value="67">
-      //   <span>0.67 м</span>
-      // </label>
