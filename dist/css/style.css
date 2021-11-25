@@ -5088,7 +5088,7 @@ body.lock {
 
 .catalog__card-price--old {
   margin-right: 5px;
-  line-height: 140%;
+  line-height: 100%;
   font-size: 14px;
   letter-spacing: 0.05rem;
   font-weight: 500;
@@ -5097,7 +5097,7 @@ body.lock {
 }
 
 .catalog__card-price--new {
-  line-height: 140%;
+  line-height: 100%;
   font-size: 22px;
   font-weight: 800;
 }

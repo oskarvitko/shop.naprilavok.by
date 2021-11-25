@@ -2,9 +2,9 @@ $(document).ready(function () {
   $("form.calculator-greenhouses").change(function () {
     var brandName           = $("input[name='product']", this).val(),
         arcType             = $("input[name='arc_type']:checked", this).val(),
-        lengthDevice        = $("input[name='length']:checked", this).val(),
+        polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
         arcStep             = $("input[name='arc_step']:checked", this).val(),
-        polycarbonate       = $("input[name='polycarbonate']:checked").val(),
+        lengthDevice        = $("input[name='length']:checked", this).val(),
         // addEquipment     = $("input[name='additional[]']:checked", this),
         calculationPrice    = 0;
 
@@ -14,11 +14,11 @@ $(document).ready(function () {
     //   calculationPrice += calculatorDATA.additional[$(brandName).val()]
     // });
 
-    var priceContainer      = $(".catalog__card-price", this),
-      calculatorPriceNew    = $(".price--new", this),
-        calculatorPriceOld  = $(".catalog__card-price--old", this)
+    var priceContainer        = $(".catalog__card-price", this),
+        calculatorPriceNew    = $(".price--new", this),
+        calculatorPriceOld    = $(".catalog__card-price--old", this)
     
-    priceContainer.addClass("animated faster pulse");
+    priceContainer.addClass("animated faster pulse")
     priceContainer.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
       priceContainer.removeClass("animated faster pulse")
     });

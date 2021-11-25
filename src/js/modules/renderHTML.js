@@ -34,7 +34,7 @@ const getHTMLMakepurchase = props => {
 }
 
 const getHTMLCatalogTeplic = props => {
-  console.log(props.arcStep);
+  
   return (`
     <div class="catalog__card">
       <div class="catalog__card-title">

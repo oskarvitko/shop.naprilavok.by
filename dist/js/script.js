@@ -1112,8 +1112,72 @@ const calculatorDATA = {
         }
       },
     },
+    '24-mini': {
+      'collapsible': {
+        '3': {
+          '100': {
+            '4': 450,
+            '6': 565,
+            '8': 672,
+            '10': 789,
+          },
+          '67': {
+            '4': 478,
+            '6': 611,
+            '8': 738,
+            '10': 865,
+          },
+        },
+        '4': {
+          '100': {
+            '4': 503,
+            '6': 634,
+            '8': 757,
+            '10': 890,
+          },
+          '67': {
+            '4': 531,
+            '6': 680,
+            '8': 823,
+            '10': 966,
+          },
+        },
+      },
+      'one-piece': {
+        '3': {
+          '100': {
+            '4': 514,
+            '6': 629,
+            '8': 736,
+            '10': 853,
+          },
+          '67': {
+            '4': 542,
+            '6': 675,
+            '8': 802,
+            '10': 929,
+          },
+        },
+        '4': {
+          '100': {
+            '4': 567,
+            '6': 698,
+            '8': 821,
+            '10': 954,
+          },
+          '67': {
+            '4': 595,
+            '6': 744,
+            '8': 887,
+            '10': 1030,
+          },
+        },
+      },
+    },
   },
-};
+}
+console.log(calculatorDATA.products["24-mini"]['collapsible']);
+;
 const renderHTML = (catalogData, place, functionRenderHTML) => {
   catalogData.forEach((itemCatalog) => {
     place.insertAdjacentHTML('beforeend', functionRenderHTML(itemCatalog))
@@ -1150,7 +1214,7 @@ const getHTMLMakepurchase = props => {
 }
 
 const getHTMLCatalogTeplic = props => {
-  console.log(props.arcStep);
+  
   return (`
     <div class="catalog__card">
       <div class="catalog__card-title">
@@ -1360,9 +1424,9 @@ $(document).ready(function () {
   $("form.calculator-greenhouses").change(function () {
     var brandName           = $("input[name='product']", this).val(),
         arcType             = $("input[name='arc_type']:checked", this).val(),
-        lengthDevice        = $("input[name='length']:checked", this).val(),
+        polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
         arcStep             = $("input[name='arc_step']:checked", this).val(),
-        polycarbonate       = $("input[name='polycarbonate']:checked").val(),
+        lengthDevice        = $("input[name='length']:checked", this).val(),
         // addEquipment     = $("input[name='additional[]']:checked", this),
         calculationPrice    = 0;
 
@@ -1372,11 +1436,11 @@ $(document).ready(function () {
     //   calculationPrice += calculatorDATA.additional[$(brandName).val()]
     // });
 
-    var priceContainer      = $(".catalog__card-price", this),
-      calculatorPriceNew    = $(".price--new", this),
-        calculatorPriceOld  = $(".catalog__card-price--old", this)
+    var priceContainer        = $(".catalog__card-price", this),
+        calculatorPriceNew    = $(".price--new", this),
+        calculatorPriceOld    = $(".catalog__card-price--old", this)
     
-    priceContainer.addClass("animated faster pulse");
+    priceContainer.addClass("animated faster pulse")
     priceContainer.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
       priceContainer.removeClass("animated faster pulse")
     });
