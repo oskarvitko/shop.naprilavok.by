@@ -4946,6 +4946,7 @@ body.lock {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 1250px;
 }
 
 .catalog__sub-title {
@@ -4963,9 +4964,8 @@ body.lock {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-bottom: 40px;
 }
 
@@ -4979,6 +4979,7 @@ body.lock {
       -ms-flex-direction: column;
           flex-direction: column;
   max-width: 380px;
+  margin-bottom: 30px;
   border: 1px solid #73b94d;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);

@@ -1,6 +1,7 @@
 .catalog {
   &__container {
     flex-direction: column;
+    max-width: 1250px;
   }
   &__sub-title {
     font-size: $sub-large-fz;
@@ -13,7 +14,7 @@
   &__items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 40px;
   }
   &__card {
@@ -21,6 +22,7 @@
     display: flex;
     flex-direction: column;
     max-width: 380px;
+    margin-bottom: 30px;
     border: 1px solid $first-accent-color;
     border-radius: $main-radius;
     box-shadow: $light-box-shadow;

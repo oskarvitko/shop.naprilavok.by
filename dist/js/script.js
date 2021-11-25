@@ -830,6 +830,150 @@ const DATA = {
       arcStep: {
         '1': '100',
         '0.67': '67',
+      },
+    },
+    {
+      id: '24m',
+      title: 'Сибирская "Мини-24м"',
+      productName: '24-mini',
+      tube: '20x20',
+      width: '2.40',
+      height: '1.75',
+      img: [
+        'teplica-1.webp',
+        'teplica-1.2.webp',
+        'teplica-1.3.webp',
+        'teplica-1.4.webp',
+        'teplica-1.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+      },
+    },
+    {
+      id: '20c',
+      title: '"Сверхпрочная-20ц"',
+      productName: '20-c',
+      tube: '20x20',
+      width: '3.00',
+      height: '2.10',
+      img: [
+        'teplica-2.webp',
+        'teplica-2.2.webp',
+        'teplica-2.3.webp',
+        'teplica-2.4.webp',
+        'teplica-2.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+        '0.5': '50',
+      },
+    },
+    {
+      id: '40c',
+      title: '"Титан-40ц"',
+      productName: '40-c',
+      tube: '40x20',
+      width: '3.00',
+      height: '2.10',
+      img: [
+        'teplica-3.webp',
+        'teplica-3.2.webp',
+        'teplica-3.3.webp',
+        'teplica-3.4.webp',
+        'teplica-3.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+        '0.5': '50',
+      },
+    },
+    {
+      id: '20fc',
+      title: 'Сибирская "Ферма-20фц"',
+      productName: '20-fc',
+      tube: '20x20',
+      width: '3.00',
+      height: '2.10',
+      img: [
+        'teplica-4.webp',
+        'teplica-4.2.webp',
+        'teplica-4.3.webp',
+        'teplica-4.4.webp',
+        'teplica-4.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+      },
+    },
+    {
+      id: '3500-40c',
+      title: 'Титан 3.5 ширина',
+      productName: '3500-40c',
+      tube: '40x20',
+      width: '3.50',
+      height: '2.10',
+      img: [
+        'teplica-5.webp',
+        'teplica-5.2.webp',
+        'teplica-5.3.webp',
+        'teplica-5.4.webp',
+        'teplica-5.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+        '0.5': '50',
+      },
+    },
+    {
+      id: '4000-40c',
+      title: 'Титан 4 ширина',
+      productName: '4000-40c',
+      tube: '40x20',
+      width: '4.00',
+      height: '2.10',
+      img: [
+        'teplica-5.webp',
+        'teplica-5.2.webp',
+        'teplica-5.3.webp',
+        'teplica-5.4.webp',
+        'teplica-5.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
+        '0.5': '50',
+      },
+    },
+    {
+      id: 'prom-40c',
+      title: 'Промышленная ферма',
+      productName: 'prom-40c',
+      tube: '40x20',
+      width: '7.00',
+      height: '2.10',
+      img: [
+        'teplica-6.webp',
+        'teplica-6.2.webp',
+        'teplica-6.3.webp',
+        'teplica-6.4.webp',
+        'teplica-6.5.webp',
+      ],
+      numberIndicators: ['0', '1', '2', '3', '4',],
+      arcStep: {
+        '1': '100',
+        '0.67': '67',
         '0.5': '50',
       },
     },
@@ -988,12 +1132,12 @@ const getHTMLCatalogTeplic = props => {
         <div class="catalog__card-options">
           <p>Выберите дуги:</p>
           <div class="input__wrapper">
-            <label class="catalog__card-label" for="collapsible">
-              <input type="radio" id="collapsible" name="arc_type" value="collapsible" checked>
+            <label class="catalog__card-label">
+              <input type="radio" name="arc_type" value="collapsible" checked>
               <span>Разборные</span>
             </label>
-            <label class="catalog__card-label" for="one-piece">
-              <input type="radio" id="one-piece" name="arc_type" value="one-piece">
+            <label class="catalog__card-label">
+              <input type="radio" name="arc_type" value="one-piece">
               <span>Цельные</span>
             </label>
           </div>

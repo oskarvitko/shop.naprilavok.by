@@ -83,12 +83,12 @@ const getHTMLCatalogTeplic = props => {
         <div class="catalog__card-options">
           <p>Выберите дуги:</p>
           <div class="input__wrapper">
-            <label class="catalog__card-label" for="collapsible">
-              <input type="radio" id="collapsible" name="arc_type" value="collapsible" checked>
+            <label class="catalog__card-label">
+              <input type="radio" name="arc_type" value="collapsible" checked>
               <span>Разборные</span>
             </label>
-            <label class="catalog__card-label" for="one-piece">
-              <input type="radio" id="one-piece" name="arc_type" value="one-piece">
+            <label class="catalog__card-label">
+              <input type="radio" name="arc_type" value="one-piece">
               <span>Цельные</span>
             </label>
           </div>
