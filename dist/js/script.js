@@ -1046,6 +1046,73 @@ const DATA = {
       description: 'В любой регион доставка осуществляется от 2-ух дней с момента заказа, по мере формирования маршрута. Но Вы всегда можете зафиксировать любую другую дату и время позже этих рамок.'
     },
   ],
+}
+
+const calculatorDATA = {
+  'products': {
+    '20-mini': {
+      'collapsible': {
+        '3': {
+          '100': {
+            '4': 450,
+            '6': 565,
+            '8': 672,
+            '10': 789,
+          },
+          '67': {
+            '4': 478,
+            '6': 611,
+            '8': 738,
+            '10': 865,
+          },
+        },
+        '4': {
+          '100': {
+            '4': 503,
+            '6': 634,
+            '8': 757,
+            '10': 890,
+          },
+          '67': {
+            '4': 531,
+            '6': 680,
+            '8': 823,
+            '10': 966,
+          },
+        }
+      },
+      'one-piece': {
+        '3': {
+          '100': {
+            '4': 514,
+            '6': 629,
+            '8': 736,
+            '10': 853,
+          },
+          '67': {
+            '4': 542,
+            '6': 675,
+            '8': 802,
+            '10': 929,
+          },
+        },
+        '4': {
+          '100': {
+            '4': 567,
+            '6': 698,
+            '8': 821,
+            '10': 954,
+          },
+          '67': {
+            '4': 595,
+            '6': 744,
+            '8': 887,
+            '10': 1030,
+          },
+        }
+      },
+    },
+  },
 };
 const renderHTML = (catalogData, place, functionRenderHTML) => {
   catalogData.forEach((itemCatalog) => {
@@ -1101,7 +1168,7 @@ const getHTMLCatalogTeplic = props => {
         <a href="/" class="slider__control" data-slide="next"></a>
         <ol class="slider__indicators">${getSliderIndicators(props.numberIndicators)}</ol>
       </div>
-      <form class="catalog__card-content">
+      <form class="catalog__card-content calculator-greenhouses">
         <input type="hidden" name="product" value="${props.productName}">
         <div class="catalog__card-table card-table">
           <div class="card-table__row">
@@ -1190,7 +1257,9 @@ const getHTMLCatalogTeplic = props => {
         </div>
         <div class="catalog__card-price">
           <div class="catalog__card-price--old"></div>
-          <div class="catalog__card-price--new"></div>
+          <div class="catalog__card-price--new">
+            <span class="price--new"></span> BYN
+          </div>
         </div>
         <div class="catalog__card-submit">
           <input
@@ -1287,6 +1356,47 @@ renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
 renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
 renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
 renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion);
+$(document).ready(function () {
+  $("form.calculator-greenhouses").change(function () {
+    var brandName           = $("input[name='product']", this).val(),
+        arcType             = $("input[name='arc_type']:checked", this).val(),
+        lengthDevice        = $("input[name='length']:checked", this).val(),
+        arcStep             = $("input[name='arc_step']:checked", this).val(),
+        polycarbonate       = $("input[name='polycarbonate']:checked").val(),
+        // addEquipment     = $("input[name='additional[]']:checked", this),
+        calculationPrice    = 0;
+
+    calculationPrice += calculatorDATA.products[brandName][arcType][polycarbonate][arcStep][lengthDevice];
+
+    // addEquipment.each(function (calculatorPriceNew, brandName) {
+    //   calculationPrice += calculatorDATA.additional[$(brandName).val()]
+    // });
+
+    var priceContainer      = $(".catalog__card-price", this),
+      calculatorPriceNew    = $(".price--new", this),
+        calculatorPriceOld  = $(".catalog__card-price--old", this)
+    
+    priceContainer.addClass("animated faster pulse");
+    priceContainer.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+      priceContainer.removeClass("animated faster pulse")
+    });
+
+    brandName = 0 < calculatorPriceNew.data("animateFrom") ? calculatorPriceNew.data("animateFrom") : 0;
+
+    $({ animateNumber: brandName }).animate({ animateNumber: calculationPrice }, {
+      duration: 800, step: function (brandName) {
+        calculatorPriceNew.text(Number(brandName).toFixed())
+
+        calculatorPriceOld.text(Number(1.15 * brandName).toFixed())
+      },
+      complete: function () {
+        calculatorPriceNew.data("animateFrom", Number(calculationPrice).toFixed())
+      }
+    })
+  });
+  $("form.calculator-greenhouses").change()
+});;
+
 const testWebP = (callback) => {
   var webP = new Image();
   webP.onload = webP.onerror = function () {

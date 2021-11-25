@@ -80,6 +80,26 @@
         }
       }
     }
+    &-price {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      &--old {
+        margin-right: 5px;
+        line-height: 140%;
+        font-size: 14px;
+        letter-spacing: 0.05rem;
+        font-weight: 500;
+        text-decoration: line-through;
+        color: $second-accent-color;
+      }
+      &--new {
+        line-height: 140%;
+        font-size: 22px;
+        font-weight: 800;
+      }
+    }
     &-options {
       max-width: 100%;
       display: flex;

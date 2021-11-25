@@ -13,6 +13,8 @@
 
 @@include('./Data.js');
 @@include('./modules/renderHTML.js');
+@@include('./plugins/calculatorPrice.js');
+
 @@include('./modules/testWebP.js');
 @@include('./modules/lazyLoadInit.js');
 @@include('./modules/onResizeWindow.js');

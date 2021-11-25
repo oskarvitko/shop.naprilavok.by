@@ -52,7 +52,7 @@ const getHTMLCatalogTeplic = props => {
         <a href="/" class="slider__control" data-slide="next"></a>
         <ol class="slider__indicators">${getSliderIndicators(props.numberIndicators)}</ol>
       </div>
-      <form class="catalog__card-content">
+      <form class="catalog__card-content calculator-greenhouses">
         <input type="hidden" name="product" value="${props.productName}">
         <div class="catalog__card-table card-table">
           <div class="card-table__row">
@@ -141,7 +141,9 @@ const getHTMLCatalogTeplic = props => {
         </div>
         <div class="catalog__card-price">
           <div class="catalog__card-price--old"></div>
-          <div class="catalog__card-price--new"></div>
+          <div class="catalog__card-price--new">
+            <span class="price--new"></span> BYN
+          </div>
         </div>
         <div class="catalog__card-submit">
           <input
