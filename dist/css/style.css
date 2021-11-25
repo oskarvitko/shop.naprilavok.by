@@ -154,6 +154,116 @@ h6 {
   color: #a4001a;
 }
 
+.loader__wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+  background: #15182a;
+  background: -o-linear-gradient(337deg, #15182a 0%, #1f2442 100%);
+  background: linear-gradient(113deg, #15182a 0%, #1f2442 100%);
+  overflow: hidden;
+}
+
+.loader__wrapper.show {
+  -webkit-transition: opacity 450ms ease 0ms;
+  -o-transition: opacity 450ms ease 0ms;
+  transition: opacity 450ms ease 0ms;
+  opacity: 0;
+}
+
+.loader__wrapper.hide {
+  display: none;
+}
+
+.loader__item {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: #73b94d;
+  -webkit-transform: rotateX(65deg) rotate(45deg);
+          transform: rotateX(65deg) rotate(45deg);
+  -webkit-transform: perspective(200px) rotateX(65deg) rotate(45deg);
+          transform: perspective(200px) rotateX(65deg) rotate(45deg);
+  color: #fff;
+  -webkit-animation: layers1 700ms linear infinite alternate;
+          animation: layers1 700ms linear infinite alternate;
+}
+
+.loader__item:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-animation: layerTr 700ms linear infinite alternate;
+          animation: layerTr 700ms linear infinite alternate;
+}
+
+@-webkit-keyframes layers1 {
+  0% {
+    -webkit-box-shadow: 0px 0px 0 0px;
+            box-shadow: 0px 0px 0 0px;
+  }
+
+  90%, 100% {
+    -webkit-box-shadow: 20px 20px 0 -4px;
+            box-shadow: 20px 20px 0 -4px;
+  }
+}
+
+@keyframes layers1 {
+  0% {
+    -webkit-box-shadow: 0px 0px 0 0px;
+            box-shadow: 0px 0px 0 0px;
+  }
+
+  90%, 100% {
+    -webkit-box-shadow: 20px 20px 0 -4px;
+            box-shadow: 20px 20px 0 -4px;
+  }
+}
+
+@-webkit-keyframes layerTr {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    -webkit-transform: translate(-25px, -25px) scale(1);
+            transform: translate(-25px, -25px) scale(1);
+  }
+}
+
+@keyframes layerTr {
+  0% {
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    -webkit-transform: translate(-25px, -25px) scale(1);
+            transform: translate(-25px, -25px) scale(1);
+  }
+}
+
 /**
   * SimpleAdaptiveSlider by Itchief v2.0.0 (https://github.com/itchief/ui-components/tree/master/simple-adaptive-slider)
   * Copyright 2020 - 2021 Alexander Maltsev
@@ -3379,6 +3489,10 @@ body {
 
 body.lock {
   overflow: hidden;
+}
+
+.hide-scroll-y {
+  overflow-y: hidden;
 }
 
 .main__btn {
