@@ -423,4 +423,3 @@ const calculatorDATA = {
     },
   },
 }
-console.log(calculatorDATA.products["24-mini"]['collapsible']);

@@ -1176,7 +1176,6 @@ const calculatorDATA = {
     },
   },
 }
-console.log(calculatorDATA.products["24-mini"]['collapsible']);
 ;
 const renderHTML = (catalogData, place, functionRenderHTML) => {
   catalogData.forEach((itemCatalog) => {
