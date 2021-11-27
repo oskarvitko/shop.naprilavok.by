@@ -26,23 +26,23 @@ let path = {
 };
 
 const { src, dest } = require('gulp'),
-  gulp            = require('gulp'),
-  browsersync     = require('browser-sync').create(),
-  fileinclude     = require('gulp-file-include'),
-  del             = require('del'),
-  scss            = require('gulp-sass')(require('sass')),
-  autoprefixer    = require('gulp-autoprefixer'),
-  group_media     = require('gulp-group-css-media-queries'),
-  clean_css       = require('gulp-clean-css'),
-  rename          = require('gulp-rename'),
-  uglify          = require('gulp-uglify-es').default,
-  imagemin        = require('gulp-imagemin'),
-  webp            = require('gulp-webp'),
-  webphtml        = require('gulp-webp-html'),
-  webpcss         = require('gulp-webpcss'),
-  svgSprite       = require('gulp-svg-sprite'),
-  ttf2woff        = require('gulp-ttf2woff'),
-  ttf2woff2       = require('gulp-ttf2woff2');
+    gulp            = require('gulp'),
+    browsersync     = require('browser-sync').create(),
+    fileinclude     = require('gulp-file-include'),
+    del             = require('del'),
+    scss            = require('gulp-sass')(require('sass')),
+    autoprefixer    = require('gulp-autoprefixer'),
+    group_media     = require('gulp-group-css-media-queries'),
+    clean_css       = require('gulp-clean-css'),
+    rename          = require('gulp-rename'),
+    uglify          = require('gulp-uglify-es').default,
+    imagemin        = require('gulp-imagemin'),
+    webp            = require('gulp-webp'),
+    webphtml        = require('gulp-webp-html'),
+    webpcss         = require('gulp-webpcss'),
+    svgSprite       = require('gulp-svg-sprite'),
+    ttf2woff        = require('gulp-ttf2woff'),
+    ttf2woff2       = require('gulp-ttf2woff2');
   
 function browserSync(params) {
   browsersync.init({

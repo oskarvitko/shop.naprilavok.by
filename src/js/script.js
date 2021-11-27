@@ -1,10 +1,4 @@
 @@include('./lib/jquery-3.6.0.min.js')
-
-// window.addEventListener('load', () => {
-//   $(".loader").fadeOut();
-//   $(".loader__wrapper").delay(200).fadeOut("slow");
-// })
-
 @@include('./lib/lazyload.min.js')
 
 @@include('./plugins/jquery.maskedinput.min.js')
@@ -59,8 +53,6 @@ if (showModalLegalInfoBtn && closeBtnModalLegalInfo) {
 if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
   showModalFeedbackBtns.forEach(btn => {
     btn.onclick = () => {
-      console.log('hi');
-      
       modalFeedbackRequest.classList.add('show')
       setBodyLock()
     }

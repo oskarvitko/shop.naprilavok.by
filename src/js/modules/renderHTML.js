@@ -1,10 +1,10 @@
-const renderHTML = (catalogData, place, functionRenderHTML) => {
+const renderHTML = (catalogData, placeToRender, renderHTMLFunction) => {
   catalogData.forEach((itemCatalog) => {
-    place.insertAdjacentHTML('beforeend', functionRenderHTML(itemCatalog))
+    placeToRender.insertAdjacentHTML('beforeend', renderHTMLFunction(itemCatalog))
   })
 }
 
-const getHTMLAbout = props => {
+const getHTMLAbout = (props) => {
   return (`
     <div class="about__item">
       <div class="about__item-img">
@@ -16,7 +16,7 @@ const getHTMLAbout = props => {
   `)
 }
 
-const getHTMLMakepurchase = props => {
+const getHTMLMakepurchase = (props) => {
   return (`
     <div class="makepurchase__item">
       <span class="makepurchase__number">${props.id}</span>
@@ -33,7 +33,7 @@ const getHTMLMakepurchase = props => {
         `)
 }
 
-const getHTMLCatalogTeplic = props => {
+const getHTMLCatalogTeplic = (props) => {
   
   return (`
     <div class="catalog__card">
@@ -44,13 +44,13 @@ const getHTMLCatalogTeplic = props => {
         <div class="slider__container">
           <div class="slider__wrapper">
             <div class="slider__items">
-              ${getImagesHTML(props.img)}
+              ${props.images.map(getImageHTML).join('')}
             </div>
           </div>
         </div>
         <a href="/" class="slider__control" data-slide="prev"></a>
         <a href="/" class="slider__control" data-slide="next"></a>
-        <ol class="slider__indicators">${getSliderIndicators(props.numberIndicators)}</ol>
+        <ol class="slider__indicators">${props.numberIndicators.map(getSliderIndicator).join('')}</ol>
       </div>
       <form class="catalog__card-content calculator-greenhouses">
         <input type="hidden" name="product" value="${props.productName}">
@@ -167,37 +167,15 @@ const getHTMLCatalogTeplic = props => {
   `)
 }
 
-
-
-const getImagesHTML = (images) => {
-  let imagesHTML = `
+const getImageHTML = (img) => `
   <div class="slider__item catalog__card-img">
-  <img src="./img/teplica/${images[0]}" alt="Фото теплицы">
+    <img src="./img/teplica/${img}" alt="Фото теплицы">
   </div>
-  `
+`
 
-  for (let i = 1; i < images.length; i++) {
-    imagesHTML += `
-    <div class="slider__item catalog__card-img">
-        <img src="./img/teplica/${images[i]}" alt="Фото теплицы">
-      </div>
-      `
-  }
+const getSliderIndicator = (number) => `<li data-slide-to="${number}"></li>`
 
-  return imagesHTML
-}
-
-const getSliderIndicators = number => {
-  let sliderIndicators = `<li data-slide-to="${number[0]}"></li>`
-
-  for (let i = 1; i < number.length; i++) {
-    sliderIndicators += `<li data-slide-to="${number[i]}"></li>`
-  }
-
-  return sliderIndicators
-}
-
-const getHTMLAddEquipment = props => {
+const getHTMLAddEquipment = (props) => {
   const srcUrl = 'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
 
   return (`
@@ -216,7 +194,7 @@ const getHTMLAddEquipment = props => {
   `)
 }
 
-const getHTMLAccordion = props => {
+const getHTMLAccordion = (props) => {
   return (`
     <div class="faq-accordion__item">
       <div class="item__header">
@@ -229,11 +207,11 @@ const getHTMLAccordion = props => {
   `)
 }
 
-const aboutPlace = document.querySelector('.about__items')
-const makepurchasePlace = document.querySelector('.makepurchase__items')
-const catalogTeplicPlace = document.querySelector('.catalog__items')
-const addEquipmentPlace = document.querySelector('.add-equipment__items')
-const accordionPlace = document.querySelector('.faq-accordion')
+const aboutPlace          = document.querySelector('.about__items')
+const makepurchasePlace   = document.querySelector('.makepurchase__items')
+const catalogTeplicPlace  = document.querySelector('.catalog__items')
+const addEquipmentPlace   = document.querySelector('.add-equipment__items')
+const accordionPlace      = document.querySelector('.faq-accordion')
 
 renderHTML(DATA.about, aboutPlace, getHTMLAbout)
 renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
