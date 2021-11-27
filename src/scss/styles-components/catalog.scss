@@ -26,7 +26,7 @@
     border: 1px solid $first-accent-color;
     border-radius: $main-radius;
     box-shadow: $light-box-shadow;
-    // overflow: hidden;
+    overflow: hidden;
     transition: $standart-trans;
     &:hover {
       box-shadow: $hover-box-shadow;

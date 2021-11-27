@@ -18,7 +18,6 @@
 @@include('./modules/maskedInputInit.js')
 @@include('./modules/sendingDataFromForms.js')
 
-
 @@include('./plugins/loading-yandex-map.js')
 
 

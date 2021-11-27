@@ -4984,6 +4984,7 @@ body.lock {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   -webkit-transition: all 280ms ease 0ms;
   -o-transition: all 280ms ease 0ms;
   transition: all 280ms ease 0ms;
