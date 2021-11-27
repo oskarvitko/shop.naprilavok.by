@@ -84,7 +84,7 @@ const getHTMLCatalogTeplic = props => {
           <p>Выберите дуги:</p>
           <div class="input__wrapper">
             <label class="catalog__card-label">
-              <input type="radio" name="arc_type" value="collapsible" checked>
+              <input type="radio" name="arc_type" value="demountable" checked>
               <span>Разборные</span>
             </label>
             <label class="catalog__card-label">
@@ -95,19 +95,19 @@ const getHTMLCatalogTeplic = props => {
           <p>Выберите длину теплицы:</p>
           <div class="input__wrapper">
             <label class="catalog__card-label" for="${props.id}-4m">
-              <input type="radio" id="${props.id}-4m" name="length" value="4" checked>
+              <input type="radio" id="${props.id}-4m" name="length" value="4m" checked>
               <span>4 м</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-6m">
-              <input type="radio" id="${props.id}-6m" name="length" value="6">
+              <input type="radio" id="${props.id}-6m" name="length" value="6m">
               <span>6 м</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-8m">
-              <input type="radio" id="${props.id}-8m" name="length" value="8">
+              <input type="radio" id="${props.id}-8m" name="length" value="8m">
               <span>8 м</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-10m">
-              <input type="radio" id="${props.id}-10m" name="length" value="10">
+              <input type="radio" id="${props.id}-10m" name="length" value="10m">
               <span>10 м</span>
             </label>
           </div>
@@ -130,11 +130,11 @@ const getHTMLCatalogTeplic = props => {
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
             <label class="catalog__card-label" for="${props.id}-3mm">
-              <input type="radio" id="${props.id}-3mm" name="polycarbonate" value="3" checked>
+              <input type="radio" id="${props.id}-3mm" name="polycarbonate" value="3mm" checked>
               <span>3 мм</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-4mm">
-              <input type="radio" id="${props.id}-4mm" name="polycarbonate" value="4">
+              <input type="radio" id="${props.id}-4mm" name="polycarbonate" value="4mm">
               <span>4 мм</span>
             </label>
           </div>

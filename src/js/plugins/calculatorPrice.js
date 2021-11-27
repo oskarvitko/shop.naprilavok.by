@@ -2,13 +2,19 @@ $(document).ready(function () {
   $("form.calculator-greenhouses").change(function () {
     var brandName           = $("input[name='product']", this).val(),
         arcType             = $("input[name='arc_type']:checked", this).val(),
-        polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
-        arcStep             = $("input[name='arc_step']:checked", this).val(),
         lengthDevice        = $("input[name='length']:checked", this).val(),
+        arcStep             = $("input[name='arc_step']:checked", this).val(),
+        polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
         // addEquipment     = $("input[name='additional[]']:checked", this),
         calculationPrice    = 0;
 
-    calculationPrice += calculatorDATA.products[brandName][arcType][polycarbonate][arcStep][lengthDevice];
+    console.log({brandName});
+    console.log(calculatorDATA.products[brandName]);
+    console.log(calculatorDATA.products[brandName][arcType]);
+    
+    
+    // calculationPrice += calculatorDATA.products.brandName.arcType.polycarbonate.arcStep.lengthDevice
+    calculationPrice += calculatorDATA.products[brandName][arcType][lengthDevice][arcStep][polycarbonate]
 
     // addEquipment.each(function (calculatorPriceNew, brandName) {
     //   calculationPrice += calculatorDATA.additional[$(brandName).val()]

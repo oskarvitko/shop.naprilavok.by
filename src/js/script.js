@@ -1,31 +1,31 @@
-@@include('./lib/jquery-3.6.0.min.js');
+@@include('./lib/jquery-3.6.0.min.js')
 
 // window.addEventListener('load', () => {
 //   $(".loader").fadeOut();
 //   $(".loader__wrapper").delay(200).fadeOut("slow");
 // })
 
-@@include('./lib/lazyload.min.js');
+@@include('./lib/lazyload.min.js')
 
-@@include('./plugins/jquery.maskedinput.min.js');
-@@include('./plugins/it-chief-slider.js');
-@@include('./plugins/countdown.js');
+@@include('./plugins/jquery.maskedinput.min.js')
+@@include('./plugins/it-chief-slider.js')
+@@include('./plugins/countdown.js')
 
-@@include('./Data.js');
-@@include('./modules/renderHTML.js');
-@@include('./plugins/calculatorPrice.js');
+@@include('./Data.js')
+@@include('./modules/renderHTML.js')
+@@include('./plugins/calculatorPrice.js')
 
-@@include('./modules/testWebP.js');
-@@include('./modules/lazyLoadInit.js');
-@@include('./modules/onResizeWindow.js');
-@@include('./modules/onClickNavLinks.js');
-@@include('./modules/setActiveLink.js');
-@@include('./modules/chiefSliderInit.js');
-@@include('./modules/maskedInputInit.js');
-@@include('./modules/sendingDataFromForms.js');
+@@include('./modules/testWebP.js')
+@@include('./modules/lazyLoadInit.js')
+@@include('./modules/onResizeWindow.js')
+@@include('./modules/onClickNavLinks.js')
+@@include('./modules/setActiveLink.js')
+@@include('./modules/chiefSliderInit.js')
+@@include('./modules/maskedInputInit.js')
+@@include('./modules/sendingDataFromForms.js')
 
 
-@@include('./plugins/loading-yandex-map.js');
+@@include('./plugins/loading-yandex-map.js')
 
 
 window.addEventListener('scroll', () => {
