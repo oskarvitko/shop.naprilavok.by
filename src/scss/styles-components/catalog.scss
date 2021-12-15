@@ -10,6 +10,14 @@
     margin-bottom: 40px;
     line-height: 140%;
     letter-spacing: 0.05rem;
+    @media (max-width: 500px) {
+      font-size: $sub-large-fz - 5;
+    }
+    @media (max-width: 400px) {
+      font-size: $sub-large-fz - 5 - 3;
+      margin-bottom: 20px;
+      margin-top: -10px;
+    }
   }
   &__items {
     display: flex;
@@ -41,6 +49,10 @@
         text-transform: uppercase;
         font-weight: 600;
         font-size: $medium-fz;
+        @media (max-width: 368px) {
+          font-size: 16px;
+          font-weight: 500;
+        }
       }
     }
     &-img {
@@ -93,11 +105,17 @@
         font-weight: 500;
         text-decoration: line-through;
         color: $second-accent-color;
+        @media (max-width: 368px) {
+          font-size: 14px - 3px;
+        }
       }
       &--new {
         line-height: 100%;
         font-size: 22px;
         font-weight: 800;
+        @media (max-width: 368px) {
+          font-size: 22px - 3px;
+        }
       }
     }
     &-options {
@@ -110,6 +128,9 @@
         font-weight: 600;
         text-align: center;
         padding: 10px 0;
+        @media (max-width: 368px) {
+          padding: 5px 0;
+        }
       }
     }
     &-label {
@@ -129,6 +150,9 @@
         &:hover {
           box-shadow: 1px 1px 5px 0 rgba(#000, 25%);
         }
+        @media (max-width: 368px) {
+          font-size: $medium-fz - 5;
+        }
       }
       & input:checked + span {
         background: $first-gradient-normal;
@@ -144,6 +168,9 @@
       justify-content: space-between;
       align-items: flex-end;
       padding-top: 45px;
+      @media (max-width: 368px) {
+        padding-top: 45px - 11;
+      }
     }
     &-input {
       position: absolute;
@@ -158,6 +185,10 @@
       border: 1px solid $first-accent-color;
       border-bottom: none;
       border-left: none;
+      @media (max-width: 368px) {
+        height: 40px - 10;
+        font-size: $medium-fz - 5;
+      }
     }
     &-btn {
       position: absolute;
@@ -177,6 +208,12 @@
         letter-spacing: 0.03rem;
         background: $first-gradient-hover;
       }
+      @media (max-width: 368px) {
+        width: 140px - 35;
+        height: 40px - 10;
+        line-height: 40px - 10;
+        font-size: $medium-fz - 3;
+      }
     }
   }
 }
@@ -187,6 +224,9 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
+  @media (max-width: 368px) {
+    margin-bottom: 10px - 5;
+  }
 }
 
 .card-table {
@@ -206,16 +246,25 @@
       border-bottom: 1px dashed rgba(#000, 40%);
       background-color: rgba(0, 0, 0, 0.1);
     }
+    @media (max-width: 368px) {
+      padding: 2px 5px;
+    }
   }
   &__column-1 {
     font-weight: 600;
     font-size: 13px;
     line-height: 100%;
+    @media (max-width: 368px) {
+      font-size: 12px;
+    }
   }
   &__column-2 {
     font-weight: 400;
     font-size: 13px;
     line-height: 100%;
+    @media (max-width: 368px) {
+      font-size: 12px;
+    }
   }
 
 }
@@ -229,6 +278,9 @@
       color: $main-bg;
       font-weight: 700;
       margin-bottom: 20px;
+      @media (max-width: 368px) {
+        font-size: 18px;
+      }
     }
     &-sub-title {
       color: $main-bg;
@@ -241,6 +293,10 @@
       font-weight: 400;
       margin-bottom: 30px;
       line-height: 26px;
+      @media (max-width: 368px) {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
       & ._link {
         color: $first-accent-color;
         transition: $standart-trans;
@@ -260,6 +316,9 @@
           font-size: $medium-fz;
           color: $main-bg;
           font-weight: 400;
+          @media (max-width: 368px) {
+            font-size: 14px;
+          }
         }
       }
     }
