@@ -28,9 +28,9 @@ const getHTMLMakepurchase = (props) => {
         </div>
         <div class="makepurchase__item-text">
         <p>${props.description}</p>
-        </div>
-        </div>
-        `)
+      </div>
+    </div>
+  `)
 }
 
 const getHTMLCatalogTeplic = (props) => {
@@ -129,14 +129,21 @@ const getHTMLCatalogTeplic = (props) => {
           </div>
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
-            <label class="catalog__card-label" for="${props.id}-3mm">
-              <input type="radio" id="${props.id}-3mm" name="polycarbonate" value="3mm" checked>
-              <span>3 мм</span>
-            </label>
-            <label class="catalog__card-label" for="${props.id}-4mm">
-              <input type="radio" id="${props.id}-4mm" name="polycarbonate" value="4mm">
-              <span>4 мм</span>
-            </label>
+
+            ${
+              props.polycarbonate.map((number, index) => {
+                const checked = index === 0 ? 'checked' : ''
+
+                return (`
+                  <label class="catalog__card-label" for="${props.id}-${number}mm">
+                    <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
+                    <span>${number} мм</span>
+                  </label>
+                `)
+              }).join('')
+            }
+
+            
           </div>
         </div>
         <div class="catalog__card-price">
