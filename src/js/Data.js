@@ -317,7 +317,7 @@ const DATA = {
     {
       id: '40dk',
       title: 'Домик',
-      productName: '4000-40c',
+      productName: '40dk',
       tube: '40x20',
       width: '2.85',
       height: '2.40',
@@ -914,6 +914,68 @@ const DATA = {
         },
       }
     },
+    '40-ck': {
+      'demountable': {
+        '4m': {
+          '67sm': {
+            '3mm': $40C_4M_67SM,
+            '4mm': $40C_4M_67SM + POLIC_4MM_4M,
+            '6mm': $40C_4M_67SM + POLIC_6MM_4M,
+          },
+        },
+        '6m': {
+          '67sm': {
+            '3mm': $40C_6M_67SM,
+            '4mm': $40C_6M_67SM + POLIC_4MM_6M,
+            '6mm': $40C_6M_67SM + POLIC_6MM_6M,
+          },
+        },
+        '8m': {
+          '67sm': {
+            '3mm': $40C_8M_67SM,
+            '4mm': $40C_8M_67SM + POLIC_4MM_8M,
+            '6mm': $40C_8M_67SM + POLIC_6MM_8M,
+          },
+        },
+        '10m': {
+          '67sm': {
+            '3mm': $40C_10M_67SM,
+            '4mm': $40C_10M_67SM + POLIC_4MM_10M,
+            '6mm': $40C_10M_67SM + POLIC_6MM_10M,
+          },
+        },
+      },
+      'one-piece': {
+        '4m': {
+          '67sm': {
+            '3mm': $40C_4M_67SM + SHIPPING_MID,
+            '4mm': $40C_4M_67SM + SHIPPING_MID + POLIC_4MM_4M,
+            '6mm': $40C_4M_67SM + SHIPPING_MID + POLIC_6MM_4M,
+          },
+        },
+        '6m': {
+          '67sm': {
+            '3mm': $40C_6M_67SM + SHIPPING_MID,
+            '4mm': $40C_6M_67SM + SHIPPING_MID + POLIC_4MM_6M,
+            '6mm': $40C_6M_67SM + SHIPPING_MID + POLIC_6MM_6M,
+          },
+        },
+        '8m': {
+          '67sm': {
+            '3mm': $40C_8M_67SM + SHIPPING_MID,
+            '4mm': $40C_8M_67SM + SHIPPING_MID + POLIC_4MM_8M,
+            '6mm': $40C_8M_67SM + SHIPPING_MID + POLIC_6MM_8M,
+          },
+        },
+        '10m': {
+          '67sm': {
+            '3mm': $40C_10M_67SM + SHIPPING_MID,
+            '4mm': $40C_10M_67SM + SHIPPING_MID + POLIC_4MM_10M,
+            '6mm': $40C_10M_67SM + SHIPPING_MID + POLIC_6MM_10M,
+          },
+        },
+      }
+    },
     '20-fc': {
       'demountable': {
         '4m': {
@@ -1248,6 +1310,60 @@ const DATA = {
           '50sm': {
             '3mm': 500,
             '4mm': 600
+          },
+        },
+      }
+    },
+    '40dk': {
+      'demountable': {
+        '4m': {
+          '100sm': {
+            '3mm': 450,
+            '4mm': 500,
+          },
+        },
+        '6m': {
+          '100sm': {
+            '3mm': 200,
+            '4mm': 600
+          },
+        },
+        '8m': {
+          '100sm': {
+            '3mm': 100,
+            '4mm': 400,
+          },
+        },
+        '10m': {
+          '100sm': {
+            '3mm': 300,
+            '4mm': 600,
+          },
+        },
+      },
+      'one-piece': {
+        '4m': {
+          '100sm': {
+            '3mm': 514,
+            '4mm': 550,
+          },
+        },
+        '6m': {
+          '100sm': {
+            '3mm': 200,
+            '4mm': 600
+          },
+        },
+        '8m': {
+          '100sm': {
+            '3mm': 100,
+            '4mm': 400,
+          },
+        },
+        '10m': {
+          '100sm': {
+            '3mm': 300,
+            '4mm': 600,
           },
         },
       }

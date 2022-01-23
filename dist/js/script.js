@@ -1064,7 +1064,7 @@ const DATA = {
     {
       id: '40dk',
       title: 'Домик',
-      productName: '4000-40c',
+      productName: '40dk',
       tube: '40x20',
       width: '2.85',
       height: '2.40',
@@ -1661,6 +1661,68 @@ const DATA = {
         },
       }
     },
+    '40-ck': {
+      'demountable': {
+        '4m': {
+          '67sm': {
+            '3mm': $40C_4M_67SM,
+            '4mm': $40C_4M_67SM + POLIC_4MM_4M,
+            '6mm': $40C_4M_67SM + POLIC_6MM_4M,
+          },
+        },
+        '6m': {
+          '67sm': {
+            '3mm': $40C_6M_67SM,
+            '4mm': $40C_6M_67SM + POLIC_4MM_6M,
+            '6mm': $40C_6M_67SM + POLIC_6MM_6M,
+          },
+        },
+        '8m': {
+          '67sm': {
+            '3mm': $40C_8M_67SM,
+            '4mm': $40C_8M_67SM + POLIC_4MM_8M,
+            '6mm': $40C_8M_67SM + POLIC_6MM_8M,
+          },
+        },
+        '10m': {
+          '67sm': {
+            '3mm': $40C_10M_67SM,
+            '4mm': $40C_10M_67SM + POLIC_4MM_10M,
+            '6mm': $40C_10M_67SM + POLIC_6MM_10M,
+          },
+        },
+      },
+      'one-piece': {
+        '4m': {
+          '67sm': {
+            '3mm': $40C_4M_67SM + SHIPPING_MID,
+            '4mm': $40C_4M_67SM + SHIPPING_MID + POLIC_4MM_4M,
+            '6mm': $40C_4M_67SM + SHIPPING_MID + POLIC_6MM_4M,
+          },
+        },
+        '6m': {
+          '67sm': {
+            '3mm': $40C_6M_67SM + SHIPPING_MID,
+            '4mm': $40C_6M_67SM + SHIPPING_MID + POLIC_4MM_6M,
+            '6mm': $40C_6M_67SM + SHIPPING_MID + POLIC_6MM_6M,
+          },
+        },
+        '8m': {
+          '67sm': {
+            '3mm': $40C_8M_67SM + SHIPPING_MID,
+            '4mm': $40C_8M_67SM + SHIPPING_MID + POLIC_4MM_8M,
+            '6mm': $40C_8M_67SM + SHIPPING_MID + POLIC_6MM_8M,
+          },
+        },
+        '10m': {
+          '67sm': {
+            '3mm': $40C_10M_67SM + SHIPPING_MID,
+            '4mm': $40C_10M_67SM + SHIPPING_MID + POLIC_4MM_10M,
+            '6mm': $40C_10M_67SM + SHIPPING_MID + POLIC_6MM_10M,
+          },
+        },
+      }
+    },
     '20-fc': {
       'demountable': {
         '4m': {
@@ -1995,6 +2057,60 @@ const DATA = {
           '50sm': {
             '3mm': 500,
             '4mm': 600
+          },
+        },
+      }
+    },
+    '40dk': {
+      'demountable': {
+        '4m': {
+          '100sm': {
+            '3mm': 450,
+            '4mm': 500,
+          },
+        },
+        '6m': {
+          '100sm': {
+            '3mm': 200,
+            '4mm': 600
+          },
+        },
+        '8m': {
+          '100sm': {
+            '3mm': 100,
+            '4mm': 400,
+          },
+        },
+        '10m': {
+          '100sm': {
+            '3mm': 300,
+            '4mm': 600,
+          },
+        },
+      },
+      'one-piece': {
+        '4m': {
+          '100sm': {
+            '3mm': 514,
+            '4mm': 550,
+          },
+        },
+        '6m': {
+          '100sm': {
+            '3mm': 200,
+            '4mm': 600
+          },
+        },
+        '8m': {
+          '100sm': {
+            '3mm': 100,
+            '4mm': 400,
+          },
+        },
+        '10m': {
+          '100sm': {
+            '3mm': 300,
+            '4mm': 600,
           },
         },
       }
@@ -2347,32 +2463,69 @@ renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
 renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
 renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
 renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
-$(document).ready(function () {
-  $("form.calculator-greenhouses").change(function () {
-    var brandName           = $("input[name='product']", this).val(),
-        arcType             = $("input[name='arc_type']:checked", this).val(),
-        lengthDevice        = $("input[name='length']:checked", this).val(),
-        arcStep             = $("input[name='arc_step']:checked", this).val(),
-        polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
-        calculationPrice    = 0
+// $(document).ready(function () {
+//   $("form.calculator-greenhouses").change(function () {
+//     var brandName           = $("input[name='product']", this).val(),
+//         arcType             = $("input[name='arc_type']:checked", this).val(),
+//         lengthDevice        = $("input[name='length']:checked", this).val(),
+//         arcStep             = $("input[name='arc_step']:checked", this).val(),
+//         polycarbonate       = $("input[name='polycarbonate']:checked", this).val(),
+//         calculationPrice    = 0
 
-    calculationPrice += DATA.priceList[brandName][arcType][lengthDevice][arcStep][polycarbonate]
+//     calculationPrice += DATA.priceList[brandName][arcType][lengthDevice][arcStep][polycarbonate]
 
-    var calculatorPriceNew    = $(".price--new", this),
-        calculatorPriceOld    = $(".catalog__card-price--old", this)
+//     var calculatorPriceNew    = $(".price--new", this),
+//         calculatorPriceOld    = $(".catalog__card-price--old", this)
 
-    $({ animateNumber: brandName }).animate({ animateNumber: calculationPrice }, {
-      duration: 200, step: (brandName) => {
-        calculatorPriceNew.text(Number(brandName).toFixed())
-        calculatorPriceOld.text(Number(1.15 * brandName).toFixed())
-      },
-      complete: () => {
-        calculatorPriceNew.data("animateFrom", Number(calculationPrice).toFixed())
-      }
-    })
-  });
-  $("form.calculator-greenhouses").change()
+//     $({ animateNumber: brandName }).animate({ animateNumber: calculationPrice }, {
+//       duration: 200, step: (brandName) => {
+//         calculatorPriceNew.text(Number(brandName).toFixed())
+//         calculatorPriceOld.text(Number(1.15 * brandName).toFixed())
+//       },
+//       complete: () => {
+//         calculatorPriceNew.data("animateFrom", Number(calculationPrice).toFixed())
+//       }
+//     })
+//   });
+//   $("form.calculator-greenhouses").change()
+// })
+
+document.addEventListener('DOMContentLoaded', () => {
+  function animationNumber(currentPrice, priceLabel) {
+    const time = 100
+    const stepNumber = 25
+    counterPrice = 0
+
+    const timeInterval = Math.round(time / (currentPrice / stepNumber))
+    const intervalChangeNumber = setInterval(() => {
+      counterPrice += stepNumber
+
+      if (counterPrice == currentPrice) clearInterval(intervalChangeNumber)
+      priceLabel.innerHTML = counterPrice
+    }, timeInterval)
+  }
+
+  const currentForms = document.querySelectorAll('form.calculator-greenhouses')
+  currentForms.forEach((form) => {
+    function calculationPrice() {
+      const brandName = form.querySelector("input[name='product']").value
+      const arcType = form.querySelector("input[name='arc_type']:checked").value
+      const lengthDevice = form.querySelector("input[name='length']:checked").value
+      const arcStep = form.querySelector("input[name='arc_step']:checked").value
+      const polycarbonate = form.querySelector("input[name='polycarbonate']:checked").value
+      const calculatorPriceNew = form.querySelector('.price--new')
+      let calculationPrice = 0
+
+      calculationPrice += DATA.priceList[brandName][arcType][lengthDevice][arcStep][polycarbonate]
+      calculatorPriceNew.innerHTML = Number(calculationPrice).toFixed()
+
+      animationNumber(calculationPrice, calculatorPriceNew)
+    }
+    calculationPrice()
+    form.addEventListener('input', calculationPrice)
+  })
 })
+
 
 
 const testWebP = (callback) => {
@@ -2404,9 +2557,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Переход по ссылкам с применением класса active
 const onClickNavLinks = () => {
   if (anchorLinks.length > 0) {
-    anchorLinks.forEach(anchorLink => {
+    anchorLinks.forEach((anchorLink) => {
       anchorLink.onclick = () => {
-        anchorLinks.forEach(activeAnchorLink => activeAnchorLink.classList.remove('active'));
+        anchorLinks.forEach((activeAnchorLink) => activeAnchorLink.classList.remove('active'));
         anchorLink.classList.add('active');
         burgerBtn.classList.remove('nav-header__burger--active');
         navHeaderMenu.classList.remove('nav-header__menu-list--active');
