@@ -757,6 +757,11 @@ const POLIC_4MM_4M  = 53,
       POLIC_4MM_6M  = 69,
       POLIC_4MM_8M  = 85,
       POLIC_4MM_10M = 101
+// Polycarbonate 4mm DK:
+const POLIC_DK_4MM_4M = 69,
+      POLIC_DK_4MM_6M = 85,
+      POLIC_DK_4MM_8M = 101,
+      POLIC_DK_4MM_10M = 117
 // Shipping:
 const SHIPPING_MIN  = 64,
       SHIPPING_MID  = 77,
@@ -805,6 +810,11 @@ const $40C_4M_100SM   = 526,
       $40C_10M_100SM  = 1046,
       $40C_10M_67SM   = 1138,
       $40C_10M_50SM   = 1229
+// 40-ck:
+const $40CK_4M_67SM  = 641,
+      $40CK_6M_67SM  = 851,
+      $40CK_8M_67SM  = 1061,
+      $40CK_10M_67SM = 1252
 // 20-fc:
 const $20FC_4M_100SM   = 683,
       $20FC_4M_67SM    = 736,
@@ -827,6 +837,24 @@ const $3500_40C_4M_100SM  = 613,
       $3500_40C_10M_100SM = 1156,
       $3500_40C_10M_67SM  = 1279,
       $3500_40C_10M_50SM  = 1388
+// 4000-40-c:
+const $4000_40C_4M_100SM  = 654,
+      $4000_40C_4M_67SM   = 686,
+      $4000_40C_4M_50SM   = 717,
+      $4000_40C_6M_100SM  = 835,
+      $4000_40C_6M_67SM   = 898,
+      $4000_40C_6M_50SM   = 961,
+      $4000_40C_8M_100SM  = 1025,
+      $4000_40C_8M_67SM   = 1119,
+      $4000_40C_8M_50SM   = 1205,
+      $4000_40C_10M_100SM = 1207,
+      $4000_40C_10M_67SM  = 1299,
+      $4000_40C_10M_50SM  = 1431
+// 40-dk:
+const $40DK_4M_100SM   = 995,
+      $40DK_6M_100SM   = 1266,
+      $40DK_8M_100SM   = 1584,
+      $40DK_10M_100SM  = 1829
 
 const DATA = {
   about: [
@@ -983,8 +1011,8 @@ const DATA = {
       width: '3.00',
       height: '2.10',
       images: [
-        'teplica-40ck-01.webp',
         'teplica-40ck-02.webp',
+        'teplica-40ck-01.webp',
         'teplica-40ck-03.webp',
         'teplica-40ck-04.webp',
         'teplica-40ck-05.webp',
@@ -1003,10 +1031,10 @@ const DATA = {
       width: '3.00',
       height: '2.10',
       images: [
+        'teplica-4.4.webp',
         'teplica-4.webp',
         'teplica-4.2.webp',
         'teplica-4.3.webp',
-        'teplica-4.4.webp',
         'teplica-4.5.webp',
       ],
       numberIndicators: ['0', '1', '2', '3', '4',],
@@ -1078,28 +1106,6 @@ const DATA = {
       numberIndicators: ['0', '1', '2', '3', '4'],
       arcStep: {
         '1': '100sm',
-      },
-      polycarbonate: ['3', '4'],
-    },
-    {
-      id: 'prom-40c',
-      title: 'Промышленная ферма',
-      productName: 'prom-40c',
-      tube: '40x20',
-      width: '7.00',
-      height: '2.10',
-      images: [
-        'teplica-6.webp',
-        'teplica-6.2.webp',
-        'teplica-6.3.webp',
-        'teplica-6.4.webp',
-        'teplica-6.5.webp',
-      ],
-      numberIndicators: ['0', '1', '2', '3', '4',],
-      arcStep: {
-        '1': '100sm',
-        '0.67': '67sm',
-        '0.5': '50sm',
       },
       polycarbonate: ['3', '4'],
     },
@@ -1665,60 +1671,60 @@ const DATA = {
       'demountable': {
         '4m': {
           '67sm': {
-            '3mm': $40C_4M_67SM,
-            '4mm': $40C_4M_67SM + POLIC_4MM_4M,
-            '6mm': $40C_4M_67SM + POLIC_6MM_4M,
+            '3mm': $40CK_4M_67SM,
+            '4mm': $40CK_4M_67SM + POLIC_4MM_4M,
+            '6mm': $40CK_4M_67SM + POLIC_6MM_4M,
           },
         },
         '6m': {
           '67sm': {
-            '3mm': $40C_6M_67SM,
-            '4mm': $40C_6M_67SM + POLIC_4MM_6M,
-            '6mm': $40C_6M_67SM + POLIC_6MM_6M,
+            '3mm': $40CK_6M_67SM,
+            '4mm': $40CK_6M_67SM + POLIC_4MM_6M,
+            '6mm': $40CK_6M_67SM + POLIC_6MM_6M,
           },
         },
         '8m': {
           '67sm': {
-            '3mm': $40C_8M_67SM,
-            '4mm': $40C_8M_67SM + POLIC_4MM_8M,
-            '6mm': $40C_8M_67SM + POLIC_6MM_8M,
+            '3mm': $40CK_8M_67SM,
+            '4mm': $40CK_8M_67SM + POLIC_4MM_8M,
+            '6mm': $40CK_8M_67SM + POLIC_6MM_8M,
           },
         },
         '10m': {
           '67sm': {
-            '3mm': $40C_10M_67SM,
-            '4mm': $40C_10M_67SM + POLIC_4MM_10M,
-            '6mm': $40C_10M_67SM + POLIC_6MM_10M,
+            '3mm': $40CK_10M_67SM,
+            '4mm': $40CK_10M_67SM + POLIC_4MM_10M,
+            '6mm': $40CK_10M_67SM + POLIC_6MM_10M,
           },
         },
       },
       'one-piece': {
         '4m': {
           '67sm': {
-            '3mm': $40C_4M_67SM + SHIPPING_MID,
-            '4mm': $40C_4M_67SM + SHIPPING_MID + POLIC_4MM_4M,
-            '6mm': $40C_4M_67SM + SHIPPING_MID + POLIC_6MM_4M,
+            '3mm': $40CK_4M_67SM + SHIPPING_MID,
+            '4mm': $40CK_4M_67SM + SHIPPING_MID + POLIC_4MM_4M,
+            '6mm': $40CK_4M_67SM + SHIPPING_MID + POLIC_6MM_4M,
           },
         },
         '6m': {
           '67sm': {
-            '3mm': $40C_6M_67SM + SHIPPING_MID,
-            '4mm': $40C_6M_67SM + SHIPPING_MID + POLIC_4MM_6M,
-            '6mm': $40C_6M_67SM + SHIPPING_MID + POLIC_6MM_6M,
+            '3mm': $40CK_6M_67SM + SHIPPING_MID,
+            '4mm': $40CK_6M_67SM + SHIPPING_MID + POLIC_4MM_6M,
+            '6mm': $40CK_6M_67SM + SHIPPING_MID + POLIC_6MM_6M,
           },
         },
         '8m': {
           '67sm': {
-            '3mm': $40C_8M_67SM + SHIPPING_MID,
-            '4mm': $40C_8M_67SM + SHIPPING_MID + POLIC_4MM_8M,
-            '6mm': $40C_8M_67SM + SHIPPING_MID + POLIC_6MM_8M,
+            '3mm': $40CK_8M_67SM + SHIPPING_MID,
+            '4mm': $40CK_8M_67SM + SHIPPING_MID + POLIC_4MM_8M,
+            '6mm': $40CK_8M_67SM + SHIPPING_MID + POLIC_6MM_8M,
           },
         },
         '10m': {
           '67sm': {
-            '3mm': $40C_10M_67SM + SHIPPING_MID,
-            '4mm': $40C_10M_67SM + SHIPPING_MID + POLIC_4MM_10M,
-            '6mm': $40C_10M_67SM + SHIPPING_MID + POLIC_6MM_10M,
+            '3mm': $40CK_10M_67SM + SHIPPING_MID,
+            '4mm': $40CK_10M_67SM + SHIPPING_MID + POLIC_4MM_10M,
+            '6mm': $40CK_10M_67SM + SHIPPING_MID + POLIC_6MM_10M,
           },
         },
       }
@@ -1947,116 +1953,116 @@ const DATA = {
       'demountable': {
         '4m': {
           '100sm': {
-            '3mm': 450,
-            '4mm': 500,
+            '3mm': $4000_40C_4M_100SM,
+            '4mm': $4000_40C_4M_100SM + POLIC_4MM_4M,
           },
           '67sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_4M_67SM,
+            '4mm': $4000_40C_4M_67SM + POLIC_4MM_4M,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_4M_50SM,
+            '4mm': $4000_40C_4M_50SM + POLIC_4MM_4M,
           },
         },
         '6m': {
           '100sm': {
-            '3mm': 200,
-            '4mm': 600
+            '3mm': $4000_40C_6M_100SM,
+            '4mm': $4000_40C_6M_100SM + POLIC_4MM_6M,
           },
           '67sm': {
-            '3mm': 300,
-            '4mm': 700,
+            '3mm': $4000_40C_6M_67SM,
+            '4mm': $4000_40C_6M_67SM + POLIC_4MM_6M,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_6M_50SM,
+            '4mm': $4000_40C_6M_50SM + POLIC_4MM_6M,
           },
         },
         '8m': {
           '100sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $4000_40C_8M_100SM,
+            '4mm': $4000_40C_8M_100SM + POLIC_4MM_8M,
           },
           '67sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $4000_40C_8M_67SM,
+            '4mm': $4000_40C_8M_67SM + POLIC_4MM_8M,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_8M_50SM,
+            '4mm': $4000_40C_8M_50SM + POLIC_4MM_8M,
           },
         },
         '10m': {
           '100sm': {
-            '3mm': 300,
-            '4mm': 600,
+            '3mm': $4000_40C_10M_100SM,
+            '4mm': $4000_40C_10M_100SM + POLIC_4MM_10M,
           },
           '67sm': {
-            '3mm': 300,
-            '4mm': 600,
+            '3mm': $4000_40C_10M_67SM,
+            '4mm': $4000_40C_10M_67SM + POLIC_4MM_10M,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_10M_50SM,
+            '4mm': $4000_40C_10M_50SM + POLIC_4MM_10M,
           },
         },
       },
       'one-piece': {
         '4m': {
           '100sm': {
-            '3mm': 514,
-            '4mm': 550,
+            '3mm': $4000_40C_4M_100SM + SHIPPING_MAX,
+            '4mm': $4000_40C_4M_100SM + POLIC_4MM_4M + SHIPPING_MAX,
           },
           '67sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_4M_67SM + SHIPPING_MAX,
+            '4mm': $4000_40C_4M_67SM + POLIC_4MM_4M + SHIPPING_MAX,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_4M_50SM + SHIPPING_MAX,
+            '4mm': $4000_40C_4M_50SM + POLIC_4MM_4M + SHIPPING_MAX,
           },
         },
         '6m': {
           '100sm': {
-            '3mm': 200,
-            '4mm': 600
+            '3mm': $4000_40C_6M_100SM + SHIPPING_MAX,
+            '4mm': $4000_40C_6M_100SM + POLIC_4MM_6M + SHIPPING_MAX,
           },
           '67sm': {
-            '3mm': 300,
-            '4mm': 700,
+            '3mm': $4000_40C_6M_67SM + SHIPPING_MAX,
+            '4mm': $4000_40C_6M_67SM + POLIC_4MM_6M + SHIPPING_MAX,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_6M_50SM + SHIPPING_MAX,
+            '4mm': $4000_40C_6M_50SM + POLIC_4MM_6M + SHIPPING_MAX,
           },
         },
         '8m': {
           '100sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $4000_40C_8M_100SM + SHIPPING_MAX,
+            '4mm': $4000_40C_8M_100SM + POLIC_4MM_8M + SHIPPING_MAX,
           },
           '67sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $4000_40C_8M_67SM + SHIPPING_MAX,
+            '4mm': $4000_40C_8M_67SM + POLIC_4MM_8M + SHIPPING_MAX,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_8M_50SM + SHIPPING_MAX,
+            '4mm': $4000_40C_8M_50SM + POLIC_4MM_8M + SHIPPING_MAX,
           },
         },
         '10m': {
           '100sm': {
-            '3mm': 300,
-            '4mm': 600,
+            '3mm': $4000_40C_10M_100SM + SHIPPING_MAX,
+            '4mm': $4000_40C_10M_100SM + POLIC_4MM_10M + SHIPPING_MAX,
           },
           '67sm': {
-            '3mm': 300,
-            '4mm': 600,
+            '3mm': $4000_40C_10M_67SM + SHIPPING_MAX,
+            '4mm': $4000_40C_10M_67SM + POLIC_4MM_10M + SHIPPING_MAX,
           },
           '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $4000_40C_10M_50SM + SHIPPING_MAX,
+            '4mm': $4000_40C_10M_50SM + POLIC_4MM_10M + SHIPPING_MAX,
           },
         },
       }
@@ -2065,170 +2071,52 @@ const DATA = {
       'demountable': {
         '4m': {
           '100sm': {
-            '3mm': 450,
-            '4mm': 500,
+            '3mm': $40DK_4M_100SM,
+            '4mm': $40DK_4M_100SM + POLIC_DK_4MM_4M,
           },
         },
         '6m': {
           '100sm': {
-            '3mm': 200,
-            '4mm': 600
+            '3mm': $40DK_6M_100SM,
+            '4mm': $40DK_6M_100SM + POLIC_DK_4MM_6M,
           },
         },
         '8m': {
           '100sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $40DK_8M_100SM,
+            '4mm': $40DK_8M_100SM + POLIC_DK_4MM_8M,
           },
         },
         '10m': {
           '100sm': {
-            '3mm': 300,
-            '4mm': 600,
+            '3mm': $40DK_10M_100SM,
+            '4mm': $40DK_10M_100SM + POLIC_DK_4MM_10M,
           },
         },
       },
       'one-piece': {
         '4m': {
           '100sm': {
-            '3mm': 514,
-            '4mm': 550,
+            '3mm': $40DK_4M_100SM + SHIPPING_MID,
+            '4mm': $40DK_4M_100SM + POLIC_DK_4MM_4M + SHIPPING_MID,
           },
         },
         '6m': {
           '100sm': {
-            '3mm': 200,
-            '4mm': 600
+            '3mm': $40DK_6M_100SM + SHIPPING_MID,
+            '4mm': $40DK_6M_100SM + POLIC_DK_4MM_6M + SHIPPING_MID,
           },
         },
         '8m': {
           '100sm': {
-            '3mm': 100,
-            '4mm': 400,
+            '3mm': $40DK_8M_100SM + SHIPPING_MID,
+            '4mm': $40DK_8M_100SM + POLIC_DK_4MM_8M + SHIPPING_MID,
           },
         },
         '10m': {
           '100sm': {
-            '3mm': 300,
-            '4mm': 600,
-          },
-        },
-      }
-    },
-    'prom-40c': {
-      'demountable': {
-        '4m': {
-          '100sm': {
-            '3mm': 450,
-            '4mm': 500,
-          },
-          '67sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '6m': {
-          '100sm': {
-            '3mm': 200,
-            '4mm': 600
-          },
-          '67sm': {
-            '3mm': 300,
-            '4mm': 700,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '8m': {
-          '100sm': {
-            '3mm': 100,
-            '4mm': 400,
-          },
-          '67sm': {
-            '3mm': 100,
-            '4mm': 400,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '10m': {
-          '100sm': {
-            '3mm': 300,
-            '4mm': 600,
-          },
-          '67sm': {
-            '3mm': 300,
-            '4mm': 600,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-      },
-      'one-piece': {
-        '4m': {
-          '100sm': {
-            '3mm': 514,
-            '4mm': 550,
-          },
-          '67sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '6m': {
-          '100sm': {
-            '3mm': 200,
-            '4mm': 600
-          },
-          '67sm': {
-            '3mm': 300,
-            '4mm': 700,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '8m': {
-          '100sm': {
-            '3mm': 100,
-            '4mm': 400,
-          },
-          '67sm': {
-            '3mm': 100,
-            '4mm': 400,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
-          },
-        },
-        '10m': {
-          '100sm': {
-            '3mm': 300,
-            '4mm': 600,
-          },
-          '67sm': {
-            '3mm': 300,
-            '4mm': 600,
-          },
-          '50sm': {
-            '3mm': 500,
-            '4mm': 600
+            '3mm': $40DK_10M_100SM + SHIPPING_MID,
+            '4mm': $40DK_10M_100SM + POLIC_DK_4MM_10M + SHIPPING_MID,
           },
         },
       }
@@ -2492,37 +2380,41 @@ renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
 
 document.addEventListener('DOMContentLoaded', () => {
   function animationNumber(currentPrice, priceLabel) {
-    const time = 100
-    const stepNumber = 25
-    counterPrice = 0
+    const time        = 150
+    const stepNumber  = 72
+    let counterPrice  = 0
 
     const timeInterval = Math.round(time / (currentPrice / stepNumber))
     const intervalChangeNumber = setInterval(() => {
       counterPrice += stepNumber
 
-      if (counterPrice == currentPrice) clearInterval(intervalChangeNumber)
-      priceLabel.innerHTML = counterPrice
+      if (counterPrice >= currentPrice) {
+        clearInterval(intervalChangeNumber)
+        priceLabel.innerHTML = currentPrice
+      } else {
+        priceLabel.innerHTML = counterPrice
+      }
     }, timeInterval)
   }
 
   const currentForms = document.querySelectorAll('form.calculator-greenhouses')
   currentForms.forEach((form) => {
-    function calculationPrice() {
-      const brandName = form.querySelector("input[name='product']").value
-      const arcType = form.querySelector("input[name='arc_type']:checked").value
-      const lengthDevice = form.querySelector("input[name='length']:checked").value
-      const arcStep = form.querySelector("input[name='arc_step']:checked").value
-      const polycarbonate = form.querySelector("input[name='polycarbonate']:checked").value
-      const calculatorPriceNew = form.querySelector('.price--new')
-      let calculationPrice = 0
+    function calcPrice() {
+      const brandName           = form.querySelector("input[name='product']").value
+      const arcType             = form.querySelector("input[name='arc_type']:checked").value
+      const lengthDevice        = form.querySelector("input[name='length']:checked").value
+      const arcStep             = form.querySelector("input[name='arc_step']:checked").value
+      const polycarbonate       = form.querySelector("input[name='polycarbonate']:checked").value
+      const calculatorPriceNew  = form.querySelector('.price--new')
+      let calculationPrice      = 0
 
       calculationPrice += DATA.priceList[brandName][arcType][lengthDevice][arcStep][polycarbonate]
       calculatorPriceNew.innerHTML = Number(calculationPrice).toFixed()
 
       animationNumber(calculationPrice, calculatorPriceNew)
     }
-    calculationPrice()
-    form.addEventListener('input', calculationPrice)
+    calcPrice()
+    form.addEventListener('input', calcPrice)
   })
 })
 
