@@ -50,7 +50,7 @@ if (showModalLegalInfoBtn && closeBtnModalLegalInfo) {
 }
 
 if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
-  showModalFeedbackBtns.forEach(btn => {
+  showModalFeedbackBtns.forEach((btn) => {
     btn.onclick = () => {
       modalFeedbackRequest.classList.add('show')
       setBodyLock()
@@ -68,7 +68,7 @@ const setBodyLock = () => {
         lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
 
   if (lockPaddingElements.length > 0) {
-    lockPaddingElements.forEach(element => {
+    lockPaddingElements.forEach((element) => {
       element.style.paddingRight = `${lockPaddingValue}px`
       element.style.transition = 'none'
     })
@@ -82,7 +82,7 @@ const setBodyLock = () => {
 const setBodyUnLock = () => {
   setTimeout(() => {
     if (lockPaddingElements.length > 0) {
-      lockPaddingElements.forEach(element => {
+      lockPaddingElements.forEach((element) => {
         element.style.paddingRight = '0px'
         element.style.transition = 'none'
       })
@@ -124,9 +124,9 @@ if (burgerBtn) {
 const accordionItems = document.querySelectorAll('.faq-accordion__item')
 
 if (accordionItems.length > 0) {
-  accordionItems.forEach(accordionItem => {
+  accordionItems.forEach((accordionItem) => {
     accordionItem.onclick = () => {
-      accordionItems.forEach(activeItem => activeItem.classList.remove('active'))
+      accordionItems.forEach((activeItem) => activeItem.classList.remove('active'))
       accordionItem.classList.add('active')
     }
   })

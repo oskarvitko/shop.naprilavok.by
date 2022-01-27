@@ -2160,7 +2160,7 @@ const getHTMLMakepurchase = (props) => {
 }
 
 const getHTMLCatalogTeplic = (props) => {
-  
+
   return (`
     <div class="catalog__card">
       <div class="catalog__card-title">
@@ -2239,35 +2239,33 @@ const getHTMLCatalogTeplic = (props) => {
           </div>
           <p>Шаг между дугами:</p>
           <div class="input__wrapper">
-            ${
-              Object.keys(props.arcStep).map((key, index) => {
-                const { arcStep } = props
-                const checked = index === 0 ? 'checked' : ''
+            ${Object.keys(props.arcStep).map((key, index) => {
+    const { arcStep } = props
+    const checked = index === 0 ? 'checked' : ''
 
-                return (`
+    return (`
                   <label class="catalog__card-label" for="${props.id}-${arcStep[key]}sm">
                     <input type="radio" id="${props.id}-${arcStep[key]}sm" name="arc_step" value="${arcStep[key]}" ${checked}>
                     <span>${[key]} м</span>
                   </label>
                 `)
-              }).join('')
-            }
+  }).join('')
+    }
           </div>
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
 
-            ${
-              props.polycarbonate.map((number, index) => {
-                const checked = index === 0 ? 'checked' : ''
+            ${props.polycarbonate.map((number, index) => {
+      const checked = index === 0 ? 'checked' : ''
 
-                return (`
+      return (`
                   <label class="catalog__card-label" for="${props.id}-${number}mm">
                     <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
                     <span>${number} мм</span>
                   </label>
                 `)
-              }).join('')
-            }
+    }).join('')
+    }
 
             
           </div>
@@ -2314,7 +2312,7 @@ const getHTMLAddEquipment = (props) => {
   return (`
     <div class="add-equipment__item item__block">
       <div class="item__img">
-        <img class="lazy" ${srcUrl} data-src="img/add-equip${props.imgUrl}" alt="${props.altName}">
+        <img class="lazy" ${srcUrl} data-src='img/add-equip${props.imgUrl}' alt="${props.altName}">
       </div>
       <div class="item-cover">
         <h3 class="item-cover__title">${props.name}</h3>
@@ -2439,7 +2437,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const onResize = () => {
     if (sectionTitles.length > 0) {
-      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
+      sectionTitles.forEach((title) => title.classList.toggle('title-line', window.innerWidth > 830))
     }
   }
 
@@ -2450,7 +2448,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const onClickNavLinks = () => {
   if (anchorLinks.length > 0) {
     anchorLinks.forEach((anchorLink) => {
-      anchorLink.onclick = () => {
+      anchorLink.onclick = (event) => {
+        event.preventDefault()
+        
         anchorLinks.forEach((activeAnchorLink) => activeAnchorLink.classList.remove('active'));
         anchorLink.classList.add('active');
         burgerBtn.classList.remove('nav-header__burger--active');
@@ -2464,12 +2464,12 @@ const menuNav            = document.querySelector('.nav-header__menu-list')
 const menuNavItemLinks   = document.querySelectorAll('._link')
 const sectionIdInNavMenu = document.querySelectorAll('._section')
 
-const getId = link => link.getAttribute('href').replace('#', '')
+const getId = (link) => link.getAttribute('href').replace('#', '')
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      menuNavItemLinks.forEach(link => {
+      menuNavItemLinks.forEach((link) => {
         link.classList.toggle('active', getId(link) === entry.target.id)
       })
     }
@@ -2479,10 +2479,10 @@ const observer = new IntersectionObserver(entries => {
 })
 
 if (sectionIdInNavMenu.length > 0) {
-  sectionIdInNavMenu.forEach(section => observer.observe(section))
+  sectionIdInNavMenu.forEach((section) => observer.observe(section))
 }
 
-menuNav.onclick = (event => {
+menuNav.onclick = ((event) => {
   if (event.target.classList.contains('_link')) {
     event.preventDefault()
 
@@ -2497,7 +2497,7 @@ menuNav.onclick = (event => {
 document.addEventListener('DOMContentLoaded', () => {
   const catalogTeplicSlider = document.querySelectorAll('.catalog__card-slider')
 
-  catalogTeplicSlider.forEach(catalogTelpicItem => {
+  catalogTeplicSlider.forEach((catalogTelpicItem) => {
     new ChiefSlider(catalogTelpicItem, {
       loop: true,
       interval: 3000,
@@ -2555,11 +2555,11 @@ const submissionForms = () => {
   }
 
   const clearInputs = () => {
-    allInputs.forEach(input => input.value = '')
+    allInputs.forEach((input) => input.value = '')
   }
 
-  allForms.forEach(form => {
-    form.addEventListener('submit', event => {
+  allForms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault()
 
       // let statusMessage = document.createElement('div')
@@ -2569,7 +2569,7 @@ const submissionForms = () => {
       const formData = new FormData(form)
 
       postData('../mail-telegram.php', formData)
-        .then(result => {
+        .then((result) => {
           console.log(result)
           // statusMessage.textContent = textMessages.succes
           alert(textMessages.succes)
@@ -2745,7 +2745,7 @@ if (showModalLegalInfoBtn && closeBtnModalLegalInfo) {
 }
 
 if (showModalFeedbackBtns.length > 0 && closeBtnModalFeedback) {
-  showModalFeedbackBtns.forEach(btn => {
+  showModalFeedbackBtns.forEach((btn) => {
     btn.onclick = () => {
       modalFeedbackRequest.classList.add('show')
       setBodyLock()
@@ -2763,7 +2763,7 @@ const setBodyLock = () => {
         lockPaddingValue = window.innerWidth - pageWrapper.offsetWidth
 
   if (lockPaddingElements.length > 0) {
-    lockPaddingElements.forEach(element => {
+    lockPaddingElements.forEach((element) => {
       element.style.paddingRight = `${lockPaddingValue}px`
       element.style.transition = 'none'
     })
@@ -2777,7 +2777,7 @@ const setBodyLock = () => {
 const setBodyUnLock = () => {
   setTimeout(() => {
     if (lockPaddingElements.length > 0) {
-      lockPaddingElements.forEach(element => {
+      lockPaddingElements.forEach((element) => {
         element.style.paddingRight = '0px'
         element.style.transition = 'none'
       })
@@ -2819,9 +2819,9 @@ if (burgerBtn) {
 const accordionItems = document.querySelectorAll('.faq-accordion__item')
 
 if (accordionItems.length > 0) {
-  accordionItems.forEach(accordionItem => {
+  accordionItems.forEach((accordionItem) => {
     accordionItem.onclick = () => {
-      accordionItems.forEach(activeItem => activeItem.classList.remove('active'))
+      accordionItems.forEach((activeItem) => activeItem.classList.remove('active'))
       accordionItem.classList.add('active')
     }
   })

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const onResize = () => {
     if (sectionTitles.length > 0) {
-      sectionTitles.forEach(title => title.classList.toggle('title-line', window.innerWidth > 830))
+      sectionTitles.forEach((title) => title.classList.toggle('title-line', window.innerWidth > 830))
     }
   }
 

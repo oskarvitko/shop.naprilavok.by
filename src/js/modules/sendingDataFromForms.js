@@ -21,11 +21,11 @@ const submissionForms = () => {
   }
 
   const clearInputs = () => {
-    allInputs.forEach(input => input.value = '')
+    allInputs.forEach((input) => input.value = '')
   }
 
-  allForms.forEach(form => {
-    form.addEventListener('submit', event => {
+  allForms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault()
 
       // let statusMessage = document.createElement('div')
@@ -35,7 +35,7 @@ const submissionForms = () => {
       const formData = new FormData(form)
 
       postData('../mail-telegram.php', formData)
-        .then(result => {
+        .then((result) => {
           console.log(result)
           // statusMessage.textContent = textMessages.succes
           alert(textMessages.succes)

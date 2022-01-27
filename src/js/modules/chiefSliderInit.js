@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const catalogTeplicSlider = document.querySelectorAll('.catalog__card-slider')
 
-  catalogTeplicSlider.forEach(catalogTelpicItem => {
+  catalogTeplicSlider.forEach((catalogTelpicItem) => {
     new ChiefSlider(catalogTelpicItem, {
       loop: true,
       interval: 3000,

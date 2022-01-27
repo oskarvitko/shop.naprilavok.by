@@ -2,12 +2,12 @@ const menuNav            = document.querySelector('.nav-header__menu-list')
 const menuNavItemLinks   = document.querySelectorAll('._link')
 const sectionIdInNavMenu = document.querySelectorAll('._section')
 
-const getId = link => link.getAttribute('href').replace('#', '')
+const getId = (link) => link.getAttribute('href').replace('#', '')
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      menuNavItemLinks.forEach(link => {
+      menuNavItemLinks.forEach((link) => {
         link.classList.toggle('active', getId(link) === entry.target.id)
       })
     }
@@ -17,10 +17,10 @@ const observer = new IntersectionObserver(entries => {
 })
 
 if (sectionIdInNavMenu.length > 0) {
-  sectionIdInNavMenu.forEach(section => observer.observe(section))
+  sectionIdInNavMenu.forEach((section) => observer.observe(section))
 }
 
-menuNav.onclick = (event => {
+menuNav.onclick = ((event) => {
   if (event.target.classList.contains('_link')) {
     event.preventDefault()
 

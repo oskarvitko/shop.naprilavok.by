@@ -34,7 +34,7 @@ const getHTMLMakepurchase = (props) => {
 }
 
 const getHTMLCatalogTeplic = (props) => {
-  
+
   return (`
     <div class="catalog__card">
       <div class="catalog__card-title">
@@ -113,35 +113,33 @@ const getHTMLCatalogTeplic = (props) => {
           </div>
           <p>Шаг между дугами:</p>
           <div class="input__wrapper">
-            ${
-              Object.keys(props.arcStep).map((key, index) => {
-                const { arcStep } = props
-                const checked = index === 0 ? 'checked' : ''
+            ${Object.keys(props.arcStep).map((key, index) => {
+    const { arcStep } = props
+    const checked = index === 0 ? 'checked' : ''
 
-                return (`
+    return (`
                   <label class="catalog__card-label" for="${props.id}-${arcStep[key]}sm">
                     <input type="radio" id="${props.id}-${arcStep[key]}sm" name="arc_step" value="${arcStep[key]}" ${checked}>
                     <span>${[key]} м</span>
                   </label>
                 `)
-              }).join('')
-            }
+  }).join('')
+    }
           </div>
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
 
-            ${
-              props.polycarbonate.map((number, index) => {
-                const checked = index === 0 ? 'checked' : ''
+            ${props.polycarbonate.map((number, index) => {
+      const checked = index === 0 ? 'checked' : ''
 
-                return (`
+      return (`
                   <label class="catalog__card-label" for="${props.id}-${number}mm">
                     <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
                     <span>${number} мм</span>
                   </label>
                 `)
-              }).join('')
-            }
+    }).join('')
+    }
 
             
           </div>
@@ -188,7 +186,7 @@ const getHTMLAddEquipment = (props) => {
   return (`
     <div class="add-equipment__item item__block">
       <div class="item__img">
-        <img class="lazy" ${srcUrl} data-src="img/add-equip${props.imgUrl}" alt="${props.altName}">
+        <img class="lazy" ${srcUrl} data-src='img/add-equip${props.imgUrl}' alt="${props.altName}">
       </div>
       <div class="item-cover">
         <h3 class="item-cover__title">${props.name}</h3>
