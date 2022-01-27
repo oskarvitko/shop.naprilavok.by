@@ -44,7 +44,7 @@
       transform: translate(-100%, 70px);
       transition: $standart-trans;
       @media screen and (max-width: 425px) {
-          transform: translate(-100%, 60px);
+          transform: translate(-100%, 50px);
         }
       & .nav-header__menu-item {
         margin-right: 0;
@@ -77,7 +77,7 @@
         transform: translate(0, 70px);
         visibility: visible;
         @media screen and (max-width: 425px) {
-          transform: translate(0, 60px);
+          transform: translate(0, 50px);
         }
       }
     }
@@ -188,7 +188,12 @@
     align-items: flex-end;
     margin-right: 25px;
     @media screen and (max-width: 825px) {
-      display: none;;
+      display: none;
+    }
+    @media (max-width: 425px) {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
     }
   }
   &__phone {
@@ -203,6 +208,13 @@
     }
     & .fa {
       padding-right: 3px;
+      @media (max-width: 425px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 425px) {
+      margin-bottom: 0;
     }
   }
   &__time {
@@ -210,6 +222,9 @@
     font-size: $small-fz;
     cursor: default;
     font-weight: 500;
+    @media (max-width: 425px) {
+      display: none;
+    }
   }
 }
 

@@ -4543,9 +4543,8 @@ body.lock {
 }
 
 .header__container .logo {
-  width: 260px;
+  width: 50px;
   height: 100%;
-  border-right: 1px solid #2c3d49;
   overflow: hidden;
 }
 
@@ -4555,8 +4554,29 @@ body.lock {
      object-fit: cover;
 }
 
+.header__phone-btn {
+  display: none;
+}
+
 .header__btn {
   width: 230px;
+}
+
+.header__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo-text {
+  color: #73b94d;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-left: 20px;
 }
 
 .first-screen {
@@ -6564,15 +6584,15 @@ body.lock {
 
 @media screen and (max-width: 1150px) and (max-width: 425px) {
   .nav-header__menu-list {
-    -webkit-transform: translate(-100%, 60px);
-        -ms-transform: translate(-100%, 60px);
-            transform: translate(-100%, 60px);
+    -webkit-transform: translate(-100%, 50px);
+        -ms-transform: translate(-100%, 50px);
+            transform: translate(-100%, 50px);
   }
 
   .nav-header__menu-list.nav-header__menu-list--active {
-    -webkit-transform: translate(0, 60px);
-        -ms-transform: translate(0, 60px);
-            transform: translate(0, 60px);
+    -webkit-transform: translate(0, 50px);
+        -ms-transform: translate(0, 50px);
+            transform: translate(0, 50px);
   }
 }
 
@@ -6945,16 +6965,8 @@ body.lock {
     font-size: 19px;
   }
 
-  .header__container .logo {
-    width: 200px;
-  }
-
   .header__btn {
-    width: 176px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 14px;
-    border-radius: 18px;
+    display: none;
   }
 
   .first-screen__title {
@@ -7078,6 +7090,80 @@ body.lock {
 }
 
 @media (max-width: 425px) {
+  .call-info__block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 15px;
+  }
+
+  .call-info__phone .fa {
+    display: none;
+  }
+
+  .call-info__phone {
+    margin-bottom: 0;
+  }
+
+  .call-info__time {
+    display: none;
+  }
+
+  .header__container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .header__container .logo {
+    width: 40px;
+  }
+
+  .header__phone-btn {
+    position: relative;
+    display: block;
+    background: -o-linear-gradient(105deg, #3f7c1d 0%, #73b94d 100%);
+    background: linear-gradient(345deg, #3f7c1d 0%, #73b94d 100%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3), 0 0 10px 0 rgba(0, 0, 0, 0.3), 0 0 15px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3), 0 0 10px 0 rgba(0, 0, 0, 0.3), 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    -webkit-transition: all 280ms ease 0ms;
+    -o-transition: all 280ms ease 0ms;
+    transition: all 280ms ease 0ms;
+  }
+
+  .header__phone-btn:hover {
+    background: -o-linear-gradient(105deg, #336617 0%, #60b135 100%);
+    background: linear-gradient(345deg, #336617 0%, #60b135 100%);
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .header__phone-btn .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  .header__logo {
+    margin-bottom: 0;
+  }
+
+  .header__logo-text {
+    display: none;
+  }
+
   .add-equipment__title {
     display: none;
   }
