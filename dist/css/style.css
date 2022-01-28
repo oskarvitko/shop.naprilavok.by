@@ -1,11 +1,20 @@
 @charset "UTF-8";
 
+.first-accent-color {
+  color: #73b94d;
+}
+
+.second-accent-color {
+  color: #a4001a;
+}
+
 * {
   padding: 0;
   margin: 0;
   border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 *:before,
@@ -144,14 +153,6 @@ h6 {
   font-weight: 200;
   font-style: normal;
   font-display: fallback;
-}
-
-.first-accent-color {
-  color: #73b94d;
-}
-
-.second-accent-color {
-  color: #a4001a;
 }
 
 .loader__wrapper {
