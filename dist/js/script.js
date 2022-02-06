@@ -3,188 +3,6 @@
 function _extends() { return (_extends = Object.assign || function (t) { for (var e = 1; e < arguments.length; e++) { var n = arguments[e]; for (var o in n) Object.prototype.hasOwnProperty.call(n, o) && (t[o] = n[o]) } return t }).apply(this, arguments) } function _typeof(t) { return (_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) { return typeof t } : function (t) { return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t })(t) } !function (t, e) { "object" === ("undefined" == typeof exports ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : t.LazyLoad = e() }(this, function () { "use strict"; var t = "undefined" != typeof window, e = t && !("onscroll" in window) || "undefined" != typeof navigator && /(gle|ing|ro)bot|crawl|spider/i.test(navigator.userAgent), n = t && "IntersectionObserver" in window, o = t && "classList" in document.createElement("p"), r = { elements_selector: "img", container: e || t ? document : null, threshold: 300, thresholds: null, data_src: "src", data_srcset: "srcset", data_sizes: "sizes", data_bg: "bg", class_loading: "loading", class_loaded: "loaded", class_error: "error", load_delay: 0, auto_unobserve: !0, callback_enter: null, callback_exit: null, callback_reveal: null, callback_loaded: null, callback_error: null, callback_finish: null, use_native: !1 }, a = function (t, e) { var n, o = new t(e); try { n = new CustomEvent("LazyLoad::Initialized", { detail: { instance: o } }) } catch (t) { (n = document.createEvent("CustomEvent")).initCustomEvent("LazyLoad::Initialized", !1, !1, { instance: o }) } window.dispatchEvent(n) }; var i = function (t, e) { return t.getAttribute("data-" + e) }, s = function (t, e, n) { var o = "data-" + e; null !== n ? t.setAttribute(o, n) : t.removeAttribute(o) }, c = function (t) { return "true" === i(t, "was-processed") }, l = function (t, e) { return s(t, "ll-timeout", e) }, u = function (t) { return i(t, "ll-timeout") }, d = function (t, e) { t && t(e) }, f = function (t, e) { t._loadingCount += e, 0 === t._elements.length && 0 === t._loadingCount && d(t._settings.callback_finish) }, _ = function (t) { for (var e, n = [], o = 0; e = t.children[o]; o += 1)"SOURCE" === e.tagName && n.push(e); return n }, v = function (t, e, n) { n && t.setAttribute(e, n) }, g = function (t, e) { v(t, "sizes", i(t, e.data_sizes)), v(t, "srcset", i(t, e.data_srcset)), v(t, "src", i(t, e.data_src)) }, m = { IMG: function (t, e) { var n = t.parentNode; n && "PICTURE" === n.tagName && _(n).forEach(function (t) { g(t, e) }); g(t, e) }, IFRAME: function (t, e) { v(t, "src", i(t, e.data_src)) }, VIDEO: function (t, e) { _(t).forEach(function (t) { v(t, "src", i(t, e.data_src)) }), v(t, "src", i(t, e.data_src)), t.load() } }, b = function (t, e) { var n, o, r = e._settings, a = t.tagName, s = m[a]; if (s) return s(t, r), f(e, 1), void (e._elements = (n = e._elements, o = t, n.filter(function (t) { return t !== o }))); !function (t, e) { var n = i(t, e.data_src), o = i(t, e.data_bg); n && (t.style.backgroundImage = 'url("'.concat(n, '")')), o && (t.style.backgroundImage = o) }(t, r) }, h = function (t, e) { o ? t.classList.add(e) : t.className += (t.className ? " " : "") + e }, p = function (t, e, n) { t.addEventListener(e, n) }, y = function (t, e, n) { t.removeEventListener(e, n) }, E = function (t, e, n) { y(t, "load", e), y(t, "loadeddata", e), y(t, "error", n) }, w = function (t, e, n) { var r = n._settings, a = e ? r.class_loaded : r.class_error, i = e ? r.callback_loaded : r.callback_error, s = t.target; !function (t, e) { o ? t.classList.remove(e) : t.className = t.className.replace(new RegExp("(^|\\s+)" + e + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, "") }(s, r.class_loading), h(s, a), d(i, s), f(n, -1) }, I = function (t, e) { var n = function n(r) { w(r, !0, e), E(t, n, o) }, o = function o(r) { w(r, !1, e), E(t, n, o) }; !function (t, e, n) { p(t, "load", e), p(t, "loadeddata", e), p(t, "error", n) }(t, n, o) }, k = ["IMG", "IFRAME", "VIDEO"], A = function (t, e) { var n = e._observer; z(t, e), n && e._settings.auto_unobserve && n.unobserve(t) }, L = function (t) { var e = u(t); e && (clearTimeout(e), l(t, null)) }, x = function (t, e) { var n = e._settings.load_delay, o = u(t); o || (o = setTimeout(function () { A(t, e), L(t) }, n), l(t, o)) }, z = function (t, e, n) { var o = e._settings; !n && c(t) || (k.indexOf(t.tagName) > -1 && (I(t, e), h(t, o.class_loading)), b(t, e), function (t) { s(t, "was-processed", "true") }(t), d(o.callback_reveal, t), d(o.callback_set, t)) }, O = function (t) { return !!n && (t._observer = new IntersectionObserver(function (e) { e.forEach(function (e) { return function (t) { return t.isIntersecting || t.intersectionRatio > 0 }(e) ? function (t, e) { var n = e._settings; d(n.callback_enter, t), n.load_delay ? x(t, e) : A(t, e) }(e.target, t) : function (t, e) { var n = e._settings; d(n.callback_exit, t), n.load_delay && L(t) }(e.target, t) }) }, { root: (e = t._settings).container === document ? null : e.container, rootMargin: e.thresholds || e.threshold + "px" }), !0); var e }, N = ["IMG", "IFRAME"], C = function (t, e) { return function (t) { return t.filter(function (t) { return !c(t) }) }((n = t || function (t) { return t.container.querySelectorAll(t.elements_selector) }(e), Array.prototype.slice.call(n))); var n }, M = function (t, e) { this._settings = function (t) { return _extends({}, r, t) }(t), this._loadingCount = 0, O(this), this.update(e) }; return M.prototype = { update: function (t) { var n, o = this, r = this._settings; (this._elements = C(t, r), !e && this._observer) ? (function (t) { return t.use_native && "loading" in HTMLImageElement.prototype }(r) && ((n = this)._elements.forEach(function (t) { -1 !== N.indexOf(t.tagName) && (t.setAttribute("loading", "lazy"), z(t, n)) }), this._elements = C(t, r)), this._elements.forEach(function (t) { o._observer.observe(t) })) : this.loadAll() }, destroy: function () { var t = this; this._observer && (this._elements.forEach(function (e) { t._observer.unobserve(e) }), this._observer = null), this._elements = null, this._settings = null }, load: function (t, e) { z(t, this, e) }, loadAll: function () { var t = this; this._elements.forEach(function (e) { A(e, t) }) } }, t && function (t, e) { if (e) if (e.length) for (var n, o = 0; n = e[o]; o += 1)a(t, n); else a(t, e) }(M, window.lazyLoadOptions), M });
 //# sourceMappingURL=lazyload.min.js.map
 
-/*
-  jQuery Masked Input Plugin
-  Copyright (c) 2007 - 2015 Josh Bush (digitalbush.com)
-  Licensed under the MIT license (http://digitalbush.com/projects/masked-input-plugin/#license)
-  Version: 1.4.1
-*/
-!function (factory) {
-  "function" == typeof define && define.amd ? define(["jquery"], factory) : factory("object" == typeof exports ? require("jquery") : jQuery);
-}(function ($) {
-  var caretTimeoutId, ua = navigator.userAgent, iPhone = /iphone/i.test(ua), chrome = /chrome/i.test(ua), android = /android/i.test(ua);
-  $.mask = {
-    definitions: {
-      "9": "[0-9]",
-      a: "[A-Za-z]",
-      "*": "[A-Za-z0-9]"
-    },
-    autoclear: !0,
-    dataName: "rawMaskFn",
-    placeholder: "_"
-  }, $.fn.extend({
-    caret: function (begin, end) {
-      var range;
-      if (0 !== this.length && !this.is(":hidden")) return "number" == typeof begin ? (end = "number" == typeof end ? end : begin,
-        this.each(function () {
-          this.setSelectionRange ? this.setSelectionRange(begin, end) : this.createTextRange && (range = this.createTextRange(),
-            range.collapse(!0), range.moveEnd("character", end), range.moveStart("character", begin),
-            range.select());
-        })) : (this[0].setSelectionRange ? (begin = this[0].selectionStart, end = this[0].selectionEnd) : document.selection && document.selection.createRange && (range = document.selection.createRange(),
-          begin = 0 - range.duplicate().moveStart("character", -1e5), end = begin + range.text.length),
-        {
-          begin: begin,
-          end: end
-        });
-    },
-    unmask: function () {
-      return this.trigger("unmask");
-    },
-    mask: function (mask, settings) {
-      var input, defs, tests, partialPosition, firstNonMaskPos, lastRequiredNonMaskPos, len, oldVal;
-      if (!mask && this.length > 0) {
-        input = $(this[0]);
-        var fn = input.data($.mask.dataName);
-        return fn ? fn() : void 0;
-      }
-      return settings = $.extend({
-        autoclear: $.mask.autoclear,
-        placeholder: $.mask.placeholder,
-        completed: null
-      }, settings), defs = $.mask.definitions, tests = [], partialPosition = len = mask.length,
-        firstNonMaskPos = null, $.each(mask.split(""), function (i, c) {
-          "?" == c ? (len--, partialPosition = i) : defs[c] ? (tests.push(new RegExp(defs[c])),
-            null === firstNonMaskPos && (firstNonMaskPos = tests.length - 1), partialPosition > i && (lastRequiredNonMaskPos = tests.length - 1)) : tests.push(null);
-        }), this.trigger("unmask").each(function () {
-          function tryFireCompleted() {
-            if (settings.completed) {
-              for (var i = firstNonMaskPos; lastRequiredNonMaskPos >= i; i++) if (tests[i] && buffer[i] === getPlaceholder(i)) return;
-              settings.completed.call(input);
-            }
-          }
-          function getPlaceholder(i) {
-            return settings.placeholder.charAt(i < settings.placeholder.length ? i : 0);
-          }
-          function seekNext(pos) {
-            for (; ++pos < len && !tests[pos];);
-            return pos;
-          }
-          function seekPrev(pos) {
-            for (; --pos >= 0 && !tests[pos];);
-            return pos;
-          }
-          function shiftL(begin, end) {
-            var i, j;
-            if (!(0 > begin)) {
-              for (i = begin, j = seekNext(end); len > i; i++) if (tests[i]) {
-                if (!(len > j && tests[i].test(buffer[j]))) break;
-                buffer[i] = buffer[j], buffer[j] = getPlaceholder(j), j = seekNext(j);
-              }
-              writeBuffer(), input.caret(Math.max(firstNonMaskPos, begin));
-            }
-          }
-          function shiftR(pos) {
-            var i, c, j, t;
-            for (i = pos, c = getPlaceholder(pos); len > i; i++) if (tests[i]) {
-              if (j = seekNext(i), t = buffer[i], buffer[i] = c, !(len > j && tests[j].test(t))) break;
-              c = t;
-            }
-          }
-          function androidInputEvent() {
-            var curVal = input.val(), pos = input.caret();
-            if (oldVal && oldVal.length && oldVal.length > curVal.length) {
-              for (checkVal(!0); pos.begin > 0 && !tests[pos.begin - 1];) pos.begin--;
-              if (0 === pos.begin) for (; pos.begin < firstNonMaskPos && !tests[pos.begin];) pos.begin++;
-              input.caret(pos.begin, pos.begin);
-            } else {
-              for (checkVal(!0); pos.begin < len && !tests[pos.begin];) pos.begin++;
-              input.caret(pos.begin, pos.begin);
-            }
-            tryFireCompleted();
-          }
-          function blurEvent() {
-            checkVal(), input.val() != focusText && input.change();
-          }
-          function keydownEvent(e) {
-            if (!input.prop("readonly")) {
-              var pos, begin, end, k = e.which || e.keyCode;
-              oldVal = input.val(), 8 === k || 46 === k || iPhone && 127 === k ? (pos = input.caret(),
-                begin = pos.begin, end = pos.end, end - begin === 0 && (begin = 46 !== k ? seekPrev(begin) : end = seekNext(begin - 1),
-                  end = 46 === k ? seekNext(end) : end), clearBuffer(begin, end), shiftL(begin, end - 1),
-                e.preventDefault()) : 13 === k ? blurEvent.call(this, e) : 27 === k && (input.val(focusText),
-                  input.caret(0, checkVal()), e.preventDefault());
-            }
-          }
-          function keypressEvent(e) {
-            if (!input.prop("readonly")) {
-              var p, c, next, k = e.which || e.keyCode, pos = input.caret();
-              if (!(e.ctrlKey || e.altKey || e.metaKey || 32 > k) && k && 13 !== k) {
-                if (pos.end - pos.begin !== 0 && (clearBuffer(pos.begin, pos.end), shiftL(pos.begin, pos.end - 1)),
-                  p = seekNext(pos.begin - 1), len > p && (c = String.fromCharCode(k), tests[p].test(c))) {
-                  if (shiftR(p), buffer[p] = c, writeBuffer(), next = seekNext(p), android) {
-                    var proxy = function () {
-                      $.proxy($.fn.caret, input, next)();
-                    };
-                    setTimeout(proxy, 0);
-                  } else input.caret(next);
-                  pos.begin <= lastRequiredNonMaskPos && tryFireCompleted();
-                }
-                e.preventDefault();
-              }
-            }
-          }
-          function clearBuffer(start, end) {
-            var i;
-            for (i = start; end > i && len > i; i++) tests[i] && (buffer[i] = getPlaceholder(i));
-          }
-          function writeBuffer() {
-            input.val(buffer.join(""));
-          }
-          function checkVal(allow) {
-            var i, c, pos, test = input.val(), lastMatch = -1;
-            for (i = 0, pos = 0; len > i; i++) if (tests[i]) {
-              for (buffer[i] = getPlaceholder(i); pos++ < test.length;) if (c = test.charAt(pos - 1),
-                tests[i].test(c)) {
-                buffer[i] = c, lastMatch = i;
-                break;
-              }
-              if (pos > test.length) {
-                clearBuffer(i + 1, len);
-                break;
-              }
-            } else buffer[i] === test.charAt(pos) && pos++, partialPosition > i && (lastMatch = i);
-            return allow ? writeBuffer() : partialPosition > lastMatch + 1 ? settings.autoclear || buffer.join("") === defaultBuffer ? (input.val() && input.val(""),
-              clearBuffer(0, len)) : writeBuffer() : (writeBuffer(), input.val(input.val().substring(0, lastMatch + 1))),
-              partialPosition ? i : firstNonMaskPos;
-          }
-          var input = $(this), buffer = $.map(mask.split(""), function (c, i) {
-            return "?" != c ? defs[c] ? getPlaceholder(i) : c : void 0;
-          }), defaultBuffer = buffer.join(""), focusText = input.val();
-          input.data($.mask.dataName, function () {
-            return $.map(buffer, function (c, i) {
-              return tests[i] && c != getPlaceholder(i) ? c : null;
-            }).join("");
-          }), input.one("unmask", function () {
-            input.off(".mask").removeData($.mask.dataName);
-          }).on("focus.mask", function () {
-            if (!input.prop("readonly")) {
-              clearTimeout(caretTimeoutId);
-              var pos;
-              focusText = input.val(), pos = checkVal(), caretTimeoutId = setTimeout(function () {
-                input.get(0) === document.activeElement && (writeBuffer(), pos == mask.replace("?", "").length ? input.caret(0, pos) : input.caret(pos));
-              }, 10);
-            }
-          }).on("blur.mask", blurEvent).on("keydown.mask", keydownEvent).on("keypress.mask", keypressEvent).on("input.mask paste.mask", function () {
-            input.prop("readonly") || setTimeout(function () {
-              var pos = checkVal(!0);
-              input.caret(pos), tryFireCompleted();
-            }, 0);
-          }), chrome && android && input.off("input.mask").on("input.mask", androidInputEvent),
-            checkVal();
-        });
-    }
-  });
-});
 /**
  * ChiefSlider by Itchief v2.0.0 (https://github.com/itchief/ui-components/tree/master/simple-adaptive-slider)
  * Copyright 2020 - 2021 Alexander Maltsev
@@ -2512,26 +2330,87 @@ document.addEventListener('DOMContentLoaded', () => {
     interval: 10000,
   })
 })
-$(document).ready(function () {
-  // Маска ввода номера телефона:
-  $('input[type="tel"]').mask("+375 (99) 999-99-99", { placeholder: " " });
-  // Установка курсора в нужное место для ввода номера телефона
-  $.fn.setCursorPosition = function (pos) {
-    if ($(this).get(0).setSelectionRange) {
-      $(this).get(0).setSelectionRange(pos, pos);
-    } else if ($(this).get(0).createTextRange) {
-      var range = $(this).get(0).createTextRange();
-      range.collapse(true);
-      range.moveEnd('character', pos);
-      range.moveStart('character', pos);
-      range.select();
-    }
-  };
-  $('input[type="tel"]').click(function () {
-    $(this).setCursorPosition(6);  // set position number
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  const phoneInputs = document.querySelectorAll('input[type="tel"]')
 
-});
+  //! Вырезаем из поля ввода буквы, пробелы и возвращаем только цифры
+  const getInputNumbersValue = (input) => input.value.replace(/\D/g, '')
+
+  //! Запрещаем вставлять буквы
+  const onPhonePaste = (event) => {
+    const input = event.target
+    const inputNumbersValue = getInputNumbersValue(input)
+    const pasted = event.clipboardData || window.clipboardData
+
+    if (pasted) {
+      const pastedText = pasted.getData('Text')
+
+      if (/\D/g.test(pastedText)) {
+        input.value = inputNumbersValue
+        return
+      }
+    }
+  }
+
+  const onPhoneInput = function (event) {
+    const input = event.target
+    let formattedInputValue = ''
+    let inputNumbersValue = getInputNumbersValue(input)
+    let selectionStart = input.selectionStart
+
+    if (!inputNumbersValue) {
+      return input.value = ''
+    }
+
+    if (input.value.length != selectionStart) {
+      if (event.data && /\D/g.test(event.data)) {
+        input.value = inputNumbersValue
+      }
+      return
+    }
+
+    if (['8'].indexOf(inputNumbersValue[0]) > -1) {
+      if (inputNumbersValue[0] == '8') {
+        formattedInputValue = '8'
+      }
+      if (inputNumbersValue.length > 1) {
+        formattedInputValue += inputNumbersValue.substring(1, 2) + ' ('
+      }
+      if (inputNumbersValue.length >= 3) {
+        formattedInputValue += inputNumbersValue.substring(2, 4)
+      }
+      if (inputNumbersValue.length >= 5) {
+        formattedInputValue += ') ' + inputNumbersValue.substring(4, 7)
+      }
+      if (inputNumbersValue.length >= 8) {
+        formattedInputValue += '-' + inputNumbersValue.substring(7, 9)
+      }
+      if (inputNumbersValue.length >= 10) {
+        formattedInputValue += '-' + inputNumbersValue.substring(9, 11)
+      }
+    } else {
+      //! Not Belarus phone Number
+      formattedInputValue = '+' + inputNumbersValue.substring(0, 12)
+    }
+
+    input.value = formattedInputValue
+  }
+
+  //! Очищаем поле после удаления последнего символа
+  const onPhoneKeyDown = (event) => {
+    const inputValue = event.target.value.replace(/\D/g, '')
+
+    if (event.keyCode == 8 && inputValue.length == 1) {
+      event.target.value = ''
+    }
+  }
+
+  phoneInputs.forEach((input) => {
+    input.addEventListener('keydown', onPhoneKeyDown)
+    input.addEventListener('input', onPhoneInput, false)
+    input.addEventListener('paste', onPhonePaste, false)
+  })
+})
 const submissionForms = () => {
   const allForms  = document.querySelectorAll('form'),
         allInputs = document.querySelectorAll('input')

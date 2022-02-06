@@ -1,7 +1,6 @@
 @@include('./lib/jquery-3.6.0.min.js')
 @@include('./lib/lazyload.min.js')
 
-@@include('./plugins/jquery.maskedinput.min.js')
 @@include('./plugins/it-chief-slider.js')
 @@include('./plugins/countdown.js')
 
