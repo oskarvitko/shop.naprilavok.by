@@ -130,17 +130,20 @@ const getHTMLCatalogTeplic = (props) => {
           <div class="input__wrapper">
 
             ${props.polycarbonate.map((number, index) => {
-      const checked = index === 0 ? 'checked' : ''
+              const checked = index === 0 ? 'checked' : ''
 
-      return (`
-                  <label class="catalog__card-label" for="${props.id}-${number}mm">
-                    <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
-                    <span>${number} мм</span>
-                  </label>
-                `)
-    }).join('')
-    }
-
+              return (`
+                          <label class="catalog__card-label" for="${props.id}-${number}mm">
+                            <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
+                            <span>${number} мм</span>
+                          </label>
+                        `)
+              }).join('')
+            }
+            <label class="catalog__card-label" for="${props.id}-0mm">
+              <input type="radio" id="${props.id}-0mm" name="polycarbonate" value="0mm">
+              <span>Каркас</span>
+            </label>
             
           </div>
         </div>
@@ -212,11 +215,11 @@ const getHTMLAccordion = (props) => {
   `)
 }
 
-const aboutPlace          = document.querySelector('.about__items')
-const makepurchasePlace   = document.querySelector('.makepurchase__items')
-const catalogTeplicPlace  = document.querySelector('.catalog__items')
-const addEquipmentPlace   = document.querySelector('.add-equipment__items')
-const accordionPlace      = document.querySelector('.faq-accordion')
+const aboutPlace = document.querySelector('.about__items')
+const makepurchasePlace = document.querySelector('.makepurchase__items')
+const catalogTeplicPlace = document.querySelector('.catalog__items')
+const addEquipmentPlace = document.querySelector('.add-equipment__items')
+const accordionPlace = document.querySelector('.faq-accordion')
 
 renderHTML(DATA.about, aboutPlace, getHTMLAbout)
 renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
