@@ -564,8 +564,8 @@ ChiefSlider.prototype.refresh = function () {
 // });
 
 // 1 Sheet Polycarbonate
-const SHEET_1_3MM = 79
-const SHEET_1_6MM = 92
+const SHEET_1_3MM = 75
+const SHEET_1_6MM = 88
 // Polycarbonate 6mm:
 const POLIC_6MM_4M    = SHEET_1_6MM * 3,
       POLIC_6MM_6M    = SHEET_1_6MM * 4,
@@ -577,127 +577,127 @@ const POLIC_DK_6MM_4M   = SHEET_1_6MM * 4,
       POLIC_DK_6MM_8M   = SHEET_1_6MM * 6,
       POLIC_DK_6MM_10M  = SHEET_1_6MM * 7
 // Polycarbonate 4mm:
-const POLIC_4MM_4M  = 82,
-      POLIC_4MM_6M  = 106,
-      POLIC_4MM_8M  = 132,
-      POLIC_4MM_10M = 156
+const POLIC_4MM_4M  = 69,
+      POLIC_4MM_6M  = 89,
+      POLIC_4MM_8M  = 111,
+      POLIC_4MM_10M = 131
 // Polycarbonate 4mm DK:
-const POLIC_DK_4MM_4M   = 106,
-      POLIC_DK_4MM_6M   = 132,
-      POLIC_DK_4MM_8M   = 156,
-      POLIC_DK_4MM_10M  = 182
+const POLIC_DK_4MM_4M   = 89,
+      POLIC_DK_4MM_6M   = 111,
+      POLIC_DK_4MM_8M   = 131,
+      POLIC_DK_4MM_10M  = 152
 // Shipping:
 const SHIPPING_MIN  = 64,
       SHIPPING_MID  = 77,
       SHIPPING_MAX  = 90
 // 20-mini:
-const $20MINI_4M_100SM   = 695,
-      $20MINI_4M_67SM    = 738,
-      $20MINI_6M_100SM   = 872,
-      $20MINI_6M_67SM    = 943,
-      $20MINI_8M_100SM   = 1037,
-      $20MINI_8M_67SM    = 1139,
-      $20MINI_10M_100SM  = 1218,
-      $20MINI_10M_67SM   = 1336
+const $20MINI_4M_100SM   = 581,
+      $20MINI_4M_67SM    = 618,
+      $20MINI_6M_100SM   = 729,
+      $20MINI_6M_67SM    = 788,
+      $20MINI_8M_100SM   = 866,
+      $20MINI_8M_67SM    = 952,
+      $20MINI_10M_100SM  = 1017,
+      $20MINI_10M_67SM   = 1116
 // 24-mini:
-const $24MINI_4M_100SM   = 689,
-      $24MINI_4M_67SM    = 733,
-      $24MINI_6M_100SM   = 877,
-      $24MINI_6M_67SM    = 933,
-      $24MINI_8M_100SM   = 1050,
-      $24MINI_8M_67SM    = 1132,
-      $24MINI_10M_100SM  = 1233,
-      $24MINI_10M_67SM   = 1337
+const $24MINI_4M_100SM   = 577,
+      $24MINI_4M_67SM    = 613,
+      $24MINI_6M_100SM   = 733,
+      $24MINI_6M_67SM    = 780,
+      $24MINI_8M_100SM   = 878,
+      $24MINI_8M_67SM    = 947,
+      $24MINI_10M_100SM  = 1030,
+      $24MINI_10M_67SM   = 1117
 // 20-c:
-const $20C_4M_100SM   = 709,
-      $20C_4M_67SM    = 749,
-      $20C_4M_50SM    = 809,
-      $20C_6M_100SM   = 938,
-      $20C_6M_67SM    = 1002,
-      $20C_6M_50SM    = 1094,
-      $20C_8M_100SM   = 1183,
-      $20C_8M_67SM    = 1275,
-      $20C_8M_50SM    = 1393,
-      $20C_10M_100SM  = 1409,
-      $20C_10M_67SM   = 1515,
-      $20C_10M_50SM   = 1665
+const $20C_4M_100SM   = 594,
+      $20C_4M_67SM    = 625,
+      $20C_4M_50SM    = 675,
+      $20C_6M_100SM   = 785,
+      $20C_6M_67SM    = 868,
+      $20C_6M_50SM    = 914,
+      $20C_8M_100SM   = 989,
+      $20C_8M_67SM    = 1066,
+      $20C_8M_50SM    = 1165,
+      $20C_10M_100SM  = 1178,
+      $20C_10M_67SM   = 1266,
+      $20C_10M_50SM   = 1393
 // 40-c:
-const $40C_4M_100SM   = 813,
-      $40C_4M_67SM    = 882,
-      $40C_4M_50SM    = 950,
-      $40C_6M_100SM   = 1083,
-      $40C_6M_67SM    = 1176,
-      $40C_6M_50SM    = 1269,
-      $40C_8M_100SM   = 1366,
-      $40C_8M_67SM    = 1484,
-      $40C_8M_50SM    = 1601,
-      $40C_10M_100SM  = 1614,
-      $40C_10M_67SM   = 1757,
-      $40C_10M_50SM   = 1896
+const $40C_4M_100SM   = 681,
+      $40C_4M_67SM    = 739,
+      $40C_4M_50SM    = 792,
+      $40C_6M_100SM   = 905,
+      $40C_6M_67SM    = 983,
+      $40C_6M_50SM    = 1059,
+      $40C_8M_100SM   = 1142,
+      $40C_8M_67SM    = 1241,
+      $40C_8M_50SM    = 1337,
+      $40C_10M_100SM  = 1349,
+      $40C_10M_67SM   = 1468,
+      $40C_10M_50SM   = 1584
 // 20-ck:
-const $20CK_4M_100SM    = 891,
-      $20CK_6M_100SM    = 1175,
-      $20CK_8M_100SM    = 1468,
-      $20CK_10M_100SM   = 1728
+const $20CK_4M_100SM    = 746,
+      $20CK_6M_100SM    = 983,
+      $20CK_8M_100SM    = 1229,
+      $20CK_10M_100SM   = 1445
 // 40-ck:
-const $40CK_4M_67SM  = 1068,
-      $40CK_6M_67SM  = 1421,
-      $40CK_8M_67SM  = 1746,
-      $40CK_10M_67SM = 2056
+const $40CK_4M_67SM  = 895,
+      $40CK_6M_67SM  = 1190,
+      $40CK_8M_67SM  = 1463,
+      $40CK_10M_67SM = 1721
 // 20-fc:
-const $20FC_4M_100SM   = 1115,
-      $20FC_4M_67SM    = 1197,
-      $20FC_6M_100SM   = 1463,
-      $20FC_6M_67SM    = 1593,
-      $20FC_8M_100SM   = 1795,
-      $20FC_8M_67SM    = 1993,
-      $20FC_10M_100SM  = 2122,
-      $20FC_10M_67SM   = 2367
+const $20FC_4M_100SM   = 937,
+      $20FC_4M_67SM    = 1005,
+      $20FC_6M_100SM   = 1229,
+      $20FC_6M_67SM    = 1337,
+      $20FC_8M_100SM   = 1507,
+      $20FC_8M_67SM    = 1672,
+      $20FC_10M_100SM  = 1781,
+      $20FC_10M_67SM   = 1985
 // 3500-40-c:
-const $3500_40C_4M_100SM  = 947,
-      $3500_40C_4M_67SM   = 1009,
-      $3500_40C_4M_50SM   = 1070,
-      $3500_40C_6M_100SM  = 1242,
-      $3500_40C_6M_67SM   = 1343,
-      $3500_40C_6M_50SM   = 1443,
-      $3500_40C_8M_100SM  = 1519,
-      $3500_40C_8M_67SM   = 1671,
-      $3500_40C_8M_50SM   = 1807,
-      $3500_40C_10M_100SM = 1784,
-      $3500_40C_10M_67SM  = 1974,
-      $3500_40C_10M_50SM  = 2142
+const $3500_40C_4M_100SM  = 792,
+      $3500_40C_4M_67SM   = 843,
+      $3500_40C_4M_50SM   = 893,
+      $3500_40C_6M_100SM  = 1039,
+      $3500_40C_6M_67SM   = 1123,
+      $3500_40C_6M_50SM   = 1206,
+      $3500_40C_8M_100SM  = 1271,
+      $3500_40C_8M_67SM   = 1397,
+      $3500_40C_8M_50SM   = 1511,
+      $3500_40C_10M_100SM = 1492,
+      $3500_40C_10M_67SM  = 1651,
+      $3500_40C_10M_50SM  = 1790
 // 4000-40-c:
-const $4000_40C_4M_100SM  = 1009,
-      $4000_40C_4M_67SM   = 1059,
-      $4000_40C_4M_50SM   = 1108,
-      $4000_40C_6M_100SM  = 1288,
-      $4000_40C_6M_67SM   = 1386,
-      $4000_40C_6M_50SM   = 1484,
-      $4000_40C_8M_100SM  = 1582,
-      $4000_40C_8M_67SM   = 1728,
-      $4000_40C_8M_50SM   = 1861,
-      $4000_40C_10M_100SM = 1863,
-      $4000_40C_10M_67SM  = 2004,
-      $4000_40C_10M_50SM  = 2209
+const $4000_40C_4M_100SM  = 845,
+      $4000_40C_4M_67SM   = 887,
+      $4000_40C_4M_50SM   = 927,
+      $4000_40C_6M_100SM  = 1078,
+      $4000_40C_6M_67SM   = 1160,
+      $4000_40C_6M_50SM   = 1242,
+      $4000_40C_8M_100SM  = 1324,
+      $4000_40C_8M_67SM   = 1446,
+      $4000_40C_8M_50SM   = 1556,
+      $4000_40C_10M_100SM = 1559,
+      $4000_40C_10M_67SM  = 1676,
+      $4000_40C_10M_50SM  = 1847
 // 20-d:
-const $20D_4M_100SM   = 1246,
-      $20D_4M_67SM    = 1380,
-      $20D_6M_100SM   = 1649,
-      $20D_6M_67SM    = 1864,
-      $20D_8M_100SM   = 2057,
-      $20D_8M_67SM    = 2317,
-      $20D_10M_100SM  = 2436,
-      $20D_10M_67SM   = 2739
+const $20D_4M_100SM   = 1046,
+      $20D_4M_67SM    = 1159,
+      $20D_6M_100SM   = 1384,
+      $20D_6M_67SM    = 1564,
+      $20D_8M_100SM   = 1726,
+      $20D_8M_67SM    = 1943,
+      $20D_10M_100SM  = 2043,
+      $20D_10M_67SM   = 2297
 // 20-df:
-const $20DF_4M_67SM   = 1380,
-      $20DF_6M_67SM   = 1864,
-      $20DF_8M_67SM   = 2317,
-      $20DF_10M_67SM  = 2739
+const $20DF_4M_67SM   = 1159,
+      $20DF_6M_67SM   = 1564,
+      $20DF_8M_67SM   = 1943,
+      $20DF_10M_67SM  = 2297
 // 40-dk:
-const $40DK_4M_100SM   = 1698,
-      $40DK_6M_100SM   = 2123,
-      $40DK_8M_100SM   = 2661,
-      $40DK_10M_100SM  = 3116
+const $40DK_4M_100SM   = 1425,
+      $40DK_6M_100SM   = 1780,
+      $40DK_8M_100SM   = 2229,
+      $40DK_10M_100SM  = 2611
 
 const DATA = {
   about: [
@@ -804,7 +804,7 @@ const DATA = {
     },
     {
       id: '20c',
-      title: '"Сверхпрочная-20ц"',
+      title: '"Стандартная-20ц"',
       productName: '20-c',
       tube: '20x20',
       width: '3.00',
@@ -1013,31 +1013,31 @@ const DATA = {
       name: 'Парник<br>"Огурчик" 4м',
       imgUrl: '/pickle.webp',
       altName: 'Парник огурчик',
-      price: 50,
+      price: 43,
     },
     {
       name: 'Парник<br>"Огурчик" 6м',
       imgUrl: '/pickle.webp',
       altName: 'Парник огурчик',
-      price: 59,
+      price: 51,
     },
     {
       name: 'П-Профиль',
       imgUrl: '/p-profile.webp',
       altName: 'П-Профиль',
-      price: 7,
+      price: 6,
     },
     {
       name: 'Подвязки 6м',
       imgUrl: '/garters.webp',
       altName: 'Подвязки',
-      price: 24,
+      price: 21,
     },
     {
       name: 'Авто-полив',
       imgUrl: '/auto-watering.webp',
       altName: 'Автоматический полив',
-      price: 72,
+      price: 61,
     },
     {
       name: 'Перфо-лента 1м',
@@ -1049,13 +1049,13 @@ const DATA = {
       name: 'Газлифт',
       imgUrl: '/gaz-lift.webp',
       altName: 'Газлифт',
-      price: 50,
+      price: 43,
     },
     {
       name: 'Поликарбонат 4мм',
       imgUrl: '/polic.webp',
       altName: 'Поликарбонат',
-      price: 144,
+      price: 121,
     },
   ],
   accordion: [
@@ -2506,7 +2506,7 @@ const getHTMLCatalogTeplic = (props) => {
         <input type="hidden" name="product" value="${props.productName}">
         <div class="catalog__card-table card-table">
           <div class="card-table__row">
-            <div class="card-table__column-1">Труба профильная</div>
+            <div class="card-table__column-1">Арочный профиль</div>
             <div class="card-table__column-2">${props.tube} мм</div>
           </div>
           <div class="card-table__row">
@@ -2959,6 +2959,14 @@ const submissionForms = () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   submissionForms()
+})
+document.addEventListener('DOMContentLoaded', () => { 
+  const creditStatusBody = document.querySelector('.credit-status')
+  const closeBtn        = document.querySelector('.credit-status__btn-close')
+  
+  closeBtn.addEventListener('click', () => {
+    creditStatusBody.classList.add('credit-status--close')
+  })
 })
 
 //Переменная для включения/отключения индикатора загрузки

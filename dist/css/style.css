@@ -6496,6 +6496,145 @@ body.lock {
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3), 0 0 10px 0 rgba(0, 0, 0, 0.3), 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 
+.credit-status {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(40px, -40px);
+      -ms-transform: translate(40px, -40px);
+          transform: translate(40px, -40px);
+  width: 400px;
+  height: 85px;
+  border-radius: 5px;
+  background: -o-linear-gradient(290deg, #A20404 0%, #FF1B2D 100%);
+  background: linear-gradient(160deg, #A20404 0%, #FF1B2D 100%);
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 6px 0 rgba(0, 0, 0, 0.2), 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  -webkit-animation: animate_grow_1 2000ms infinite;
+          animation: animate_grow_1 2000ms infinite;
+}
+
+.credit-status.credit-status--close {
+  display: none;
+}
+
+.credit-status__btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(-5px, 5px);
+      -ms-transform: translate(-5px, 5px);
+          transform: translate(-5px, 5px);
+  background-color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.credit-status__btn-close .fa-times {
+  color: #FF1B2D;
+}
+
+.credit-status h5 {
+  max-width: 360px;
+  text-align: center;
+  color: #fff;
+  font-size: 21px;
+}
+
+.credit-status__accent {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@-webkit-keyframes animate_grow_1 {
+  0% {
+    -webkit-transform: translate(20px, -20px) scale3d(1, 1, 1);
+            transform: translate(20px, -20px) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: translate(20px, -20px) scale3d(1.02, 1.02, 1.02);
+            transform: translate(20px, -20px) scale3d(1.02, 1.02, 1.02);
+  }
+
+  100% {
+    -webkit-transform: translate(20px, -20px) scale3d(1, 1, 1);
+            transform: translate(20px, -20px) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animate_grow_1 {
+  0% {
+    -webkit-transform: translate(20px, -20px) scale3d(1, 1, 1);
+            transform: translate(20px, -20px) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: translate(20px, -20px) scale3d(1.02, 1.02, 1.02);
+            transform: translate(20px, -20px) scale3d(1.02, 1.02, 1.02);
+  }
+
+  100% {
+    -webkit-transform: translate(20px, -20px) scale3d(1, 1, 1);
+            transform: translate(20px, -20px) scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes animate_grow_2 {
+  0% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1, 1, 1);
+            transform: translate(-50%, -20px) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1.02, 1.02, 1.02);
+            transform: translate(-50%, -20px) scale3d(1.02, 1.02, 1.02);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1, 1, 1);
+            transform: translate(-50%, -20px) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animate_grow_2 {
+  0% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1, 1, 1);
+            transform: translate(-50%, -20px) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1.02, 1.02, 1.02);
+            transform: translate(-50%, -20px) scale3d(1.02, 1.02, 1.02);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -20px) scale3d(1, 1, 1);
+            transform: translate(-50%, -20px) scale3d(1, 1, 1);
+  }
+}
+
 @media screen and (max-width: 1192px) {
   .makepurchase__item {
     margin: 0 10px 10px;
@@ -6820,6 +6959,14 @@ body.lock {
   }
 }
 
+@media screen and (max-width: 670px) {
+  .credit-status {
+    left: 50%;
+    -webkit-animation: animate_grow_2 2000ms infinite;
+            animation: animate_grow_2 2000ms infinite;
+  }
+}
+
 @media screen and (max-width: 660px) {
   .credit-card-img__item {
     margin: 0 0 20px 0;
@@ -6933,6 +7080,12 @@ body.lock {
 @media (max-width: 500px) {
   .catalog__sub-title {
     font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .credit-status {
+    width: 300px;
   }
 }
 

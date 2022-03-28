@@ -56,7 +56,7 @@ const getHTMLCatalogTeplic = (props) => {
         <input type="hidden" name="product" value="${props.productName}">
         <div class="catalog__card-table card-table">
           <div class="card-table__row">
-            <div class="card-table__column-1">Труба профильная</div>
+            <div class="card-table__column-1">Арочный профиль</div>
             <div class="card-table__column-2">${props.tube} мм</div>
           </div>
           <div class="card-table__row">
