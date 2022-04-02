@@ -201,7 +201,7 @@ const DATA = {
       productName: '20-mini',
       tube: '20x20',
       width: '2.00',
-      height: '1.94',
+      height: '1.92',
       images: [
         'teplica-1.webp',
         'teplica-1.2.webp',
@@ -243,7 +243,7 @@ const DATA = {
       productName: '20-c',
       tube: '20x20',
       width: '3.00',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-2.3.webp',
         'teplica-2.4.webp',
@@ -263,7 +263,7 @@ const DATA = {
       productName: '40-c',
       tube: '40x20',
       width: '3.00',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-3.2.webp',
         'teplica-3.3.webp',
@@ -279,31 +279,12 @@ const DATA = {
       polycarbonate: ['3', '4', '6'],
     },
     {
-      id: '20ck',
-      title: '"Краб-20цк"',
-      productName: '20-ck',
-      tube: '20x20',
-      width: '3.00',
-      height: '2.10',
-      images: [
-        'teplica-40ck-02.webp',
-        'teplica-40ck-01.webp',
-        'teplica-40ck-03.webp',
-        'teplica-40ck-05.webp',
-      ],
-      numberIndicators: ['0', '1', '2', '3',],
-      arcStep: {
-        '1': '100sm',
-      },
-      polycarbonate: ['3', '4', '6'],
-    },
-    {
       id: '40ck',
       title: '"Краб-40цк"',
       productName: '40-ck',
       tube: '40x20',
       width: '3.00',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-40ck-04.webp',
         'teplica-40ck-02.webp',
@@ -322,7 +303,7 @@ const DATA = {
       productName: '20-fc',
       tube: '20x20',
       width: '3.00',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-4.2.webp',
         'teplica-4.3.webp',
@@ -341,7 +322,7 @@ const DATA = {
       productName: '3500-40c',
       tube: '40x20',
       width: '3.50',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-5.webp',
         'teplica-5.2.webp',
@@ -362,7 +343,7 @@ const DATA = {
       productName: '4000-40c',
       tube: '40x20',
       width: '4.00',
-      height: '2.10',
+      height: '2.00',
       images: [
         'teplica-40c-4000-01.webp',
         'teplica-40c-4000-02.webp',
@@ -1076,76 +1057,6 @@ const DATA = {
             '4mm': $40C_10M_50SM + SHIPPING_MID + POLIC_4MM_10M,
             '6mm': $40C_10M_50SM + SHIPPING_MID + POLIC_6MM_10M,
             '0mm': $40C_10M_50SM + SHIPPING_MID - (SHEET_1_3MM * 6),
-          },
-        },
-      }
-    },
-    '20-ck': {
-      'demountable': {
-        '4m': {
-          '100sm': {
-            '3mm': $20CK_4M_100SM,
-            '4mm': $20CK_4M_100SM + POLIC_4MM_4M,
-            '6mm': $20CK_4M_100SM + POLIC_6MM_4M,
-            '0mm': $20CK_4M_100SM - (SHEET_1_3MM * 3),
-          },
-        },
-        '6m': {
-          '100sm': {
-            '3mm': $20CK_6M_100SM,
-            '4mm': $20CK_6M_100SM + POLIC_4MM_6M,
-            '6mm': $20CK_6M_100SM + POLIC_6MM_6M,
-            '0mm': $20CK_6M_100SM - (SHEET_1_3MM * 4),
-          },
-        },
-        '8m': {
-          '100sm': {
-            '3mm': $20CK_8M_100SM,
-            '4mm': $20CK_8M_100SM + POLIC_4MM_8M,
-            '6mm': $20CK_8M_100SM + POLIC_6MM_8M,
-            '0mm': $20CK_8M_100SM - (SHEET_1_3MM * 5),
-          },
-        },
-        '10m': {
-          '100sm': {
-            '3mm': $20CK_10M_100SM,
-            '4mm': $20CK_10M_100SM + POLIC_4MM_10M,
-            '6mm': $20CK_10M_100SM + POLIC_6MM_10M,
-            '0mm': $20CK_10M_100SM - (SHEET_1_3MM * 6),
-          },
-        },
-      },
-      'one-piece': {
-        '4m': {
-          '100sm': {
-            '3mm': $20CK_4M_100SM + SHIPPING_MID,
-            '4mm': $20CK_4M_100SM + SHIPPING_MID + POLIC_4MM_4M,
-            '6mm': $20CK_4M_100SM + SHIPPING_MID + POLIC_6MM_4M,
-            '0mm': $20CK_4M_100SM + SHIPPING_MID - (SHEET_1_3MM * 3),
-          },
-        },
-        '6m': {
-          '100sm': {
-            '3mm': $20CK_6M_100SM + SHIPPING_MID,
-            '4mm': $20CK_6M_100SM + SHIPPING_MID + POLIC_4MM_6M,
-            '6mm': $20CK_6M_100SM + SHIPPING_MID + POLIC_6MM_6M,
-            '0mm': $20CK_6M_100SM + SHIPPING_MID - (SHEET_1_3MM * 4),
-          },
-        },
-        '8m': {
-          '100sm': {
-            '3mm': $20CK_8M_100SM + SHIPPING_MID,
-            '4mm': $20CK_8M_100SM + SHIPPING_MID + POLIC_4MM_8M,
-            '6mm': $20CK_8M_100SM + SHIPPING_MID + POLIC_6MM_8M,
-            '0mm': $20CK_8M_100SM + SHIPPING_MID - (SHEET_1_3MM * 5),
-          },
-        },
-        '10m': {
-          '100sm': {
-            '3mm': $20CK_10M_100SM + SHIPPING_MID,
-            '4mm': $20CK_10M_100SM + SHIPPING_MID + POLIC_4MM_10M,
-            '6mm': $20CK_10M_100SM + SHIPPING_MID + POLIC_6MM_10M,
-            '0mm': $20CK_10M_100SM + SHIPPING_MID - (SHEET_1_3MM * 6),
           },
         },
       }
