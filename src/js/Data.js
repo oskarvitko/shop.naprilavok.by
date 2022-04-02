@@ -1,6 +1,6 @@
 // 1 Sheet Polycarbonate
-const SHEET_1_3MM = 75
-const SHEET_1_6MM = 88
+const SHEET_1_3MM = 71
+const SHEET_1_6MM = 81
 // Polycarbonate 6mm:
 const POLIC_6MM_4M    = SHEET_1_6MM * 3,
       POLIC_6MM_6M    = SHEET_1_6MM * 4,
