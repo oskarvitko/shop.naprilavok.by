@@ -1,7 +1,7 @@
-const currencyRate = 2.5981
+const currencyRate = 2.5945
 // 1 Sheet Polycarbonate
-const SHEET_1_3MM = Math.round(26 * currencyRate)
-const SHEET_1_6MM = Math.round(30 * currencyRate)
+const SHEET_1_3MM = Math.round(27 * currencyRate)
+const SHEET_1_6MM = Math.round(31 * currencyRate)
 // Polycarbonate 6mm:
 const POLIC_6MM_4M    = SHEET_1_6MM * 3,
       POLIC_6MM_6M    = SHEET_1_6MM * 4,
