@@ -563,7 +563,7 @@ ChiefSlider.prototype.refresh = function () {
 //   timerId = setInterval(countdownTimer, 1000);
 // });
 
-const currencyRate = 2.5945
+const currencyRate = 2.52
 // 1 Sheet Polycarbonate
 const SHEET_1_3MM = Math.round(27 * currencyRate)
 const SHEET_1_6MM = Math.round(31 * currencyRate)
@@ -2651,7 +2651,6 @@ const DATA = {
     },
   },
 }
-
 const renderHTML = (catalogData, placeToRender, renderHTMLFunction) => {
   catalogData.forEach((itemCatalog) => {
     placeToRender.insertAdjacentHTML('beforeend', renderHTMLFunction(itemCatalog))
