@@ -25,7 +25,7 @@
 //   $("form.calculator-greenhouses").change()
 // })
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('catalogDataLoaded', () => {
   function animationNumber(currentPrice, priceLabel) {
     const time        = 150
     const stepNumber  = 72
