@@ -1134,7 +1134,7 @@ const priceKey = {
 }
 
 function loadCatalogData() {
-    var URL = `http://localhost:5000/price/get-by-product-ids`
+    var URL = `https://firma-crm.by/price/get-by-product-ids`
     var priceIds = {
         SHEET_1_3MM,
         SHEET_1_6MM,
