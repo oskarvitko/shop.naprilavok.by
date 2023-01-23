@@ -564,7 +564,9 @@ ChiefSlider.prototype.refresh = function () {
 // });
 
 const isRu = !!window.isRu
+const isMSK = !!window.isMSK
 const PRICE_KEY = isRu ? 'price_ru' : 'price_rb'
+const PRICE_DELIVERY_KEY = 'price_delivery_ru'
 const BUY_KEY = isRu ? 'ru_buy' : 'rb_buy'
 const CURRENCY_KEY = isRu ? 'RU' : 'BLR'
 const DELIVERY_KEY = isRu ? 'delivery_ru_ru' : 'delivery_r_br'
@@ -588,49 +590,49 @@ const SHIPPING_MIN = 291,
     SHIPPING_MID = 226,
     SHIPPING_MAX = 526
 // 20-mini:
-const $20MINI_4M_100SM = 291,
-    $20MINI_6M_100SM = 292,
-    $20MINI_8M_100SM = 293,
-    $20MINI_10M_100SM = 294,
-    $20MINI_4M_67SM = 714,
-    $20MINI_6M_67SM = 715,
-    $20MINI_8M_67SM = 716,
-    $20MINI_10M_67SM = 717
+const $20MINI_4M_100SM = isRu ? 706 : 291,
+    $20MINI_6M_100SM = isRu ? 707 : 292,
+    $20MINI_8M_100SM = isRu ? 708 : 293,
+    $20MINI_10M_100SM = isRu ? 709 : 294,
+    $20MINI_4M_67SM = isRu ? 722 : 714,
+    $20MINI_6M_67SM = isRu ? 723 : 715,
+    $20MINI_8M_67SM = isRu ? 724 : 716,
+    $20MINI_10M_67SM = isRu ? 725 : 717
 // 24-mini:
-const $24MINI_4M_100SM = 702,
-    $24MINI_6M_100SM = 703,
-    $24MINI_8M_100SM = 704,
-    $24MINI_10M_100SM = 705,
-    $24MINI_4M_67SM = 706,
-    $24MINI_6M_67SM = 707,
-    $24MINI_8M_67SM = 708,
-    $24MINI_10M_67SM = 709
+const $24MINI_4M_100SM = isRu ? 710 : 702,
+    $24MINI_6M_100SM = isRu ? 711 : 703,
+    $24MINI_8M_100SM = isRu ? 712 : 704,
+    $24MINI_10M_100SM = isRu ? 713 : 705,
+    $24MINI_4M_67SM = isRu ? 726 : 718,
+    $24MINI_6M_67SM = isRu ? 727 : 719,
+    $24MINI_8M_67SM = isRu ? 728 : 720,
+    $24MINI_10M_67SM = isRu ? 729 : 721
 // 20-c:
-const $20C_4M_100SM = 226,
-    $20C_6M_100SM = 227,
-    $20C_8M_100SM = 228,
-    $20C_10M_100SM = 229,
-    $20C_4M_67SM = 238,
-    $20C_6M_67SM = 239,
-    $20C_8M_67SM = 240,
-    $20C_10M_67SM = 241,
-    $20C_4M_50SM = 246,
-    $20C_6M_50SM = 247,
-    $20C_8M_50SM = 248,
-    $20C_10M_50SM = 249
+const $20C_4M_100SM = isRu ? 222 : 226,
+    $20C_6M_100SM = isRu ? 223 : 227,
+    $20C_8M_100SM = isRu ? 224 : 228,
+    $20C_10M_100SM = isRu ? 225 : 229,
+    $20C_4M_67SM = isRu ? 234 : 238,
+    $20C_6M_67SM = isRu ? 235 : 239,
+    $20C_8M_67SM = isRu ? 236 : 240,
+    $20C_10M_67SM = isRu ? 237 : 241,
+    $20C_4M_50SM = isRu ? 242 : 246,
+    $20C_6M_50SM = isRu ? 243 : 247,
+    $20C_8M_50SM = isRu ? 244 : 248,
+    $20C_10M_50SM = isRu ? 245 : 249
 // 40-c:
-const $40C_4M_100SM = 254,
-    $40C_6M_100SM = 255,
-    $40C_8M_100SM = 256,
-    $40C_10M_100SM = 257,
-    $40C_4M_67SM = 262,
-    $40C_6M_67SM = 263,
-    $40C_8M_67SM = 264,
-    $40C_10M_67SM = 265,
-    $40C_4M_50SM = 270,
-    $40C_6M_50SM = 271,
-    $40C_8M_50SM = 272,
-    $40C_10M_50SM = 273
+const $40C_4M_100SM = isRu ? 250 : 254,
+    $40C_6M_100SM = isRu ? 251 : 255,
+    $40C_8M_100SM = isRu ? 252 : 256,
+    $40C_10M_100SM = isRu ? 253 : 257,
+    $40C_4M_67SM = isRu ? 258 : 262,
+    $40C_6M_67SM = isRu ? 259 : 263,
+    $40C_8M_67SM = isRu ? 260 : 264,
+    $40C_10M_67SM = isRu ? 261 : 265,
+    $40C_4M_50SM = isRu ? 266 : 270,
+    $40C_6M_50SM = isRu ? 267 : 271,
+    $40C_8M_50SM = isRu ? 268 : 272,
+    $40C_10M_50SM = isRu ? 269 : 273
 // 40-ck:
 const $40CK_4M_67SM = 274,
     $40CK_6M_67SM = 275,
@@ -950,6 +952,7 @@ const DATA = {
             title: '"Домик-20Д"',
             productName: '20d',
             tube: '20x20',
+            onlyFull: isMSK,
             width: '2.85',
             height: '2.40',
             images: [
@@ -971,6 +974,7 @@ const DATA = {
             id: '20df',
             title: '"Домик-20ДФ"',
             productName: '20df',
+            onlyFull: isMSK,
             tube: '20x20',
             width: '2.85',
             height: '2.40',
@@ -992,6 +996,7 @@ const DATA = {
             id: '40dk',
             title: '"Домик-40ДК"',
             productName: '40dk',
+            onlyFull: isMSK,
             tube: '40x20',
             width: '2.85',
             height: '2.40',
@@ -1012,6 +1017,7 @@ const DATA = {
             id: '40a',
             title: '"Капля-40А"',
             productName: '40-a',
+            onlyFull: isMSK,
             tube: '40x20',
             width: '3.00',
             height: '2.30',
@@ -1024,7 +1030,7 @@ const DATA = {
             ],
             numberIndicators: ['0', '1', '2', '3', '4'],
             arcStep: {
-                1: '100sm',
+                ...(isMSK ? {} : { 1: '100sm' }),
                 0.67: '67sm',
             },
             polycarbonate: ['3', '4', '6'],
@@ -1034,6 +1040,7 @@ const DATA = {
             title: '"Капля Краб-40АК"',
             productName: '40-ak',
             tube: '40x20',
+            onlyFull: isMSK,
             width: '3.00',
             height: '2.30',
             images: [
@@ -1045,7 +1052,7 @@ const DATA = {
             ],
             numberIndicators: ['0', '1', '2', '3', '4'],
             arcStep: {
-                1: '100sm',
+                ...(isMSK ? {} : { 1: '100sm' }),
                 0.67: '67sm',
             },
             polycarbonate: ['3', '4', '6'],
@@ -1284,12 +1291,18 @@ function loadCatalogData() {
                 const item = data.find((item) => item.product_id === id)
 
                 if (item) {
-                    priceIds[key] = priceKey[key]
-                        ? {
-                              [priceKey[key]]: item[priceKey[key]],
-                              price: item[PRICE_KEY],
-                          }
-                        : item[PRICE_KEY]
+                    let price = item[PRICE_KEY]
+                    if (priceKey[key]) {
+                        price = {
+                            [priceKey[key]]: item[priceKey[key]],
+                            price: item[PRICE_KEY],
+                        }
+                    }
+
+                    // if (isRu && key.includes('40A'))
+                    //     price = item[PRICE_DELIVERY_KEY]
+
+                    priceIds[key] = price
                 }
             })
 
@@ -3755,13 +3768,16 @@ function loadCatalogData() {
 loadCatalogData()
 
 const renderHTML = (catalogData, placeToRender, renderHTMLFunction) => {
-  catalogData.forEach((itemCatalog) => {
-    placeToRender.insertAdjacentHTML('beforeend', renderHTMLFunction(itemCatalog))
-  })
+    catalogData.forEach((itemCatalog) => {
+        placeToRender.insertAdjacentHTML(
+            'beforeend',
+            renderHTMLFunction(itemCatalog),
+        )
+    })
 }
 
 const getHTMLAbout = (props) => {
-  return (`
+    return `
     <div class="about__item">
       <div class="about__item-img">
         <img src="./img/icon${props.imgUrl}" alt="icon" class="lazy">
@@ -3769,11 +3785,11 @@ const getHTMLAbout = (props) => {
       <h4 class="about__item-title">${props.title}</h4>
       <span class="about__item-description">${props.description}</span>
     </div>
-  `)
+  `
 }
 
 const getHTMLMakepurchase = (props) => {
-  return (`
+    return `
     <div class="makepurchase__item">
       <span class="makepurchase__number">${props.id}</span>
       <div class="makepurchase__subtitle">
@@ -3786,12 +3802,11 @@ const getHTMLMakepurchase = (props) => {
         <p>${props.description}</p>
       </div>
     </div>
-  `)
+  `
 }
 
 const getHTMLCatalogTeplic = (props) => {
-
-  return (`
+    return `
     <div class="catalog__card">
       <div class="catalog__card-title">
         <h4>${props.title}</h4>
@@ -3806,7 +3821,9 @@ const getHTMLCatalogTeplic = (props) => {
         </div>
         <a href="/" class="slider__control" data-slide="prev"></a>
         <a href="/" class="slider__control" data-slide="next"></a>
-        <ol class="slider__indicators">${props.numberIndicators.map(getSliderIndicator).join('')}</ol>
+        <ol class="slider__indicators">${props.numberIndicators
+            .map(getSliderIndicator)
+            .join('')}</ol>
       </div>
       <form class="catalog__card-content calculator-greenhouses">
         <input type="hidden" name="product" value="${props.productName}">
@@ -3839,19 +3856,28 @@ const getHTMLCatalogTeplic = (props) => {
         <div class="catalog__card-options">
           <p>Выберите дуги:</p>
           <div class="input__wrapper">
+          ${
+              !props.onlyFull
+                  ? `
             <label class="catalog__card-label">
               <input type="radio" name="arc_type" value="demountable" checked>
               <span>Разборные</span>
-            </label>
+            </label>`
+                  : ''
+          }
             <label class="catalog__card-label">
-              <input type="radio" name="arc_type" value="one-piece">
+              <input type="radio" name="arc_type" value="one-piece" ${
+                  props.onlyFull ? 'checked' : ''
+              }>
               <span>Цельные</span>
             </label>
           </div>
           <p>Выберите длину теплицы:</p>
           <div class="input__wrapper">
             <label class="catalog__card-label" for="${props.id}-4m">
-              <input type="radio" id="${props.id}-4m" name="length" value="4m" checked>
+              <input type="radio" id="${
+                  props.id
+              }-4m" name="length" value="4m" checked>
               <span>4 м</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-6m">
@@ -3863,50 +3889,60 @@ const getHTMLCatalogTeplic = (props) => {
               <span>8 м</span>
             </label>
             <label class="catalog__card-label" for="${props.id}-10m">
-              <input type="radio" id="${props.id}-10m" name="length" value="10m">
+              <input type="radio" id="${
+                  props.id
+              }-10m" name="length" value="10m">
               <span>10 м</span>
             </label>
           </div>
           <p>Шаг между дугами:</p>
           <div class="input__wrapper">
-            ${Object.keys(props.arcStep).map((key, index) => {
-    const { arcStep } = props
-    const checked = index === 0 ? 'checked' : ''
+            ${Object.keys(props.arcStep)
+                .map((key, index) => {
+                    const { arcStep } = props
+                    const checked = index === 0 ? 'checked' : ''
 
-    return (`
-                  <label class="catalog__card-label" for="${props.id}-${arcStep[key]}sm">
-                    <input type="radio" id="${props.id}-${arcStep[key]}sm" name="arc_step" value="${arcStep[key]}" ${checked}>
+                    return `
+                  <label class="catalog__card-label" for="${props.id}-${
+                        arcStep[key]
+                    }sm">
+                    <input type="radio" id="${props.id}-${
+                        arcStep[key]
+                    }sm" name="arc_step" value="${arcStep[key]}" ${checked}>
                     <span>${[key]} м</span>
                   </label>
-                `)
-  }).join('')
-    }
+                `
+                })
+                .join('')}
           </div>
           <p>Толщина поликарбоната:</p>
           <div class="input__wrapper">
 
-            ${props.polycarbonate.map((number, index) => {
-              const checked = index === 0 ? 'checked' : ''
+            ${props.polycarbonate
+                .map((number, index) => {
+                    const checked = index === 0 ? 'checked' : ''
 
-              return (`
+                    return `
                           <label class="catalog__card-label" for="${props.id}-${number}mm">
                             <input type="radio" id="${props.id}-${number}mm" name="polycarbonate" value="${number}mm" ${checked}>
                             <span>${number} мм</span>
                           </label>
-                        `)
-              }).join('')
-            }
+                        `
+                })
+                .join('')}
             <label class="catalog__card-label" for="${props.id}-0mm">
-              <input type="radio" id="${props.id}-0mm" name="polycarbonate" value="0mm">
+              <input type="radio" id="${
+                  props.id
+              }-0mm" name="polycarbonate" value="0mm">
               <span>Каркас</span>
             </label>
-            
+
           </div>
         </div>
         <div class="catalog__card-price">
           <div class="catalog__card-price--old"></div>
           <div class="catalog__card-price--new">
-            <span class="price--new"></span> BYN
+            <span class="price--new"></span> ${window?.isRu ? 'РУБ' : 'BYN'}
           </div>
         </div>
         <div class="catalog__card-submit">
@@ -3928,7 +3964,7 @@ const getHTMLCatalogTeplic = (props) => {
         </div>
       </form>
     </div>
-  `)
+  `
 }
 
 const getImageHTML = (img) => `
@@ -3940,9 +3976,10 @@ const getImageHTML = (img) => `
 const getSliderIndicator = (number) => `<li data-slide-to="${number}"></li>`
 
 const getHTMLAddEquipment = (props) => {
-  const srcUrl = 'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
+    const srcUrl =
+        'src="data:image/gif;base64,R0lGODlhGQACAIAAAP///wAAACH5BAEAAAEALAAAAAAZAAIAAAIGjI+py50FADs="'
 
-  return (`
+    return `
     <div class="add-equipment__item item__block">
       <div class="item__img">
         <img class="lazy" ${srcUrl} data-src='img/add-equip${props.imgUrl}' alt="${props.altName}">
@@ -3955,11 +3992,11 @@ const getHTMLAddEquipment = (props) => {
         <div class="item-labels__btn modal-feedback__btn--show">Купить</div>
       </div>
     </div>
-  `)
+  `
 }
 
 const getHTMLAccordion = (props) => {
-  return (`
+    return `
     <div class="faq-accordion__item">
       <div class="item__header">
         <h4 class="item__header-title">${props.title}</h4>
@@ -3968,7 +4005,7 @@ const getHTMLAccordion = (props) => {
         <p class="item__body-text">${props.description}</p>
       </div>
     </div>
-  `)
+  `
 }
 
 const aboutPlace = document.querySelector('.about__items')
@@ -3982,6 +4019,7 @@ renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
 renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
 renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
 renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
+
 // $(document).ready(function () {
 //   $("form.calculator-greenhouses").change(function () {
 //     var brandName           = $("input[name='product']", this).val(),

@@ -7464,3 +7464,9 @@ body.lock {
     font-size: 11px;
   }
 }
+
+.webp .bg-img .lazy{ background-image: url(data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoKAAgAAgA0JaQAAl1NXgAA/v478tWtH7wiGJoPU//SJfPGjVUJ8xtQsAAAAA==); }
+
+.webp .sale-form__slider-img img{ background-image: url(data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoKAAgAAgA0JaQAAl1NXgAA/v478tWtH7wiGJoPU//SJfPGjVUJ8xtQsAAAAA==); }
+
+.webp .item__img img{ background-image: url(data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoKAAgAAgA0JaQAAl1NXgAA/v478tWtH7wiGJoPU//SJfPGjVUJ8xtQsAAAAA==); }
