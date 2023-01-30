@@ -15,7 +15,6 @@
 @@include('./modules/setActiveLink.js')
 @@include('./modules/chiefSliderInit.js')
 @@include('./modules/maskedInputInit.js')
-@@include('./modules/sendingDataFromForms.js')
 @@include('./modules/creditStatus.js')
 
 @@include('./plugins/loading-yandex-map.js')

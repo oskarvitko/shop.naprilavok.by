@@ -1,3 +1,5 @@
-const lazyLoadInstance = new LazyLoad({
-  elements_selector: '.lazy'
-});
+document.addEventListener('catalogDataLoaded', () => {
+  const lazyLoadInstance = new LazyLoad({
+    elements_selector: '.lazy'
+  });
+})

@@ -1063,49 +1063,49 @@ const DATA = {
             name: 'Парник<br>"Огурчик" 4м',
             imgUrl: '/pickle.webp',
             altName: 'Парник огурчик',
-            price: 43,
+            price: 341,
         },
         {
             name: 'Парник<br>"Огурчик" 6м',
             imgUrl: '/pickle.webp',
             altName: 'Парник огурчик',
-            price: 51,
+            price: 342,
         },
         {
             name: 'П-Профиль',
             imgUrl: '/p-profile.webp',
             altName: 'П-Профиль',
-            price: 6,
+            price: 356,
         },
         {
             name: 'Подвязки 6м',
             imgUrl: '/garters.webp',
             altName: 'Подвязки',
-            price: 21,
+            price: 353,
         },
         {
             name: 'Авто-полив',
             imgUrl: '/auto-watering.webp',
             altName: 'Автоматический полив',
-            price: 61,
+            price: 346,
         },
         {
             name: 'Перфо-лента 1м',
             imgUrl: '/punched-tape.webp',
             altName: 'Перфорированая лента',
-            price: 2,
+            price: 361,
         },
         {
             name: 'Газлифт',
             imgUrl: '/gaz-lift.webp',
             altName: 'Газлифт',
-            price: 43,
+            price: 345,
         },
         {
             name: 'Поликарбонат 4мм',
             imgUrl: '/polic.webp',
             altName: 'Поликарбонат',
-            price: 121,
+            price: 516,
         },
     ],
     accordion: [
@@ -1275,7 +1275,10 @@ function loadCatalogData() {
     xhr.setRequestHeader('content-type', 'application/json')
     xhr.send(
         JSON.stringify({
-            ids: Object.values(priceIds),
+            ids: [
+                ...Object.values(priceIds),
+                ...DATA.addEquipment.map((eq) => eq.price),
+            ],
             options: {
                 fields: [BUY_KEY],
                 withCurrency: true,
@@ -1299,10 +1302,14 @@ function loadCatalogData() {
                         }
                     }
 
-                    // if (isRu && key.includes('40A'))
-                    //     price = item[PRICE_DELIVERY_KEY]
-
                     priceIds[key] = price
+                }
+            })
+
+            DATA.addEquipment.forEach((eq) => {
+                const item = data.find((item) => item.product_id === eq.price)
+                if (item) {
+                    eq.price = item[PRICE_KEY]
                 }
             })
 
@@ -4014,11 +4021,19 @@ const catalogTeplicPlace = document.querySelector('.catalog__items')
 const addEquipmentPlace = document.querySelector('.add-equipment__items')
 const accordionPlace = document.querySelector('.faq-accordion')
 
-renderHTML(DATA.about, aboutPlace, getHTMLAbout)
-renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
-renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
-renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
-renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
+const loader = document.querySelector('.loader__wrapper')
+loader.classList.add('show')
+
+document.addEventListener('catalogDataLoaded', () => {
+    renderHTML(DATA.about, aboutPlace, getHTMLAbout)
+    renderHTML(DATA.makepurchase, makepurchasePlace, getHTMLMakepurchase)
+    renderHTML(DATA.catalogTeplic, catalogTeplicPlace, getHTMLCatalogTeplic)
+    renderHTML(DATA.addEquipment, addEquipmentPlace, getHTMLAddEquipment)
+    renderHTML(DATA.accordion, accordionPlace, getHTMLAccordion)
+    loader.classList.add('hide')
+    loader.classList.remove('show')
+    document.body.classList.remove('hide-scroll-y')
+})
 
 // $(document).ready(function () {
 //   $("form.calculator-greenhouses").change(function () {
@@ -4112,9 +4127,11 @@ const testWebP = (callback) => {
 testWebP(function (support) {
   document.querySelector('body').classList.add(support ?  'webp' : 'no-webp')
 })
-const lazyLoadInstance = new LazyLoad({
-  elements_selector: '.lazy'
-});
+document.addEventListener('catalogDataLoaded', () => {
+  const lazyLoadInstance = new LazyLoad({
+    elements_selector: '.lazy'
+  });
+})
 document.addEventListener("DOMContentLoaded", () => {
   const sectionTitles = document.querySelectorAll('.title-resize');
 
@@ -4275,46 +4292,6 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('input', onPhoneInput, false)
     input.addEventListener('paste', onPhonePaste, false)
   })
-})
-const submissionForms = () => {
-  const allForms  = document.querySelectorAll('form'),
-        allInputs = document.querySelectorAll('input')
-
-  const postData = async (url, data) => {
-    
-    let result = await fetch(url, {
-      method: 'POST',
-      body: data
-    })
-
-    return await result.text()
-  }
-
-  const clearInputs = () => {
-    allInputs.forEach((input) => input.value = '')
-  }
-
-  allForms.forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault()
-      const formData = new FormData(form)
-
-      postData('../mail-telegram.php', formData)
-        .then((result) => {
-          window.location.href = '/thanks/';
-        })
-        .catch(() => {
-          window.location.href = '/error/';
-        })
-        .finally(() => {
-          clearInputs()
-        })
-    })
-  })
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  submissionForms()
 })
 document.addEventListener('DOMContentLoaded', () => { 
   const creditStatusBody = document.querySelector('.credit-status')
