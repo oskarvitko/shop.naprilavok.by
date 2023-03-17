@@ -566,6 +566,246 @@ const DATA = {
         },
     ],
     priceList: {},
+    productIdList: {
+        '20-mini': {
+            '4m': {
+                '100sm': $20MINI_4M_100SM,
+                '67sm': $20MINI_4M_67SM,
+            },
+            '6m': {
+                '100sm': $20MINI_6M_100SM,
+                '67sm': $20MINI_6M_67SM,
+            },
+            '8m': {
+                '100sm': $20MINI_8M_100SM,
+                '67sm': $20MINI_8M_67SM,
+            },
+            '10m': {
+                '100sm': $20MINI_10M_100SM,
+                '67sm': $20MINI_10M_67SM,
+            },
+        },
+        '24-mini': {
+            '4m': {
+                '100sm': $24MINI_4M_100SM,
+                '67sm': $24MINI_4M_67SM,
+            },
+            '6m': {
+                '100sm': $24MINI_6M_100SM,
+                '67sm': $24MINI_6M_67SM,
+            },
+            '8m': {
+                '100sm': $24MINI_8M_100SM,
+                '67sm': $24MINI_8M_67SM,
+            },
+            '10m': {
+                '100sm': $24MINI_10M_100SM,
+                '67sm': $24MINI_10M_67SM,
+            },
+        },
+        '20-c': {
+            '4m': {
+                '100sm': $20C_4M_100SM,
+                '67sm': $20C_4M_67SM,
+                '50sm': $20C_4M_50SM,
+            },
+            '6m': {
+                '100sm': $20C_6M_100SM,
+                '67sm': $20C_6M_67SM,
+                '50sm': $20C_6M_50SM,
+            },
+            '8m': {
+                '100sm': $20C_8M_100SM,
+                '67sm': $20C_8M_67SM,
+                '50sm': $20C_8M_50SM,
+            },
+            '10m': {
+                '100sm': $20C_10M_100SM,
+                '67sm': $20C_10M_67SM,
+                '50sm': $20C_10M_50SM,
+            },
+        },
+        '40-c': {
+            '4m': {
+                '100sm': $40C_4M_100SM,
+                '67sm': $40C_4M_67SM,
+                '50sm': $40C_4M_50SM,
+            },
+            '6m': {
+                '100sm': $40C_6M_100SM,
+                '67sm': $40C_6M_67SM,
+                '50sm': $40C_6M_50SM,
+            },
+            '8m': {
+                '100sm': $40C_8M_100SM,
+                '67sm': $40C_8M_67SM,
+                '50sm': $40C_8M_50SM,
+            },
+            '10m': {
+                '100sm': $40C_10M_100SM,
+                '67sm': $40C_10M_67SM,
+                '50sm': $40C_10M_50SM,
+            },
+        },
+        '40-ck': {
+            '4m': {
+                '67sm': $40CK_4M_67SM,
+            },
+            '6m': {
+                '67sm': $40CK_6M_67SM,
+            },
+            '8m': {
+                '67sm': $40CK_8M_67SM,
+            },
+            '10m': {
+                '67sm': $40CK_10M_67SM,
+            },
+        },
+        '20-fc': {
+            '4m': {
+                '100sm': $20FC_4M_100SM,
+                '67sm': $20FC_4M_67SM,
+            },
+            '6m': {
+                '100sm': $20FC_6M_100SM,
+                '67sm': $20FC_6M_67SM,
+            },
+            '8m': {
+                '100sm': $20FC_8M_100SM,
+                '67sm': $20FC_8M_67SM,
+            },
+            '10m': {
+                '100sm': $20FC_10M_100SM,
+                '67sm': $20FC_10M_67SM,
+            },
+        },
+        '3500-40c': {
+            '4m': {
+                '100sm': $3500_40C_4M_100SM,
+                '67sm': $3500_40C_4M_67SM,
+                '50sm': $3500_40C_4M_50SM,
+            },
+            '6m': {
+                '100sm': $3500_40C_6M_100SM,
+                '67sm': $3500_40C_6M_67SM,
+                '50sm': $3500_40C_6M_50SM,
+            },
+            '8m': {
+                '100sm': $3500_40C_8M_100SM,
+                '67sm': $3500_40C_8M_67SM,
+                '50sm': $3500_40C_8M_50SM,
+            },
+            '10m': {
+                '100sm': $3500_40C_10M_100SM,
+                '67sm': $3500_40C_10M_67SM,
+                '50sm': $3500_40C_10M_50SM,
+            },
+        },
+        '4000-40c': {
+            '4m': {
+                '100sm': $4000_40C_4M_100SM,
+                '67sm': $4000_40C_4M_67SM,
+                '50sm': $4000_40C_4M_50SM,
+            },
+            '6m': {
+                '100sm': $4000_40C_6M_100SM,
+                '67sm': $4000_40C_6M_67SM,
+                '50sm': $4000_40C_6M_50SM,
+            },
+            '8m': {
+                '100sm': $4000_40C_8M_100SM,
+                '67sm': $4000_40C_8M_67SM,
+                '50sm': $4000_40C_8M_50SM,
+            },
+            '10m': {
+                '100sm': $4000_40C_10M_100SM,
+                '67sm': $4000_40C_10M_67SM,
+                '50sm': $4000_40C_10M_50SM,
+            },
+        },
+        '20d': {
+            '4m': {
+                '100sm': $20D_4M_100SM,
+                '67sm': $20D_4M_67SM,
+            },
+            '6m': {
+                '100sm': $20D_6M_100SM,
+                '67sm': $20D_6M_67SM,
+            },
+            '8m': {
+                '100sm': $20D_8M_100SM,
+                '67sm': $20D_8M_67SM,
+            },
+            '10m': {
+                '100sm': $20D_10M_100SM,
+                '67sm': $20D_10M_67SM,
+            },
+        },
+        '20df': {
+            '4m': {
+                '67sm': $20DF_4M_67SM,
+            },
+            '6m': {
+                '67sm': $20DF_6M_67SM,
+            },
+            '8m': {
+                '67sm': $20DF_8M_67SM,
+            },
+            '10m': {
+                '67sm': $20DF_10M_67SM,
+            },
+        },
+        '40dk': {
+            '4m': {
+                '100sm': $40DK_4M_100SM,
+            },
+            '6m': {
+                '100sm': $40DK_6M_100SM,
+            },
+            '8m': {
+                '100sm': $40DK_8M_100SM,
+            },
+            '10m': {
+                '100sm': $40DK_10M_100SM,
+            },
+        },
+        '40-a': {
+            '4m': {
+                '100sm': $40A_4M_100SM,
+                '67sm': $40A_4M_67SM,
+            },
+            '6m': {
+                '100sm': $40A_6M_100SM,
+                '67sm': $40A_6M_67SM,
+            },
+            '8m': {
+                '100sm': $40A_8M_100SM,
+                '67sm': $40A_8M_67SM,
+            },
+            '10m': {
+                '100sm': $40A_10M_100SM,
+                '67sm': $40A_10M_67SM,
+            },
+        },
+        '40-ak': {
+            '4m': {
+                '100sm': $40AK_4M_100SM,
+                '67sm': $40AK_4M_67SM,
+            },
+            '6m': {
+                '100sm': $40AK_6M_100SM,
+                '67sm': $40AK_6M_67SM,
+            },
+            '8m': {
+                '100sm': $40AK_8M_100SM,
+                '67sm': $40AK_8M_67SM,
+            },
+            '10m': {
+                '100sm': $40AK_10M_100SM,
+                '67sm': $40A_10M_67SM,
+            },
+        },
+    },
 }
 
 const priceKey = {
@@ -894,7 +1134,7 @@ function loadCatalogData() {
             const SHIPPING_MID = SHIPPING_MID_COST[DELIVERY_KEY]
             const SHIPPING_MAX = SHIPPING_MAX_COST[DELIVERY_KEY]
 
-            ;(DATA.priceList = {
+            DATA.priceList = {
                 '20-mini': {
                     demountable: {
                         '4m': {
@@ -3197,8 +3437,9 @@ function loadCatalogData() {
                         },
                     },
                 },
-            }),
-                document.dispatchEvent(new Event('catalogDataLoaded'))
+            }
+
+            document.dispatchEvent(new Event('catalogDataLoaded'))
         } else {
             setTimeout(function () {
                 loadCatalogData()

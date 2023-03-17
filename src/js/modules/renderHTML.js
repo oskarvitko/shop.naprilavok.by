@@ -182,9 +182,12 @@ const getHTMLCatalogTeplic = (props) => {
             type="tel"
             name="user_phone"
             class="catalog__card-input"
-            placeholder="+375 (__) ___-__-__"
+            placeholder="${
+                window.isRu ? '+8 (___) ___-__-__' : '+375 (__) ___-__-__'
+            }"
             required
           >
+          <input type="hidden" name="product_id">
           <button
           title="Нажмите эту кнопку, чтобы забронировать скидку"
           type="submit"

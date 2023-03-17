@@ -65,6 +65,12 @@ document.addEventListener('catalogDataLoaded', () => {
             const calculatorPriceNew = form.querySelector('.price--new')
             let calculationPrice = 0
 
+            const productIdInput = form.querySelector('input[name=product_id]')
+            if (productIdInput) {
+                productIdInput.value =
+                    DATA.productIdList[brandName][lengthDevice][arcStep]
+            }
+
             calculationPrice +=
                 DATA.priceList[brandName][arcType][lengthDevice][arcStep][
                     polycarbonate
