@@ -570,6 +570,7 @@ const PRICE_DELIVERY_KEY = 'price_delivery_ru'
 const BUY_KEY = isRu ? 'ru_buy' : 'rb_buy'
 const CURRENCY_KEY = isRu ? 'RU' : 'BLR'
 const DELIVERY_KEY = isRu ? 'delivery_ru_ru' : 'delivery_r_br'
+const TEMPORARY_RU_DELIVERY = 3100
 
 // 1 Sheet Polycarbonate
 const SHEET_1_3MM = 600
@@ -1695,9 +1696,15 @@ function loadCatalogData() {
                 POLIC_DK_6MM_8M = SHEET_1_6MM * 6,
                 POLIC_DK_6MM_10M = SHEET_1_6MM * 7
 
-            const SHIPPING_MIN = SHIPPING_MIN_COST[DELIVERY_KEY]
-            const SHIPPING_MID = SHIPPING_MID_COST[DELIVERY_KEY]
-            const SHIPPING_MAX = SHIPPING_MAX_COST[DELIVERY_KEY]
+            const SHIPPING_MIN = isRu
+                ? TEMPORARY_RU_DELIVERY
+                : SHIPPING_MIN_COST[DELIVERY_KEY]
+            const SHIPPING_MID = isRu
+                ? TEMPORARY_RU_DELIVERY
+                : SHIPPING_MID_COST[DELIVERY_KEY]
+            const SHIPPING_MAX = isRu
+                ? TEMPORARY_RU_DELIVERY
+                : SHIPPING_MAX_COST[DELIVERY_KEY]
 
             DATA.priceList = {
                 '20-mini': {
